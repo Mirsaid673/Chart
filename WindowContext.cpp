@@ -9,14 +9,14 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 int32_t WindowContext::init() {
     ImGui_ImplWin32_EnableDpiAwareness();
-    wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, L"ImGui Example", nullptr };
-    RegisterClassExW(&wc);
+    wc = { sizeof(wc), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, "ImGui Example", nullptr };
+    RegisterClassExA(&wc);
     return 0;
 }
 
 static std::unordered_map<HWND, WindowContext*> g_handler_windows;
 int32_t WindowContext::createWindow(uint32_t width, uint32_t height, const std::string& title) {
-    hwnd = CreateWindowW(wc.lpszClassName, std::wstring(title.begin(), title.end()).c_str(), WS_OVERLAPPEDWINDOW, 100, 100, width, height, nullptr, nullptr, wc.hInstance, nullptr);
+    hwnd = CreateWindowA(wc.lpszClassName, title.c_str(), WS_OVERLAPPEDWINDOW, 100, 100, width, height, nullptr, nullptr, wc.hInstance, nullptr);
     if (hwnd == nullptr)
         return -1;
 
@@ -31,7 +31,7 @@ int32_t WindowContext::createWindow(uint32_t width, uint32_t height, const std::
 void WindowContext::destroy() const {
     ImGui_ImplWin32_Shutdown();
     DestroyWindow(hwnd);
-    UnregisterClassW(wc.lpszClassName, wc.hInstance);
+    UnregisterClassA(wc.lpszClassName, wc.hInstance);
     g_handler_windows.erase(hwnd);
 }
 

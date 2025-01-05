@@ -1,10 +1,7 @@
 #pragma once
 
-#include <imgui.h>
-#include <imgui_internal.h>
-
-#include "RenderContext.h"
-#include "WindowContext.h"
+class WindowContext;
+class RenderContext;
 
 #include <memory>
 #include <string>
@@ -13,8 +10,8 @@ class AppBase {
 private:
     int32_t initialize();
     void terminate();
-    std::unique_ptr<RenderContext> render_context;
-    std::unique_ptr<WindowContext> window_context;
+    std::shared_ptr<RenderContext> render_context;
+    std::shared_ptr<WindowContext> window_context;
 
 protected:
     std::string window_title = "Chart";

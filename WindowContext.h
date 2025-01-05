@@ -1,13 +1,13 @@
 #pragma once
 
-#include <Windows.h>
+#include <windows.h>
 #include <cstdint>
 #include <string>
 #include <functional>
 
 class WindowContext {
 private:
-    WNDCLASSEXW wc{};
+    WNDCLASSEXA wc{};
     HWND hwnd = nullptr;
     std::function<void(uint32_t, uint32_t)> resize_callback = [](uint32_t width, uint32_t height) {};
     bool should_close = false;

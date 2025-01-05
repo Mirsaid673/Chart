@@ -1,8 +1,11 @@
 #include "AppBase.h"
 
+#include "RenderContext.h"
+#include "WindowContext.h"
+
 #include <imgui.h>
 
-AppBase::AppBase(): render_context(std::make_unique<RenderContext>()), window_context(std::make_unique<WindowContext>()) {}
+AppBase::AppBase(): render_context(std::make_shared<RenderContext>()), window_context(std::make_shared<WindowContext>()) {}
 
 int32_t AppBase::initialize() {
     IMGUI_CHECKVERSION();
@@ -35,6 +38,7 @@ int32_t AppBase::initialize() {
 void AppBase::terminate() {
     render_context->destroy();
     window_context->destroy();
+    ImGui::DestroyContext();
 }
 
 int32_t AppBase::run() {
