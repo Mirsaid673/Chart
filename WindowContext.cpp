@@ -72,5 +72,5 @@ LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         return 0;
         default: break;
     }
-    return ::DefWindowProcW(hWnd, msg, wParam, lParam);
+    return ::DefWindowProcA(hWnd, msg, wParam, lParam);
 }

@@ -29,10 +29,8 @@ add_executable(Chart
         Chart.h)
 
 find_package(gRPC CONFIG REQUIRED)
-find_package(protobuf CONFIG REQUIRED)
 target_link_libraries(Chart PRIVATE
         dwmapi
         D3D9
-        gRPC::gpr gRPC::grpc gRPC::grpc++ gRPC::grpc++_alts
-        protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+        gRPC::grpc++)
 target_include_directories(Chart PRIVATE ${IMGUI_DIR})
