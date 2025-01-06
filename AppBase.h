@@ -22,7 +22,7 @@ protected:
     virtual void update() {};
     virtual void draw() {};
     virtual void clean() {};
-    virtual void on_resize(uint32_t new_width, uint32_t new_height) {};
+    virtual void onResize(uint32_t new_width, uint32_t new_height) {};
 
     bool running = true;
 public:

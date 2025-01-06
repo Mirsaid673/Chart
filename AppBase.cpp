@@ -4,12 +4,14 @@
 #include "WindowContext.h"
 
 #include <imgui.h>
+#include <implot.h>
 
 AppBase::AppBase(): render_context(std::make_shared<RenderContext>()), window_context(std::make_shared<WindowContext>()) {}
 
 int32_t AppBase::initialize() {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
+    ImPlot::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
@@ -29,7 +31,7 @@ int32_t AppBase::initialize() {
 
     window_context->setResizeCallback([&](uint32_t width, uint32_t height) {
         render_context->resize(width, height);
-        on_resize(width, height);
+        onResize(width, height);
     });
 
     return 0;
@@ -38,6 +40,7 @@ int32_t AppBase::initialize() {
 void AppBase::terminate() {
     render_context->destroy();
     window_context->destroy();
+    ImPlot::DestroyContext();
     ImGui::DestroyContext();
 }
 

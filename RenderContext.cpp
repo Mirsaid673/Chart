@@ -69,11 +69,9 @@ void RenderContext::render() {
 }
 
 void RenderContext::resize(uint32_t width, uint32_t height) {
-    if (width > d3dpp.BackBufferWidth || height > d3dpp.BackBufferHeight) {
-        d3dpp.BackBufferWidth = width;
-        d3dpp.BackBufferHeight = height;
-        reset();
-    }
+    d3dpp.BackBufferWidth = width;
+    d3dpp.BackBufferHeight = height;
+    reset();
 }
 
 void RenderContext::update() {
