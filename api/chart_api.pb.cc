@@ -44,6 +44,31 @@ struct Volume_ParamsEntry_DoNotUseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Volume_ParamsEntry_DoNotUseDefaultTypeInternal _Volume_ParamsEntry_DoNotUse_default_instance_;
 
+inline constexpr ModeData::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : timestamps_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ModeData::ModeData(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ModeDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ModeDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ModeDataDefaultTypeInternal() {}
+  union {
+    ModeData _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ModeDataDefaultTypeInternal _ModeData_default_instance_;
+
 inline constexpr LogEntry::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : time_(
@@ -103,10 +128,10 @@ inline constexpr LogEntry::Impl_::Impl_(
         position_size_long_{0},
         position_price_long_{0},
         position_usd_long_{0},
-        pnl_long_{0},
-        fee_long_{0},
+        pnl_usd_long_{0},
+        fee_usd_long_{0},
         funding_long_{0},
-        rpl_long_{0},
+        rpl_usd_long_{0},
         order_leverage_short_{0},
         leverage_short_{0},
         order_size_short_{0},
@@ -115,10 +140,10 @@ inline constexpr LogEntry::Impl_::Impl_(
         position_usd_short_{0},
         position_size_short_{0},
         position_price_short_{0},
-        pnl_short_{0},
-        fee_short_{0},
+        pnl_usd_short_{0},
+        fee_usd_short_{0},
         funding_short_{0},
-        rpl_short_{0},
+        rpl_usd_short_{0},
         block_id_{0},
         _cached_size_{0} {}
 
@@ -177,6 +202,24 @@ struct Indicator_ParamEntry_DoNotUseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Indicator_ParamEntry_DoNotUseDefaultTypeInternal _Indicator_ParamEntry_DoNotUse_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR GetUsersRequest::GetUsersRequest(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct GetUsersRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetUsersRequestDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetUsersRequestDefaultTypeInternal() {}
+  union {
+    GetUsersRequest _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetUsersRequestDefaultTypeInternal _GetUsersRequest_default_instance_;
 
 inline constexpr GetStreamsByAlgoRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -207,7 +250,10 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
 
 inline constexpr GetLogsRequest::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : from_timestamp_{::int64_t{0}},
+      : mode_time_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
+        from_timestamp_{::int64_t{0}},
         id_{0},
         orders_only_{false},
         limit_{0},
@@ -327,6 +373,24 @@ struct VolumeDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 VolumeDefaultTypeInternal _Volume_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR MarketData_MarketsEntry_DoNotUse::MarketData_MarketsEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : MarketData_MarketsEntry_DoNotUse::MapEntry(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : MarketData_MarketsEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct MarketData_MarketsEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR MarketData_MarketsEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~MarketData_MarketsEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    MarketData_MarketsEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MarketData_MarketsEntry_DoNotUseDefaultTypeInternal _MarketData_MarketsEntry_DoNotUse_default_instance_;
 
 inline constexpr IndicatorParam::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -424,6 +488,31 @@ struct StreamDataDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 StreamDataDefaultTypeInternal _StreamData_default_instance_;
 
+inline constexpr MarketData::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : markets_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR MarketData::MarketData(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct MarketDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR MarketDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~MarketDataDefaultTypeInternal() {}
+  union {
+    MarketData _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MarketDataDefaultTypeInternal _MarketData_default_instance_;
+
 inline constexpr Indicator::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
       : param_{},
@@ -480,6 +569,24 @@ struct GetStreamsByAlgoResponseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetStreamsByAlgoResponseDefaultTypeInternal _GetStreamsByAlgoResponse_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR ExchangeData_ExchangesEntry_DoNotUse::ExchangeData_ExchangesEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ExchangeData_ExchangesEntry_DoNotUse::MapEntry(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ExchangeData_ExchangesEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct ExchangeData_ExchangesEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExchangeData_ExchangesEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExchangeData_ExchangesEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    ExchangeData_ExchangesEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExchangeData_ExchangesEntry_DoNotUseDefaultTypeInternal _ExchangeData_ExchangesEntry_DoNotUse_default_instance_;
 
 inline constexpr DataPoint::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
@@ -542,6 +649,74 @@ struct GetDataResponseDefaultTypeInternal {
 
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
     PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetDataResponseDefaultTypeInternal _GetDataResponse_default_instance_;
+
+inline constexpr ExchangeData::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : exchanges_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR ExchangeData::ExchangeData(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct ExchangeDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR ExchangeDataDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~ExchangeDataDefaultTypeInternal() {}
+  union {
+    ExchangeData _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ExchangeDataDefaultTypeInternal _ExchangeData_default_instance_;
+              template <typename>
+PROTOBUF_CONSTEXPR GetUsersResponse_UsersEntry_DoNotUse::GetUsersResponse_UsersEntry_DoNotUse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : GetUsersResponse_UsersEntry_DoNotUse::MapEntry(_class_data_.base()){}
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : GetUsersResponse_UsersEntry_DoNotUse::MapEntry() {
+}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+struct GetUsersResponse_UsersEntry_DoNotUseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetUsersResponse_UsersEntry_DoNotUseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetUsersResponse_UsersEntry_DoNotUseDefaultTypeInternal() {}
+  union {
+    GetUsersResponse_UsersEntry_DoNotUse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetUsersResponse_UsersEntry_DoNotUseDefaultTypeInternal _GetUsersResponse_UsersEntry_DoNotUse_default_instance_;
+
+inline constexpr GetUsersResponse::Impl_::Impl_(
+    ::_pbi::ConstantInitialized) noexcept
+      : users_{},
+        _cached_size_{0} {}
+
+template <typename>
+PROTOBUF_CONSTEXPR GetUsersResponse::GetUsersResponse(::_pbi::ConstantInitialized)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(_class_data_.base()),
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(),
+#endif  // PROTOBUF_CUSTOM_VTABLE
+      _impl_(::_pbi::ConstantInitialized()) {
+}
+struct GetUsersResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GetUsersResponseDefaultTypeInternal() : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GetUsersResponseDefaultTypeInternal() {}
+  union {
+    GetUsersResponse _instance;
+  };
+};
+
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT
+    PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetUsersResponseDefaultTypeInternal _GetUsersResponse_default_instance_;
 }  // namespace chart_api
 static constexpr const ::_pb::EnumDescriptor**
     file_level_enum_descriptors_chart_5fapi_2eproto = nullptr;
@@ -718,6 +893,7 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::chart_api::GetLogsRequest, _impl_.from_timestamp_),
         PROTOBUF_FIELD_OFFSET(::chart_api::GetLogsRequest, _impl_.orders_only_),
         PROTOBUF_FIELD_OFFSET(::chart_api::GetLogsRequest, _impl_.limit_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetLogsRequest, _impl_.mode_time_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -748,10 +924,10 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.position_size_long_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.position_price_long_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.position_usd_long_),
-        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.pnl_long_),
-        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.fee_long_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.pnl_usd_long_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.fee_usd_long_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.funding_long_),
-        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.rpl_long_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.rpl_usd_long_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.order_leverage_short_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.leverage_short_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.order_size_short_),
@@ -761,10 +937,10 @@ const ::uint32_t
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.position_usd_short_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.position_size_short_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.position_price_short_),
-        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.pnl_short_),
-        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.fee_short_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.pnl_usd_short_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.fee_usd_short_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.funding_short_),
-        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.rpl_short_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.rpl_usd_short_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.user_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.mode_),
         PROTOBUF_FIELD_OFFSET(::chart_api::LogEntry, _impl_.mode_time_),
@@ -779,6 +955,86 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::chart_api::GetLogsResponse, _impl_.logs_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersRequest, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::ExchangeData_ExchangesEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::ExchangeData_ExchangesEntry_DoNotUse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::ExchangeData_ExchangesEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::ExchangeData_ExchangesEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::chart_api::ExchangeData, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::ExchangeData, _impl_.exchanges_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::MarketData_MarketsEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::MarketData_MarketsEntry_DoNotUse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::MarketData_MarketsEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::MarketData_MarketsEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::chart_api::MarketData, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::MarketData, _impl_.markets_),
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::chart_api::ModeData, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::ModeData, _impl_.timestamps_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersResponse_UsersEntry_DoNotUse, _impl_._has_bits_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersResponse_UsersEntry_DoNotUse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersResponse_UsersEntry_DoNotUse, _impl_.key_),
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersResponse_UsersEntry_DoNotUse, _impl_.value_),
+        0,
+        1,
+        ~0u,  // no _has_bits_
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersResponse, _internal_metadata_),
+        ~0u,  // no _extensions_
+        ~0u,  // no _oneof_case_
+        ~0u,  // no _weak_field_map_
+        ~0u,  // no _inlined_string_donated_
+        ~0u,  // no _split_
+        ~0u,  // no sizeof(Split)
+        PROTOBUF_FIELD_OFFSET(::chart_api::GetUsersResponse, _impl_.users_),
 };
 
 static const ::_pbi::MigrationSchema
@@ -798,8 +1054,16 @@ static const ::_pbi::MigrationSchema
         {138, -1, -1, sizeof(::chart_api::Volume)},
         {147, -1, -1, sizeof(::chart_api::GetDataResponse)},
         {156, -1, -1, sizeof(::chart_api::GetLogsRequest)},
-        {168, -1, -1, sizeof(::chart_api::LogEntry)},
-        {220, -1, -1, sizeof(::chart_api::GetLogsResponse)},
+        {169, -1, -1, sizeof(::chart_api::LogEntry)},
+        {221, -1, -1, sizeof(::chart_api::GetLogsResponse)},
+        {230, -1, -1, sizeof(::chart_api::GetUsersRequest)},
+        {238, 248, -1, sizeof(::chart_api::ExchangeData_ExchangesEntry_DoNotUse)},
+        {250, -1, -1, sizeof(::chart_api::ExchangeData)},
+        {259, 269, -1, sizeof(::chart_api::MarketData_MarketsEntry_DoNotUse)},
+        {271, -1, -1, sizeof(::chart_api::MarketData)},
+        {280, -1, -1, sizeof(::chart_api::ModeData)},
+        {289, 299, -1, sizeof(::chart_api::GetUsersResponse_UsersEntry_DoNotUse)},
+        {301, -1, -1, sizeof(::chart_api::GetUsersResponse)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::chart_api::_GetAlgosRequest_default_instance_._instance,
@@ -819,6 +1083,14 @@ static const ::_pb::Message* const file_default_instances[] = {
     &::chart_api::_GetLogsRequest_default_instance_._instance,
     &::chart_api::_LogEntry_default_instance_._instance,
     &::chart_api::_GetLogsResponse_default_instance_._instance,
+    &::chart_api::_GetUsersRequest_default_instance_._instance,
+    &::chart_api::_ExchangeData_ExchangesEntry_DoNotUse_default_instance_._instance,
+    &::chart_api::_ExchangeData_default_instance_._instance,
+    &::chart_api::_MarketData_MarketsEntry_DoNotUse_default_instance_._instance,
+    &::chart_api::_MarketData_default_instance_._instance,
+    &::chart_api::_ModeData_default_instance_._instance,
+    &::chart_api::_GetUsersResponse_UsersEntry_DoNotUse_default_instance_._instance,
+    &::chart_api::_GetUsersResponse_default_instance_._instance,
 };
 const char descriptor_table_protodef_chart_5fapi_2eproto[] ABSL_ATTRIBUTE_SECTION_VARIABLE(
     protodesc_cold) = {
@@ -828,7 +1100,7 @@ const char descriptor_table_protodef_chart_5fapi_2eproto[] ABSL_ATTRIBUTE_SECTIO
     "\001(\t\"\201\001\n\016IndicatorParam\022\014\n\004type\030\001 \001(\t\0223\n\005"
     "param\030\002 \003(\0132$.chart_api.IndicatorParam.P"
     "aramEntry\032,\n\nParamEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005"
-    "value\030\002 \001(\001:\0028\001\"\313\001\n\nStreamData\022\n\n\002id\030\001 \001"
+    "value\030\002 \001(\t:\0028\001\"\313\001\n\nStreamData\022\n\n\002id\030\001 \001"
     "(\005\022\014\n\004user\030\002 \001(\t\022\014\n\004coin\030\003 \001(\t\022\023\n\013coin_s"
     "econd\030\004 \001(\t\022\021\n\ttimeframe\030\005 \001(\t\022\014\n\004algo\030\006"
     " \001(\t\022\025\n\rprice_decimal\030\007 \001(\005\022\024\n\014size_deci"
@@ -845,59 +1117,74 @@ const char descriptor_table_protodef_chart_5fapi_2eproto[] ABSL_ATTRIBUTE_SECTIO
     "\014\n\004name\030\002 \001(\t\022.\n\005param\030\003 \003(\0132\037.chart_api"
     ".Indicator.ParamEntry\022!\n\006volume\030\004 \003(\0132\021."
     "chart_api.Volume\032,\n\nParamEntry\022\013\n\003key\030\001 "
-    "\001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"f\n\006Volume\022-\n\006para"
+    "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"f\n\006Volume\022-\n\006para"
     "ms\030\001 \003(\0132\035.chart_api.Volume.ParamsEntry\032"
     "-\n\013ParamsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001"
-    "(\001:\0028\001\"5\n\017GetDataResponse\022\"\n\004data\030\001 \003(\0132"
-    "\024.chart_api.DataPoint\"X\n\016GetLogsRequest\022"
+    "(\t:\0028\001\"5\n\017GetDataResponse\022\"\n\004data\030\001 \003(\0132"
+    "\024.chart_api.DataPoint\"k\n\016GetLogsRequest\022"
     "\n\n\002id\030\001 \001(\005\022\026\n\016from_timestamp\030\002 \001(\003\022\023\n\013o"
-    "rders_only\030\003 \001(\010\022\r\n\005limit\030\004 \001(\005\"\265\007\n\010LogE"
-    "ntry\022\014\n\004time\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\t\022\014\n"
-    "\004algo\030\006 \001(\t\022\021\n\ttimeframe\030\010 \001(\t\022\020\n\010block_"
-    "id\030\n \001(\005\022\022\n\nblock_name\030\013 \001(\t\022\027\n\017indicato"
-    "r_param\030\014 \001(\t\022\014\n\004vars\030\r \001(\t\022\r\n\005close\030\016 \001"
-    "(\001\022\017\n\007balance\030\017 \001(\001\022\016\n\006equity\030\020 \001(\001\022\r\n\005m"
-    "oney\030\021 \001(\001\022\014\n\004side\030\022 \001(\t\022\033\n\023order_levera"
-    "ge_long\030\023 \001(\001\022\025\n\rleverage_long\030\024 \001(\001\022\027\n\017"
-    "order_size_long\030\025 \001(\001\022\030\n\020order_price_lon"
-    "g\030\026 \001(\001\022\026\n\016order_usd_long\030\027 \001(\001\022\027\n\017order"
-    "_type_long\030\030 \001(\t\022\032\n\022position_size_long\030\031"
-    " \001(\001\022\033\n\023position_price_long\030\032 \001(\001\022\031\n\021pos"
-    "ition_usd_long\030\033 \001(\001\022\020\n\010pnl_long\030\034 \001(\001\022\020"
-    "\n\010fee_long\030\035 \001(\001\022\024\n\014funding_long\030\036 \001(\001\022\020"
-    "\n\010rpl_long\030\037 \001(\001\022\034\n\024order_leverage_short"
-    "\030  \001(\001\022\026\n\016leverage_short\030! \001(\001\022\030\n\020order_"
-    "size_short\030\" \001(\001\022\031\n\021order_price_short\030# "
-    "\001(\001\022\027\n\017order_usd_short\030$ \001(\001\022\030\n\020order_ty"
-    "pe_short\030% \001(\t\022\032\n\022position_usd_short\030& \001"
-    "(\001\022\033\n\023position_size_short\030\' \001(\001\022\034\n\024posit"
-    "ion_price_short\030( \001(\001\022\021\n\tpnl_short\030) \001(\001"
-    "\022\021\n\tfee_short\030* \001(\001\022\025\n\rfunding_short\030+ \001"
-    "(\001\022\021\n\trpl_short\030, \001(\001\022\014\n\004user\030- \001(\t\022\014\n\004m"
-    "ode\030. \001(\t\022\021\n\tmode_time\030/ \001(\t\022\014\n\004coin\0300 \001"
-    "(\t\022\023\n\013coin_second\0301 \001(\t\"4\n\017GetLogsRespon"
-    "se\022!\n\004logs\030\001 \003(\0132\023.chart_api.LogEntry2\270\002"
-    "\n\010ChartAPI\022E\n\010GetAlgos\022\032.chart_api.GetAl"
-    "gosRequest\032\033.chart_api.GetAlgosResponse\""
-    "\000\022]\n\020GetStreamsByAlgo\022\".chart_api.GetStr"
-    "eamsByAlgoRequest\032#.chart_api.GetStreams"
-    "ByAlgoResponse\"\000\022B\n\007GetData\022\031.chart_api."
-    "GetDataRequest\032\032.chart_api.GetDataRespon"
-    "se\"\000\022B\n\007GetLogs\022\031.chart_api.GetLogsReque"
-    "st\032\032.chart_api.GetLogsResponse\"\000B Z\036char"
-    "t_api/internal/proto;protob\006proto3"
+    "rders_only\030\003 \001(\010\022\r\n\005limit\030\004 \001(\005\022\021\n\tmode_"
+    "time\030\005 \001(\t\"\315\007\n\010LogEntry\022\014\n\004time\030\002 \001(\t\022\021\n"
+    "\ttimestamp\030\003 \001(\t\022\014\n\004algo\030\006 \001(\t\022\021\n\ttimefr"
+    "ame\030\010 \001(\t\022\020\n\010block_id\030\n \001(\005\022\022\n\nblock_nam"
+    "e\030\013 \001(\t\022\027\n\017indicator_param\030\014 \001(\t\022\014\n\004vars"
+    "\030\r \001(\t\022\r\n\005close\030\016 \001(\001\022\017\n\007balance\030\017 \001(\001\022\016"
+    "\n\006equity\030\020 \001(\001\022\r\n\005money\030\021 \001(\001\022\014\n\004side\030\022 "
+    "\001(\t\022\033\n\023order_leverage_long\030\023 \001(\001\022\025\n\rleve"
+    "rage_long\030\024 \001(\001\022\027\n\017order_size_long\030\025 \001(\001"
+    "\022\030\n\020order_price_long\030\026 \001(\001\022\026\n\016order_usd_"
+    "long\030\027 \001(\001\022\027\n\017order_type_long\030\030 \001(\t\022\032\n\022p"
+    "osition_size_long\030\031 \001(\001\022\033\n\023position_pric"
+    "e_long\030\032 \001(\001\022\031\n\021position_usd_long\030\033 \001(\001\022"
+    "\024\n\014pnl_usd_long\030\034 \001(\001\022\024\n\014fee_usd_long\030\035 "
+    "\001(\001\022\024\n\014funding_long\030\036 \001(\001\022\024\n\014rpl_usd_lon"
+    "g\030\037 \001(\001\022\034\n\024order_leverage_short\030  \001(\001\022\026\n"
+    "\016leverage_short\030! \001(\001\022\030\n\020order_size_shor"
+    "t\030\" \001(\001\022\031\n\021order_price_short\030# \001(\001\022\027\n\017or"
+    "der_usd_short\030$ \001(\001\022\030\n\020order_type_short\030"
+    "% \001(\t\022\032\n\022position_usd_short\030& \001(\001\022\033\n\023pos"
+    "ition_size_short\030\' \001(\001\022\034\n\024position_price"
+    "_short\030( \001(\001\022\025\n\rpnl_usd_short\030) \001(\001\022\025\n\rf"
+    "ee_usd_short\030* \001(\001\022\025\n\rfunding_short\030+ \001("
+    "\001\022\025\n\rrpl_usd_short\030, \001(\001\022\014\n\004user\030- \001(\t\022\014"
+    "\n\004mode\030. \001(\t\022\021\n\tmode_time\030/ \001(\t\022\014\n\004coin\030"
+    "0 \001(\t\022\023\n\013coin_second\0301 \001(\t\"4\n\017GetLogsRes"
+    "ponse\022!\n\004logs\030\001 \003(\0132\023.chart_api.LogEntry"
+    "\"\021\n\017GetUsersRequest\"\222\001\n\014ExchangeData\0229\n\t"
+    "exchanges\030\001 \003(\0132&.chart_api.ExchangeData"
+    ".ExchangesEntry\032G\n\016ExchangesEntry\022\013\n\003key"
+    "\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025.chart_api.Market"
+    "Data:\0028\001\"\206\001\n\nMarketData\0223\n\007markets\030\001 \003(\013"
+    "2\".chart_api.MarketData.MarketsEntry\032C\n\014"
+    "MarketsEntry\022\013\n\003key\030\001 \001(\t\022\"\n\005value\030\002 \001(\013"
+    "2\023.chart_api.ModeData:\0028\001\"\036\n\010ModeData\022\022\n"
+    "\ntimestamps\030\001 \003(\t\"\220\001\n\020GetUsersResponse\0225"
+    "\n\005users\030\001 \003(\0132&.chart_api.GetUsersRespon"
+    "se.UsersEntry\032E\n\nUsersEntry\022\013\n\003key\030\001 \001(\t"
+    "\022&\n\005value\030\002 \001(\0132\027.chart_api.ExchangeData"
+    ":\0028\0012\377\002\n\010ChartAPI\022E\n\010GetAlgos\022\032.chart_ap"
+    "i.GetAlgosRequest\032\033.chart_api.GetAlgosRe"
+    "sponse\"\000\022]\n\020GetStreamsByAlgo\022\".chart_api"
+    ".GetStreamsByAlgoRequest\032#.chart_api.Get"
+    "StreamsByAlgoResponse\"\000\022B\n\007GetData\022\031.cha"
+    "rt_api.GetDataRequest\032\032.chart_api.GetDat"
+    "aResponse\"\000\022B\n\007GetLogs\022\031.chart_api.GetLo"
+    "gsRequest\032\032.chart_api.GetLogsResponse\"\000\022"
+    "E\n\010GetUsers\022\032.chart_api.GetUsersRequest\032"
+    "\033.chart_api.GetUsersResponse\"\000B Z\036chart_"
+    "api/internal/proto;protob\006proto3"
 };
 static ::absl::once_flag descriptor_table_chart_5fapi_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_chart_5fapi_2eproto = {
     false,
     false,
-    2554,
+    3152,
     descriptor_table_protodef_chart_5fapi_2eproto,
     "chart_api.proto",
     &descriptor_table_chart_5fapi_2eproto_once,
     nullptr,
     0,
-    17,
+    25,
     schemas,
     file_default_instances,
     TableStruct_chart_5fapi_2eproto::offsets,
@@ -1530,7 +1817,7 @@ void GetStreamsByAlgoRequest::InternalSwap(GetStreamsByAlgoRequest* PROTOBUF_RES
                 return _class_data_.base();
               }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 47, 2> IndicatorParam_ParamEntry_DoNotUse::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 52, 2> IndicatorParam_ParamEntry_DoNotUse::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(IndicatorParam_ParamEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
@@ -1548,9 +1835,9 @@ const ::_pbi::TcParseTable<1, 2, 0, 47, 2> IndicatorParam_ParamEntry_DoNotUse::_
     ::_pbi::TcParser::GetTable<::chart_api::IndicatorParam_ParamEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // double value = 2;
-    {::_pbi::TcParser::FastF64S1,
-     {17, 63, 0, PROTOBUF_FIELD_OFFSET(IndicatorParam_ParamEntry_DoNotUse, _impl_.value_)}},
+    // string value = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(IndicatorParam_ParamEntry_DoNotUse, _impl_.value_)}},
     // string key = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(IndicatorParam_ParamEntry_DoNotUse, _impl_.key_)}},
@@ -1560,15 +1847,16 @@ const ::_pbi::TcParseTable<1, 2, 0, 47, 2> IndicatorParam_ParamEntry_DoNotUse::_
     // string key = 1;
     {PROTOBUF_FIELD_OFFSET(IndicatorParam_ParamEntry_DoNotUse, _impl_.key_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // double value = 2;
+    // string value = 2;
     {PROTOBUF_FIELD_OFFSET(IndicatorParam_ParamEntry_DoNotUse, _impl_.value_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\43\3\0\0\0\0\0\0"
+    "\43\3\5\0\0\0\0\0"
     "chart_api.IndicatorParam.ParamEntry"
     "key"
+    "value"
   }},
 };
 
@@ -1711,14 +1999,14 @@ const ::_pbi::TcParseTable<0, 2, 1, 42, 2> IndicatorParam::_table_ = {
     // string type = 1;
     {PROTOBUF_FIELD_OFFSET(IndicatorParam, _impl_.type_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // map<string, double> param = 2;
+    // map<string, string> param = 2;
     {PROTOBUF_FIELD_OFFSET(IndicatorParam, _impl_.param_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
   }}, {{
     {::_pbi::TcParser::GetMapAuxInfo<
         decltype(IndicatorParam()._impl_.param_)>(
         1, 0, 0, 9,
-        1)},
+        9)},
   }}, {{
     "\30\4\5\0\0\0\0\0"
     "chart_api.IndicatorParam"
@@ -1762,12 +2050,12 @@ PROTOBUF_NOINLINE void IndicatorParam::Clear() {
             target = stream->WriteStringMaybeAliased(1, _s, target);
           }
 
-          // map<string, double> param = 2;
+          // map<string, string> param = 2;
           if (!this_._internal_param().empty()) {
-            using MapType = ::google::protobuf::Map<std::string, double>;
-            using WireHelper = _pbi::MapEntryFuncs<std::string, double,
+            using MapType = ::google::protobuf::Map<std::string, std::string>;
+            using WireHelper = _pbi::MapEntryFuncs<std::string, std::string,
                                            _pbi::WireFormatLite::TYPE_STRING,
-                                           _pbi::WireFormatLite::TYPE_DOUBLE>;
+                                           _pbi::WireFormatLite::TYPE_STRING>;
             const auto& field = this_._internal_param();
 
             if (stream->IsSerializationDeterministic() && field.size() > 1) {
@@ -1777,6 +2065,9 @@ PROTOBUF_NOINLINE void IndicatorParam::Clear() {
                 ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                     entry.first.data(), static_cast<int>(entry.first.length()),
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.IndicatorParam.param");
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.second.data(), static_cast<int>(entry.second.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.IndicatorParam.param");
               }
             } else {
               for (const auto& entry : field) {
@@ -1784,6 +2075,9 @@ PROTOBUF_NOINLINE void IndicatorParam::Clear() {
                     2, entry.first, entry.second, target, stream);
                 ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                     entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.IndicatorParam.param");
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.second.data(), static_cast<int>(entry.second.length()),
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.IndicatorParam.param");
               }
             }
@@ -1814,14 +2108,14 @@ PROTOBUF_NOINLINE void IndicatorParam::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // map<string, double> param = 2;
+            // map<string, string> param = 2;
             {
               total_size +=
                   1 * ::google::protobuf::internal::FromIntSize(this_._internal_param_size());
               for (const auto& entry : this_._internal_param()) {
-                total_size += _pbi::MapEntryFuncs<std::string, double,
+                total_size += _pbi::MapEntryFuncs<std::string, std::string,
                                                _pbi::WireFormatLite::TYPE_STRING,
-                                               _pbi::WireFormatLite::TYPE_DOUBLE>::ByteSizeLong(entry.first, entry.second);
+                                               _pbi::WireFormatLite::TYPE_STRING>::ByteSizeLong(entry.first, entry.second);
               }
             }
           }
@@ -3358,7 +3652,7 @@ void DataPoint::InternalSwap(DataPoint* PROTOBUF_RESTRICT other) {
                 return _class_data_.base();
               }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 42, 2> Indicator_ParamEntry_DoNotUse::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 47, 2> Indicator_ParamEntry_DoNotUse::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Indicator_ParamEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
@@ -3376,9 +3670,9 @@ const ::_pbi::TcParseTable<1, 2, 0, 42, 2> Indicator_ParamEntry_DoNotUse::_table
     ::_pbi::TcParser::GetTable<::chart_api::Indicator_ParamEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // double value = 2;
-    {::_pbi::TcParser::FastF64S1,
-     {17, 63, 0, PROTOBUF_FIELD_OFFSET(Indicator_ParamEntry_DoNotUse, _impl_.value_)}},
+    // string value = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Indicator_ParamEntry_DoNotUse, _impl_.value_)}},
     // string key = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(Indicator_ParamEntry_DoNotUse, _impl_.key_)}},
@@ -3388,15 +3682,16 @@ const ::_pbi::TcParseTable<1, 2, 0, 42, 2> Indicator_ParamEntry_DoNotUse::_table
     // string key = 1;
     {PROTOBUF_FIELD_OFFSET(Indicator_ParamEntry_DoNotUse, _impl_.key_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // double value = 2;
+    // string value = 2;
     {PROTOBUF_FIELD_OFFSET(Indicator_ParamEntry_DoNotUse, _impl_.value_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\36\3\0\0\0\0\0\0"
+    "\36\3\5\0\0\0\0\0"
     "chart_api.Indicator.ParamEntry"
     "key"
+    "value"
   }},
 };
 
@@ -3558,7 +3853,7 @@ const ::_pbi::TcParseTable<2, 4, 2, 41, 2> Indicator::_table_ = {
     // string name = 2;
     {PROTOBUF_FIELD_OFFSET(Indicator, _impl_.name_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // map<string, double> param = 3;
+    // map<string, string> param = 3;
     {PROTOBUF_FIELD_OFFSET(Indicator, _impl_.param_), 0, 1,
     (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
     // repeated .chart_api.Volume volume = 4;
@@ -3569,7 +3864,7 @@ const ::_pbi::TcParseTable<2, 4, 2, 41, 2> Indicator::_table_ = {
     {::_pbi::TcParser::GetMapAuxInfo<
         decltype(Indicator()._impl_.param_)>(
         1, 0, 0, 9,
-        1)},
+        9)},
   }}, {{
     "\23\4\4\5\0\0\0\0"
     "chart_api.Indicator"
@@ -3624,12 +3919,12 @@ PROTOBUF_NOINLINE void Indicator::Clear() {
             target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
-          // map<string, double> param = 3;
+          // map<string, string> param = 3;
           if (!this_._internal_param().empty()) {
-            using MapType = ::google::protobuf::Map<std::string, double>;
-            using WireHelper = _pbi::MapEntryFuncs<std::string, double,
+            using MapType = ::google::protobuf::Map<std::string, std::string>;
+            using WireHelper = _pbi::MapEntryFuncs<std::string, std::string,
                                            _pbi::WireFormatLite::TYPE_STRING,
-                                           _pbi::WireFormatLite::TYPE_DOUBLE>;
+                                           _pbi::WireFormatLite::TYPE_STRING>;
             const auto& field = this_._internal_param();
 
             if (stream->IsSerializationDeterministic() && field.size() > 1) {
@@ -3639,6 +3934,9 @@ PROTOBUF_NOINLINE void Indicator::Clear() {
                 ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                     entry.first.data(), static_cast<int>(entry.first.length()),
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Indicator.param");
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.second.data(), static_cast<int>(entry.second.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Indicator.param");
               }
             } else {
               for (const auto& entry : field) {
@@ -3646,6 +3944,9 @@ PROTOBUF_NOINLINE void Indicator::Clear() {
                     3, entry.first, entry.second, target, stream);
                 ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                     entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Indicator.param");
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.second.data(), static_cast<int>(entry.second.length()),
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Indicator.param");
               }
             }
@@ -3687,14 +3988,14 @@ PROTOBUF_NOINLINE void Indicator::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // map<string, double> param = 3;
+            // map<string, string> param = 3;
             {
               total_size +=
                   1 * ::google::protobuf::internal::FromIntSize(this_._internal_param_size());
               for (const auto& entry : this_._internal_param()) {
-                total_size += _pbi::MapEntryFuncs<std::string, double,
+                total_size += _pbi::MapEntryFuncs<std::string, std::string,
                                                _pbi::WireFormatLite::TYPE_STRING,
-                                               _pbi::WireFormatLite::TYPE_DOUBLE>::ByteSizeLong(entry.first, entry.second);
+                                               _pbi::WireFormatLite::TYPE_STRING>::ByteSizeLong(entry.first, entry.second);
               }
             }
             // repeated .chart_api.Volume volume = 4;
@@ -3811,7 +4112,7 @@ void Indicator::InternalSwap(Indicator* PROTOBUF_RESTRICT other) {
                 return _class_data_.base();
               }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 40, 2> Volume_ParamsEntry_DoNotUse::_table_ = {
+const ::_pbi::TcParseTable<1, 2, 0, 45, 2> Volume_ParamsEntry_DoNotUse::_table_ = {
   {
     PROTOBUF_FIELD_OFFSET(Volume_ParamsEntry_DoNotUse, _impl_._has_bits_),
     0, // no _extensions_
@@ -3829,9 +4130,9 @@ const ::_pbi::TcParseTable<1, 2, 0, 40, 2> Volume_ParamsEntry_DoNotUse::_table_ 
     ::_pbi::TcParser::GetTable<::chart_api::Volume_ParamsEntry_DoNotUse>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // double value = 2;
-    {::_pbi::TcParser::FastF64S1,
-     {17, 63, 0, PROTOBUF_FIELD_OFFSET(Volume_ParamsEntry_DoNotUse, _impl_.value_)}},
+    // string value = 2;
+    {::_pbi::TcParser::FastUS1,
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(Volume_ParamsEntry_DoNotUse, _impl_.value_)}},
     // string key = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(Volume_ParamsEntry_DoNotUse, _impl_.key_)}},
@@ -3841,15 +4142,16 @@ const ::_pbi::TcParseTable<1, 2, 0, 40, 2> Volume_ParamsEntry_DoNotUse::_table_ 
     // string key = 1;
     {PROTOBUF_FIELD_OFFSET(Volume_ParamsEntry_DoNotUse, _impl_.key_), -1, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
-    // double value = 2;
+    // string value = 2;
     {PROTOBUF_FIELD_OFFSET(Volume_ParamsEntry_DoNotUse, _impl_.value_), -1, 0,
-    (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\34\3\0\0\0\0\0\0"
+    "\34\3\5\0\0\0\0\0"
     "chart_api.Volume.ParamsEntry"
     "key"
+    "value"
   }},
 };
 
@@ -3984,14 +4286,14 @@ const ::_pbi::TcParseTable<0, 1, 1, 31, 2> Volume::_table_ = {
   }}, {{
     65535, 65535
   }}, {{
-    // map<string, double> params = 1;
+    // map<string, string> params = 1;
     {PROTOBUF_FIELD_OFFSET(Volume, _impl_.params_), 0, 0,
     (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
   }}, {{
     {::_pbi::TcParser::GetMapAuxInfo<
         decltype(Volume()._impl_.params_)>(
         1, 0, 0, 9,
-        1)},
+        9)},
   }}, {{
     "\20\6\0\0\0\0\0\0"
     "chart_api.Volume"
@@ -4025,12 +4327,12 @@ PROTOBUF_NOINLINE void Volume::Clear() {
           ::uint32_t cached_has_bits = 0;
           (void)cached_has_bits;
 
-          // map<string, double> params = 1;
+          // map<string, string> params = 1;
           if (!this_._internal_params().empty()) {
-            using MapType = ::google::protobuf::Map<std::string, double>;
-            using WireHelper = _pbi::MapEntryFuncs<std::string, double,
+            using MapType = ::google::protobuf::Map<std::string, std::string>;
+            using WireHelper = _pbi::MapEntryFuncs<std::string, std::string,
                                            _pbi::WireFormatLite::TYPE_STRING,
-                                           _pbi::WireFormatLite::TYPE_DOUBLE>;
+                                           _pbi::WireFormatLite::TYPE_STRING>;
             const auto& field = this_._internal_params();
 
             if (stream->IsSerializationDeterministic() && field.size() > 1) {
@@ -4040,6 +4342,9 @@ PROTOBUF_NOINLINE void Volume::Clear() {
                 ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                     entry.first.data(), static_cast<int>(entry.first.length()),
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Volume.params");
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.second.data(), static_cast<int>(entry.second.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Volume.params");
               }
             } else {
               for (const auto& entry : field) {
@@ -4047,6 +4352,9 @@ PROTOBUF_NOINLINE void Volume::Clear() {
                     1, entry.first, entry.second, target, stream);
                 ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
                     entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Volume.params");
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.second.data(), static_cast<int>(entry.second.length()),
  ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.Volume.params");
               }
             }
@@ -4077,14 +4385,14 @@ PROTOBUF_NOINLINE void Volume::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // map<string, double> params = 1;
+            // map<string, string> params = 1;
             {
               total_size +=
                   1 * ::google::protobuf::internal::FromIntSize(this_._internal_params_size());
               for (const auto& entry : this_._internal_params()) {
-                total_size += _pbi::MapEntryFuncs<std::string, double,
+                total_size += _pbi::MapEntryFuncs<std::string, std::string,
                                                _pbi::WireFormatLite::TYPE_STRING,
-                                               _pbi::WireFormatLite::TYPE_DOUBLE>::ByteSizeLong(entry.first, entry.second);
+                                               _pbi::WireFormatLite::TYPE_STRING>::ByteSizeLong(entry.first, entry.second);
               }
             }
           }
@@ -4378,15 +4686,40 @@ GetLogsRequest::GetLogsRequest(::google::protobuf::Arena* arena)
   SharedCtor(arena);
   // @@protoc_insertion_point(arena_constructor:chart_api.GetLogsRequest)
 }
+inline PROTOBUF_NDEBUG_INLINE GetLogsRequest::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::chart_api::GetLogsRequest& from_msg)
+      : mode_time_(arena, from.mode_time_),
+        _cached_size_{0} {}
+
 GetLogsRequest::GetLogsRequest(
-    ::google::protobuf::Arena* arena, const GetLogsRequest& from)
-    : GetLogsRequest(arena) {
-  MergeFrom(from);
+    ::google::protobuf::Arena* arena,
+    const GetLogsRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GetLogsRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+  ::memcpy(reinterpret_cast<char *>(&_impl_) +
+               offsetof(Impl_, from_timestamp_),
+           reinterpret_cast<const char *>(&from._impl_) +
+               offsetof(Impl_, from_timestamp_),
+           offsetof(Impl_, limit_) -
+               offsetof(Impl_, from_timestamp_) +
+               sizeof(Impl_::limit_));
+
+  // @@protoc_insertion_point(copy_constructor:chart_api.GetLogsRequest)
 }
 inline PROTOBUF_NDEBUG_INLINE GetLogsRequest::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : _cached_size_{0} {}
+      : mode_time_(arena),
+        _cached_size_{0} {}
 
 inline void GetLogsRequest::SharedCtor(::_pb::Arena* arena) {
   new (&_impl_) Impl_(internal_visibility(), arena);
@@ -4405,6 +4738,7 @@ inline void GetLogsRequest::SharedDtor(MessageLite& self) {
   GetLogsRequest& this_ = static_cast<GetLogsRequest&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.mode_time_.Destroy();
   this_._impl_.~Impl_();
 }
 
@@ -4413,7 +4747,7 @@ inline void* GetLogsRequest::PlacementNew_(const void*, void* mem,
   return ::new (mem) GetLogsRequest(arena);
 }
 constexpr auto GetLogsRequest::InternalNewImpl_() {
-  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GetLogsRequest),
+  return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(GetLogsRequest),
                                             alignof(GetLogsRequest));
 }
 PROTOBUF_CONSTINIT
@@ -4444,15 +4778,15 @@ const ::google::protobuf::internal::ClassData* GetLogsRequest::GetClassData() co
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 4, 0, 0, 2> GetLogsRequest::_table_ = {
+const ::_pbi::TcParseTable<3, 5, 0, 42, 2> GetLogsRequest::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    4, 24,  // max_field_number, fast_idx_mask
+    5, 56,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967280,  // skipmap
+    4294967264,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    4,  // num_field_entries
+    5,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     _class_data_.base(),
@@ -4462,9 +4796,7 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> GetLogsRequest::_table_ = {
     ::_pbi::TcParser::GetTable<::chart_api::GetLogsRequest>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // int32 limit = 4;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetLogsRequest, _impl_.limit_), 63>(),
-     {32, 63, 0, PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.limit_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // int32 id = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetLogsRequest, _impl_.id_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.id_)}},
@@ -4474,6 +4806,14 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> GetLogsRequest::_table_ = {
     // bool orders_only = 3;
     {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(GetLogsRequest, _impl_.orders_only_), 63>(),
      {24, 63, 0, PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.orders_only_)}},
+    // int32 limit = 4;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(GetLogsRequest, _impl_.limit_), 63>(),
+     {32, 63, 0, PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.limit_)}},
+    // string mode_time = 5;
+    {::_pbi::TcParser::FastUS1,
+     {42, 63, 0, PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.mode_time_)}},
+    {::_pbi::TcParser::MiniParse, {}},
+    {::_pbi::TcParser::MiniParse, {}},
   }}, {{
     65535, 65535
   }}, {{
@@ -4489,9 +4829,15 @@ const ::_pbi::TcParseTable<2, 4, 0, 0, 2> GetLogsRequest::_table_ = {
     // int32 limit = 4;
     {PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.limit_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string mode_time = 5;
+    {PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.mode_time_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
+    "\30\0\0\0\0\11\0\0"
+    "chart_api.GetLogsRequest"
+    "mode_time"
   }},
 };
 
@@ -4502,6 +4848,7 @@ PROTOBUF_NOINLINE void GetLogsRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.mode_time_.ClearToEmpty();
   ::memset(&_impl_.from_timestamp_, 0, static_cast<::size_t>(
       reinterpret_cast<char*>(&_impl_.limit_) -
       reinterpret_cast<char*>(&_impl_.from_timestamp_)) + sizeof(_impl_.limit_));
@@ -4551,6 +4898,14 @@ PROTOBUF_NOINLINE void GetLogsRequest::Clear() {
                     stream, this_._internal_limit(), target);
           }
 
+          // string mode_time = 5;
+          if (!this_._internal_mode_time().empty()) {
+            const std::string& _s = this_._internal_mode_time();
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.GetLogsRequest.mode_time");
+            target = stream->WriteStringMaybeAliased(5, _s, target);
+          }
+
           if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
             target =
                 ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -4576,6 +4931,11 @@ PROTOBUF_NOINLINE void GetLogsRequest::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
+            // string mode_time = 5;
+            if (!this_._internal_mode_time().empty()) {
+              total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                              this_._internal_mode_time());
+            }
             // int64 from_timestamp = 2;
             if (this_._internal_from_timestamp() != 0) {
               total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(
@@ -4608,6 +4968,9 @@ void GetLogsRequest::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_mode_time().empty()) {
+    _this->_internal_set_mode_time(from._internal_mode_time());
+  }
   if (from._internal_from_timestamp() != 0) {
     _this->_impl_.from_timestamp_ = from._impl_.from_timestamp_;
   }
@@ -4633,7 +4996,10 @@ void GetLogsRequest::CopyFrom(const GetLogsRequest& from) {
 
 void GetLogsRequest::InternalSwap(GetLogsRequest* PROTOBUF_RESTRICT other) {
   using std::swap;
+  auto* arena = GetArena();
+  ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.mode_time_, &other->_impl_.mode_time_, arena);
   ::google::protobuf::internal::memswap<
       PROTOBUF_FIELD_OFFSET(GetLogsRequest, _impl_.limit_)
       + sizeof(GetLogsRequest::_impl_.limit_)
@@ -4884,18 +5250,18 @@ const ::_pbi::TcParseTable<5, 44, 0, 189, 9> LogEntry::_table_ = {
     // double position_usd_long = 27;
     {::_pbi::TcParser::FastF64S2,
      {473, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.position_usd_long_)}},
-    // double pnl_long = 28;
+    // double pnl_usd_long = 28;
     {::_pbi::TcParser::FastF64S2,
-     {481, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.pnl_long_)}},
-    // double fee_long = 29;
+     {481, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.pnl_usd_long_)}},
+    // double fee_usd_long = 29;
     {::_pbi::TcParser::FastF64S2,
-     {489, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.fee_long_)}},
+     {489, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.fee_usd_long_)}},
     // double funding_long = 30;
     {::_pbi::TcParser::FastF64S2,
      {497, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.funding_long_)}},
-    // double rpl_long = 31;
+    // double rpl_usd_long = 31;
     {::_pbi::TcParser::FastF64S2,
-     {505, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.rpl_long_)}},
+     {505, 63, 0, PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.rpl_usd_long_)}},
   }}, {{
     33, 0, 2,
     0, 27, 65534, 43,
@@ -4967,17 +5333,17 @@ const ::_pbi::TcParseTable<5, 44, 0, 189, 9> LogEntry::_table_ = {
     // double position_usd_long = 27;
     {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.position_usd_long_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double pnl_long = 28;
-    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.pnl_long_), 0, 0,
+    // double pnl_usd_long = 28;
+    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.pnl_usd_long_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double fee_long = 29;
-    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.fee_long_), 0, 0,
+    // double fee_usd_long = 29;
+    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.fee_usd_long_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
     // double funding_long = 30;
     {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.funding_long_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double rpl_long = 31;
-    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.rpl_long_), 0, 0,
+    // double rpl_usd_long = 31;
+    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.rpl_usd_long_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
     // double order_leverage_short = 32;
     {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.order_leverage_short_), 0, 0,
@@ -5006,17 +5372,17 @@ const ::_pbi::TcParseTable<5, 44, 0, 189, 9> LogEntry::_table_ = {
     // double position_price_short = 40;
     {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.position_price_short_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double pnl_short = 41;
-    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.pnl_short_), 0, 0,
+    // double pnl_usd_short = 41;
+    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.pnl_usd_short_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double fee_short = 42;
-    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.fee_short_), 0, 0,
+    // double fee_usd_short = 42;
+    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.fee_usd_short_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
     // double funding_short = 43;
     {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.funding_short_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
-    // double rpl_short = 44;
-    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.rpl_short_), 0, 0,
+    // double rpl_usd_short = 44;
+    {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.rpl_usd_short_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kDouble)},
     // string user = 45;
     {PROTOBUF_FIELD_OFFSET(LogEntry, _impl_.user_), 0, 0,
@@ -5262,18 +5628,18 @@ PROTOBUF_NOINLINE void LogEntry::Clear() {
                 27, this_._internal_position_usd_long(), target);
           }
 
-          // double pnl_long = 28;
-          if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_long()) != 0) {
+          // double pnl_usd_long = 28;
+          if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_usd_long()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                28, this_._internal_pnl_long(), target);
+                28, this_._internal_pnl_usd_long(), target);
           }
 
-          // double fee_long = 29;
-          if (::absl::bit_cast<::uint64_t>(this_._internal_fee_long()) != 0) {
+          // double fee_usd_long = 29;
+          if (::absl::bit_cast<::uint64_t>(this_._internal_fee_usd_long()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                29, this_._internal_fee_long(), target);
+                29, this_._internal_fee_usd_long(), target);
           }
 
           // double funding_long = 30;
@@ -5283,11 +5649,11 @@ PROTOBUF_NOINLINE void LogEntry::Clear() {
                 30, this_._internal_funding_long(), target);
           }
 
-          // double rpl_long = 31;
-          if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_long()) != 0) {
+          // double rpl_usd_long = 31;
+          if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_usd_long()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                31, this_._internal_rpl_long(), target);
+                31, this_._internal_rpl_usd_long(), target);
           }
 
           // double order_leverage_short = 32;
@@ -5354,18 +5720,18 @@ PROTOBUF_NOINLINE void LogEntry::Clear() {
                 40, this_._internal_position_price_short(), target);
           }
 
-          // double pnl_short = 41;
-          if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_short()) != 0) {
+          // double pnl_usd_short = 41;
+          if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_usd_short()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                41, this_._internal_pnl_short(), target);
+                41, this_._internal_pnl_usd_short(), target);
           }
 
-          // double fee_short = 42;
-          if (::absl::bit_cast<::uint64_t>(this_._internal_fee_short()) != 0) {
+          // double fee_usd_short = 42;
+          if (::absl::bit_cast<::uint64_t>(this_._internal_fee_usd_short()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                42, this_._internal_fee_short(), target);
+                42, this_._internal_fee_usd_short(), target);
           }
 
           // double funding_short = 43;
@@ -5375,11 +5741,11 @@ PROTOBUF_NOINLINE void LogEntry::Clear() {
                 43, this_._internal_funding_short(), target);
           }
 
-          // double rpl_short = 44;
-          if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_short()) != 0) {
+          // double rpl_usd_short = 44;
+          if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_usd_short()) != 0) {
             target = stream->EnsureSpace(target);
             target = ::_pbi::WireFormatLite::WriteDoubleToArray(
-                44, this_._internal_rpl_short(), target);
+                44, this_._internal_rpl_usd_short(), target);
           }
 
           // string user = 45;
@@ -5570,20 +5936,20 @@ PROTOBUF_NOINLINE void LogEntry::Clear() {
             if (::absl::bit_cast<::uint64_t>(this_._internal_position_usd_long()) != 0) {
               total_size += 10;
             }
-            // double pnl_long = 28;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_long()) != 0) {
+            // double pnl_usd_long = 28;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_usd_long()) != 0) {
               total_size += 10;
             }
-            // double fee_long = 29;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_fee_long()) != 0) {
+            // double fee_usd_long = 29;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_fee_usd_long()) != 0) {
               total_size += 10;
             }
             // double funding_long = 30;
             if (::absl::bit_cast<::uint64_t>(this_._internal_funding_long()) != 0) {
               total_size += 10;
             }
-            // double rpl_long = 31;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_long()) != 0) {
+            // double rpl_usd_long = 31;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_usd_long()) != 0) {
               total_size += 10;
             }
             // double order_leverage_short = 32;
@@ -5618,20 +5984,20 @@ PROTOBUF_NOINLINE void LogEntry::Clear() {
             if (::absl::bit_cast<::uint64_t>(this_._internal_position_price_short()) != 0) {
               total_size += 10;
             }
-            // double pnl_short = 41;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_short()) != 0) {
+            // double pnl_usd_short = 41;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_pnl_usd_short()) != 0) {
               total_size += 10;
             }
-            // double fee_short = 42;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_fee_short()) != 0) {
+            // double fee_usd_short = 42;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_fee_usd_short()) != 0) {
               total_size += 10;
             }
             // double funding_short = 43;
             if (::absl::bit_cast<::uint64_t>(this_._internal_funding_short()) != 0) {
               total_size += 10;
             }
-            // double rpl_short = 44;
-            if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_short()) != 0) {
+            // double rpl_usd_short = 44;
+            if (::absl::bit_cast<::uint64_t>(this_._internal_rpl_usd_short()) != 0) {
               total_size += 10;
             }
             // int32 block_id = 10;
@@ -5733,17 +6099,17 @@ void LogEntry::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google
   if (::absl::bit_cast<::uint64_t>(from._internal_position_usd_long()) != 0) {
     _this->_impl_.position_usd_long_ = from._impl_.position_usd_long_;
   }
-  if (::absl::bit_cast<::uint64_t>(from._internal_pnl_long()) != 0) {
-    _this->_impl_.pnl_long_ = from._impl_.pnl_long_;
+  if (::absl::bit_cast<::uint64_t>(from._internal_pnl_usd_long()) != 0) {
+    _this->_impl_.pnl_usd_long_ = from._impl_.pnl_usd_long_;
   }
-  if (::absl::bit_cast<::uint64_t>(from._internal_fee_long()) != 0) {
-    _this->_impl_.fee_long_ = from._impl_.fee_long_;
+  if (::absl::bit_cast<::uint64_t>(from._internal_fee_usd_long()) != 0) {
+    _this->_impl_.fee_usd_long_ = from._impl_.fee_usd_long_;
   }
   if (::absl::bit_cast<::uint64_t>(from._internal_funding_long()) != 0) {
     _this->_impl_.funding_long_ = from._impl_.funding_long_;
   }
-  if (::absl::bit_cast<::uint64_t>(from._internal_rpl_long()) != 0) {
-    _this->_impl_.rpl_long_ = from._impl_.rpl_long_;
+  if (::absl::bit_cast<::uint64_t>(from._internal_rpl_usd_long()) != 0) {
+    _this->_impl_.rpl_usd_long_ = from._impl_.rpl_usd_long_;
   }
   if (::absl::bit_cast<::uint64_t>(from._internal_order_leverage_short()) != 0) {
     _this->_impl_.order_leverage_short_ = from._impl_.order_leverage_short_;
@@ -5769,17 +6135,17 @@ void LogEntry::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google
   if (::absl::bit_cast<::uint64_t>(from._internal_position_price_short()) != 0) {
     _this->_impl_.position_price_short_ = from._impl_.position_price_short_;
   }
-  if (::absl::bit_cast<::uint64_t>(from._internal_pnl_short()) != 0) {
-    _this->_impl_.pnl_short_ = from._impl_.pnl_short_;
+  if (::absl::bit_cast<::uint64_t>(from._internal_pnl_usd_short()) != 0) {
+    _this->_impl_.pnl_usd_short_ = from._impl_.pnl_usd_short_;
   }
-  if (::absl::bit_cast<::uint64_t>(from._internal_fee_short()) != 0) {
-    _this->_impl_.fee_short_ = from._impl_.fee_short_;
+  if (::absl::bit_cast<::uint64_t>(from._internal_fee_usd_short()) != 0) {
+    _this->_impl_.fee_usd_short_ = from._impl_.fee_usd_short_;
   }
   if (::absl::bit_cast<::uint64_t>(from._internal_funding_short()) != 0) {
     _this->_impl_.funding_short_ = from._impl_.funding_short_;
   }
-  if (::absl::bit_cast<::uint64_t>(from._internal_rpl_short()) != 0) {
-    _this->_impl_.rpl_short_ = from._impl_.rpl_short_;
+  if (::absl::bit_cast<::uint64_t>(from._internal_rpl_usd_short()) != 0) {
+    _this->_impl_.rpl_usd_short_ = from._impl_.rpl_usd_short_;
   }
   if (from._internal_block_id() != 0) {
     _this->_impl_.block_id_ = from._impl_.block_id_;
@@ -6066,6 +6432,1429 @@ void GetLogsResponse::InternalSwap(GetLogsResponse* PROTOBUF_RESTRICT other) {
 }
 
 ::google::protobuf::Metadata GetLogsResponse::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class GetUsersRequest::_Internal {
+ public:
+};
+
+GetUsersRequest::GetUsersRequest(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  // @@protoc_insertion_point(arena_constructor:chart_api.GetUsersRequest)
+}
+GetUsersRequest::GetUsersRequest(
+    ::google::protobuf::Arena* arena,
+    const GetUsersRequest& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::internal::ZeroFieldsBase(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::internal::ZeroFieldsBase(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GetUsersRequest* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+
+  // @@protoc_insertion_point(copy_constructor:chart_api.GetUsersRequest)
+}
+
+inline void* GetUsersRequest::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) GetUsersRequest(arena);
+}
+constexpr auto GetUsersRequest::InternalNewImpl_() {
+  return ::google::protobuf::internal::MessageCreator::ZeroInit(sizeof(GetUsersRequest),
+                                            alignof(GetUsersRequest));
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull GetUsersRequest::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_GetUsersRequest_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &GetUsersRequest::MergeImpl,
+        ::google::protobuf::internal::ZeroFieldsBase::GetNewImpl<GetUsersRequest>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &GetUsersRequest::SharedDtor,
+        ::google::protobuf::internal::ZeroFieldsBase::GetClearImpl<GetUsersRequest>(), &GetUsersRequest::ByteSizeLong,
+            &GetUsersRequest::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(GetUsersRequest, _impl_._cached_size_),
+        false,
+    },
+    &GetUsersRequest::kDescriptorMethods,
+    &descriptor_table_chart_5fapi_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* GetUsersRequest::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 0, 0, 0, 2> GetUsersRequest::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    0, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967295,  // skipmap
+    offsetof(decltype(_table_), field_names),  // no field_entries
+    0,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::GetUsersRequest>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }},
+  // no field_entries, or aux_entries
+  {{
+  }},
+};
+
+
+
+
+
+
+
+
+::google::protobuf::Metadata GetUsersRequest::GetMetadata() const {
+  return ::google::protobuf::internal::ZeroFieldsBase::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+              ExchangeData_ExchangesEntry_DoNotUse::ExchangeData_ExchangesEntry_DoNotUse() : SuperType(_class_data_.base()) {}
+              ExchangeData_ExchangesEntry_DoNotUse::ExchangeData_ExchangesEntry_DoNotUse(::google::protobuf::Arena* arena)
+                  : SuperType(arena, _class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+              ExchangeData_ExchangesEntry_DoNotUse::ExchangeData_ExchangesEntry_DoNotUse() : SuperType() {}
+              ExchangeData_ExchangesEntry_DoNotUse::ExchangeData_ExchangesEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+              inline void* ExchangeData_ExchangesEntry_DoNotUse::PlacementNew_(const void*, void* mem,
+                                                      ::google::protobuf::Arena* arena) {
+                return ::new (mem) ExchangeData_ExchangesEntry_DoNotUse(arena);
+              }
+              constexpr auto ExchangeData_ExchangesEntry_DoNotUse::InternalNewImpl_() {
+                return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(ExchangeData_ExchangesEntry_DoNotUse),
+                                                          alignof(ExchangeData_ExchangesEntry_DoNotUse));
+              }
+              PROTOBUF_CONSTINIT
+              PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+              const ::google::protobuf::internal::ClassDataFull ExchangeData_ExchangesEntry_DoNotUse::_class_data_ = {
+                  ::google::protobuf::internal::ClassData{
+                      &_ExchangeData_ExchangesEntry_DoNotUse_default_instance_._instance,
+                      &_table_.header,
+                      nullptr,  // OnDemandRegisterArenaDtor
+                      nullptr,  // IsInitialized
+                      &ExchangeData_ExchangesEntry_DoNotUse::MergeImpl,
+                      ::google::protobuf::Message::GetNewImpl<ExchangeData_ExchangesEntry_DoNotUse>(),
+              #if defined(PROTOBUF_CUSTOM_VTABLE)
+                      &ExchangeData_ExchangesEntry_DoNotUse::SharedDtor,
+                      static_cast<void (::google::protobuf::MessageLite::*)()>(
+                          &ExchangeData_ExchangesEntry_DoNotUse::ClearImpl),
+                          ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+                          ,
+              #endif  // PROTOBUF_CUSTOM_VTABLE
+                      PROTOBUF_FIELD_OFFSET(ExchangeData_ExchangesEntry_DoNotUse, _impl_._cached_size_),
+                      false,
+                  },
+                  &ExchangeData_ExchangesEntry_DoNotUse::kDescriptorMethods,
+                  &descriptor_table_chart_5fapi_2eproto,
+                  nullptr,  // tracker
+              };
+              const ::google::protobuf::internal::ClassData* ExchangeData_ExchangesEntry_DoNotUse::GetClassData() const {
+                ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+                ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+                return _class_data_.base();
+              }
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 49, 2> ExchangeData_ExchangesEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(ExchangeData_ExchangesEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::ExchangeData_ExchangesEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .chart_api.MarketData value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(ExchangeData_ExchangesEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ExchangeData_ExchangesEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(ExchangeData_ExchangesEntry_DoNotUse, _impl_.key_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .chart_api.MarketData value = 2;
+    {PROTOBUF_FIELD_OFFSET(ExchangeData_ExchangesEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::chart_api::MarketData>()},
+  }}, {{
+    "\45\3\0\0\0\0\0\0"
+    "chart_api.ExchangeData.ExchangesEntry"
+    "key"
+  }},
+};
+
+// ===================================================================
+
+class ExchangeData::_Internal {
+ public:
+};
+
+ExchangeData::ExchangeData(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:chart_api.ExchangeData)
+}
+inline PROTOBUF_NDEBUG_INLINE ExchangeData::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::chart_api::ExchangeData& from_msg)
+      : exchanges_{visibility, arena, from.exchanges_},
+        _cached_size_{0} {}
+
+ExchangeData::ExchangeData(
+    ::google::protobuf::Arena* arena,
+    const ExchangeData& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ExchangeData* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:chart_api.ExchangeData)
+}
+inline PROTOBUF_NDEBUG_INLINE ExchangeData::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : exchanges_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void ExchangeData::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+ExchangeData::~ExchangeData() {
+  // @@protoc_insertion_point(destructor:chart_api.ExchangeData)
+  SharedDtor(*this);
+}
+inline void ExchangeData::SharedDtor(MessageLite& self) {
+  ExchangeData& this_ = static_cast<ExchangeData&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* ExchangeData::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ExchangeData(arena);
+}
+constexpr auto ExchangeData::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ExchangeData, _impl_.exchanges_) +
+          decltype(ExchangeData::_impl_.exchanges_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(ExchangeData, _impl_.exchanges_) +
+          decltype(ExchangeData::_impl_.exchanges_)::
+              InternalGetArenaOffsetAlt(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(ExchangeData), alignof(ExchangeData), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ExchangeData::PlacementNew_,
+                                 sizeof(ExchangeData),
+                                 alignof(ExchangeData));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ExchangeData::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ExchangeData_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ExchangeData::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ExchangeData>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ExchangeData::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ExchangeData>(), &ExchangeData::ByteSizeLong,
+            &ExchangeData::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ExchangeData, _impl_._cached_size_),
+        false,
+    },
+    &ExchangeData::kDescriptorMethods,
+    &descriptor_table_chart_5fapi_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ExchangeData::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 2, 40, 2> ExchangeData::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::ExchangeData>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // map<string, .chart_api.MarketData> exchanges = 1;
+    {PROTOBUF_FIELD_OFFSET(ExchangeData, _impl_.exchanges_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+  }}, {{
+    {::_pbi::TcParser::GetMapAuxInfo<
+        decltype(ExchangeData()._impl_.exchanges_)>(
+        1, 0, 0, 9,
+        11)},
+    {::_pbi::TcParser::GetTable<::chart_api::MarketData>()},
+  }}, {{
+    "\26\11\0\0\0\0\0\0"
+    "chart_api.ExchangeData"
+    "exchanges"
+  }},
+};
+
+PROTOBUF_NOINLINE void ExchangeData::Clear() {
+// @@protoc_insertion_point(message_clear_start:chart_api.ExchangeData)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.exchanges_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ExchangeData::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ExchangeData& this_ = static_cast<const ExchangeData&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ExchangeData::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ExchangeData& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:chart_api.ExchangeData)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // map<string, .chart_api.MarketData> exchanges = 1;
+          if (!this_._internal_exchanges().empty()) {
+            using MapType = ::google::protobuf::Map<std::string, ::chart_api::MarketData>;
+            using WireHelper = _pbi::MapEntryFuncs<std::string, ::chart_api::MarketData,
+                                           _pbi::WireFormatLite::TYPE_STRING,
+                                           _pbi::WireFormatLite::TYPE_MESSAGE>;
+            const auto& field = this_._internal_exchanges();
+
+            if (stream->IsSerializationDeterministic() && field.size() > 1) {
+              for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+                target = WireHelper::InternalSerialize(
+                    1, entry.first, entry.second, target, stream);
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.ExchangeData.exchanges");
+              }
+            } else {
+              for (const auto& entry : field) {
+                target = WireHelper::InternalSerialize(
+                    1, entry.first, entry.second, target, stream);
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.ExchangeData.exchanges");
+              }
+            }
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:chart_api.ExchangeData)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ExchangeData::ByteSizeLong(const MessageLite& base) {
+          const ExchangeData& this_ = static_cast<const ExchangeData&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ExchangeData::ByteSizeLong() const {
+          const ExchangeData& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:chart_api.ExchangeData)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // map<string, .chart_api.MarketData> exchanges = 1;
+            {
+              total_size +=
+                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_exchanges_size());
+              for (const auto& entry : this_._internal_exchanges()) {
+                total_size += _pbi::MapEntryFuncs<std::string, ::chart_api::MarketData,
+                                               _pbi::WireFormatLite::TYPE_STRING,
+                                               _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+              }
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ExchangeData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ExchangeData*>(&to_msg);
+  auto& from = static_cast<const ExchangeData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:chart_api.ExchangeData)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.exchanges_.MergeFrom(from._impl_.exchanges_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ExchangeData::CopyFrom(const ExchangeData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chart_api.ExchangeData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ExchangeData::InternalSwap(ExchangeData* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.exchanges_.InternalSwap(&other->_impl_.exchanges_);
+}
+
+::google::protobuf::Metadata ExchangeData::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+              MarketData_MarketsEntry_DoNotUse::MarketData_MarketsEntry_DoNotUse() : SuperType(_class_data_.base()) {}
+              MarketData_MarketsEntry_DoNotUse::MarketData_MarketsEntry_DoNotUse(::google::protobuf::Arena* arena)
+                  : SuperType(arena, _class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+              MarketData_MarketsEntry_DoNotUse::MarketData_MarketsEntry_DoNotUse() : SuperType() {}
+              MarketData_MarketsEntry_DoNotUse::MarketData_MarketsEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+              inline void* MarketData_MarketsEntry_DoNotUse::PlacementNew_(const void*, void* mem,
+                                                      ::google::protobuf::Arena* arena) {
+                return ::new (mem) MarketData_MarketsEntry_DoNotUse(arena);
+              }
+              constexpr auto MarketData_MarketsEntry_DoNotUse::InternalNewImpl_() {
+                return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(MarketData_MarketsEntry_DoNotUse),
+                                                          alignof(MarketData_MarketsEntry_DoNotUse));
+              }
+              PROTOBUF_CONSTINIT
+              PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+              const ::google::protobuf::internal::ClassDataFull MarketData_MarketsEntry_DoNotUse::_class_data_ = {
+                  ::google::protobuf::internal::ClassData{
+                      &_MarketData_MarketsEntry_DoNotUse_default_instance_._instance,
+                      &_table_.header,
+                      nullptr,  // OnDemandRegisterArenaDtor
+                      nullptr,  // IsInitialized
+                      &MarketData_MarketsEntry_DoNotUse::MergeImpl,
+                      ::google::protobuf::Message::GetNewImpl<MarketData_MarketsEntry_DoNotUse>(),
+              #if defined(PROTOBUF_CUSTOM_VTABLE)
+                      &MarketData_MarketsEntry_DoNotUse::SharedDtor,
+                      static_cast<void (::google::protobuf::MessageLite::*)()>(
+                          &MarketData_MarketsEntry_DoNotUse::ClearImpl),
+                          ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+                          ,
+              #endif  // PROTOBUF_CUSTOM_VTABLE
+                      PROTOBUF_FIELD_OFFSET(MarketData_MarketsEntry_DoNotUse, _impl_._cached_size_),
+                      false,
+                  },
+                  &MarketData_MarketsEntry_DoNotUse::kDescriptorMethods,
+                  &descriptor_table_chart_5fapi_2eproto,
+                  nullptr,  // tracker
+              };
+              const ::google::protobuf::internal::ClassData* MarketData_MarketsEntry_DoNotUse::GetClassData() const {
+                ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+                ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+                return _class_data_.base();
+              }
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 45, 2> MarketData_MarketsEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(MarketData_MarketsEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::MarketData_MarketsEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .chart_api.ModeData value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(MarketData_MarketsEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(MarketData_MarketsEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(MarketData_MarketsEntry_DoNotUse, _impl_.key_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .chart_api.ModeData value = 2;
+    {PROTOBUF_FIELD_OFFSET(MarketData_MarketsEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::chart_api::ModeData>()},
+  }}, {{
+    "\41\3\0\0\0\0\0\0"
+    "chart_api.MarketData.MarketsEntry"
+    "key"
+  }},
+};
+
+// ===================================================================
+
+class MarketData::_Internal {
+ public:
+};
+
+MarketData::MarketData(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:chart_api.MarketData)
+}
+inline PROTOBUF_NDEBUG_INLINE MarketData::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::chart_api::MarketData& from_msg)
+      : markets_{visibility, arena, from.markets_},
+        _cached_size_{0} {}
+
+MarketData::MarketData(
+    ::google::protobuf::Arena* arena,
+    const MarketData& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  MarketData* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:chart_api.MarketData)
+}
+inline PROTOBUF_NDEBUG_INLINE MarketData::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : markets_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void MarketData::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+MarketData::~MarketData() {
+  // @@protoc_insertion_point(destructor:chart_api.MarketData)
+  SharedDtor(*this);
+}
+inline void MarketData::SharedDtor(MessageLite& self) {
+  MarketData& this_ = static_cast<MarketData&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* MarketData::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) MarketData(arena);
+}
+constexpr auto MarketData::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(MarketData, _impl_.markets_) +
+          decltype(MarketData::_impl_.markets_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(MarketData, _impl_.markets_) +
+          decltype(MarketData::_impl_.markets_)::
+              InternalGetArenaOffsetAlt(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(MarketData), alignof(MarketData), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&MarketData::PlacementNew_,
+                                 sizeof(MarketData),
+                                 alignof(MarketData));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull MarketData::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_MarketData_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &MarketData::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<MarketData>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &MarketData::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<MarketData>(), &MarketData::ByteSizeLong,
+            &MarketData::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(MarketData, _impl_._cached_size_),
+        false,
+    },
+    &MarketData::kDescriptorMethods,
+    &descriptor_table_chart_5fapi_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* MarketData::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 2, 36, 2> MarketData::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::MarketData>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // map<string, .chart_api.ModeData> markets = 1;
+    {PROTOBUF_FIELD_OFFSET(MarketData, _impl_.markets_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+  }}, {{
+    {::_pbi::TcParser::GetMapAuxInfo<
+        decltype(MarketData()._impl_.markets_)>(
+        1, 0, 0, 9,
+        11)},
+    {::_pbi::TcParser::GetTable<::chart_api::ModeData>()},
+  }}, {{
+    "\24\7\0\0\0\0\0\0"
+    "chart_api.MarketData"
+    "markets"
+  }},
+};
+
+PROTOBUF_NOINLINE void MarketData::Clear() {
+// @@protoc_insertion_point(message_clear_start:chart_api.MarketData)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.markets_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* MarketData::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const MarketData& this_ = static_cast<const MarketData&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* MarketData::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const MarketData& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:chart_api.MarketData)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // map<string, .chart_api.ModeData> markets = 1;
+          if (!this_._internal_markets().empty()) {
+            using MapType = ::google::protobuf::Map<std::string, ::chart_api::ModeData>;
+            using WireHelper = _pbi::MapEntryFuncs<std::string, ::chart_api::ModeData,
+                                           _pbi::WireFormatLite::TYPE_STRING,
+                                           _pbi::WireFormatLite::TYPE_MESSAGE>;
+            const auto& field = this_._internal_markets();
+
+            if (stream->IsSerializationDeterministic() && field.size() > 1) {
+              for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+                target = WireHelper::InternalSerialize(
+                    1, entry.first, entry.second, target, stream);
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.MarketData.markets");
+              }
+            } else {
+              for (const auto& entry : field) {
+                target = WireHelper::InternalSerialize(
+                    1, entry.first, entry.second, target, stream);
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.MarketData.markets");
+              }
+            }
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:chart_api.MarketData)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t MarketData::ByteSizeLong(const MessageLite& base) {
+          const MarketData& this_ = static_cast<const MarketData&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t MarketData::ByteSizeLong() const {
+          const MarketData& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:chart_api.MarketData)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // map<string, .chart_api.ModeData> markets = 1;
+            {
+              total_size +=
+                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_markets_size());
+              for (const auto& entry : this_._internal_markets()) {
+                total_size += _pbi::MapEntryFuncs<std::string, ::chart_api::ModeData,
+                                               _pbi::WireFormatLite::TYPE_STRING,
+                                               _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+              }
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void MarketData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<MarketData*>(&to_msg);
+  auto& from = static_cast<const MarketData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:chart_api.MarketData)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.markets_.MergeFrom(from._impl_.markets_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void MarketData::CopyFrom(const MarketData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chart_api.MarketData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void MarketData::InternalSwap(MarketData* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.markets_.InternalSwap(&other->_impl_.markets_);
+}
+
+::google::protobuf::Metadata MarketData::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+class ModeData::_Internal {
+ public:
+};
+
+ModeData::ModeData(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:chart_api.ModeData)
+}
+inline PROTOBUF_NDEBUG_INLINE ModeData::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::chart_api::ModeData& from_msg)
+      : timestamps_{visibility, arena, from.timestamps_},
+        _cached_size_{0} {}
+
+ModeData::ModeData(
+    ::google::protobuf::Arena* arena,
+    const ModeData& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  ModeData* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:chart_api.ModeData)
+}
+inline PROTOBUF_NDEBUG_INLINE ModeData::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : timestamps_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void ModeData::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+ModeData::~ModeData() {
+  // @@protoc_insertion_point(destructor:chart_api.ModeData)
+  SharedDtor(*this);
+}
+inline void ModeData::SharedDtor(MessageLite& self) {
+  ModeData& this_ = static_cast<ModeData&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* ModeData::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) ModeData(arena);
+}
+constexpr auto ModeData::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(ModeData, _impl_.timestamps_) +
+          decltype(ModeData::_impl_.timestamps_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::ZeroInit(
+        sizeof(ModeData), alignof(ModeData), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&ModeData::PlacementNew_,
+                                 sizeof(ModeData),
+                                 alignof(ModeData));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull ModeData::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_ModeData_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &ModeData::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<ModeData>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &ModeData::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<ModeData>(), &ModeData::ByteSizeLong,
+            &ModeData::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(ModeData, _impl_._cached_size_),
+        false,
+    },
+    &ModeData::kDescriptorMethods,
+    &descriptor_table_chart_5fapi_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* ModeData::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 0, 37, 2> ModeData::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    0,  // num_aux_entries
+    offsetof(decltype(_table_), field_names),  // no aux_entries
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::ModeData>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // repeated string timestamps = 1;
+    {::_pbi::TcParser::FastUR1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(ModeData, _impl_.timestamps_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // repeated string timestamps = 1;
+    {PROTOBUF_FIELD_OFFSET(ModeData, _impl_.timestamps_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kUtf8String | ::_fl::kRepSString)},
+  }},
+  // no aux_entries
+  {{
+    "\22\12\0\0\0\0\0\0"
+    "chart_api.ModeData"
+    "timestamps"
+  }},
+};
+
+PROTOBUF_NOINLINE void ModeData::Clear() {
+// @@protoc_insertion_point(message_clear_start:chart_api.ModeData)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.timestamps_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* ModeData::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const ModeData& this_ = static_cast<const ModeData&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* ModeData::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const ModeData& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:chart_api.ModeData)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // repeated string timestamps = 1;
+          for (int i = 0, n = this_._internal_timestamps_size(); i < n; ++i) {
+            const auto& s = this_._internal_timestamps().Get(i);
+            ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                s.data(), static_cast<int>(s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.ModeData.timestamps");
+            target = stream->WriteString(1, s, target);
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:chart_api.ModeData)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t ModeData::ByteSizeLong(const MessageLite& base) {
+          const ModeData& this_ = static_cast<const ModeData&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t ModeData::ByteSizeLong() const {
+          const ModeData& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:chart_api.ModeData)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // repeated string timestamps = 1;
+            {
+              total_size +=
+                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_timestamps().size());
+              for (int i = 0, n = this_._internal_timestamps().size(); i < n; ++i) {
+                total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+                    this_._internal_timestamps().Get(i));
+              }
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void ModeData::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<ModeData*>(&to_msg);
+  auto& from = static_cast<const ModeData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:chart_api.ModeData)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_internal_mutable_timestamps()->MergeFrom(from._internal_timestamps());
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void ModeData::CopyFrom(const ModeData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chart_api.ModeData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void ModeData::InternalSwap(ModeData* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.timestamps_.InternalSwap(&other->_impl_.timestamps_);
+}
+
+::google::protobuf::Metadata ModeData::GetMetadata() const {
+  return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
+}
+// ===================================================================
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+              GetUsersResponse_UsersEntry_DoNotUse::GetUsersResponse_UsersEntry_DoNotUse() : SuperType(_class_data_.base()) {}
+              GetUsersResponse_UsersEntry_DoNotUse::GetUsersResponse_UsersEntry_DoNotUse(::google::protobuf::Arena* arena)
+                  : SuperType(arena, _class_data_.base()) {}
+#else   // PROTOBUF_CUSTOM_VTABLE
+              GetUsersResponse_UsersEntry_DoNotUse::GetUsersResponse_UsersEntry_DoNotUse() : SuperType() {}
+              GetUsersResponse_UsersEntry_DoNotUse::GetUsersResponse_UsersEntry_DoNotUse(::google::protobuf::Arena* arena) : SuperType(arena) {}
+#endif  // PROTOBUF_CUSTOM_VTABLE
+              inline void* GetUsersResponse_UsersEntry_DoNotUse::PlacementNew_(const void*, void* mem,
+                                                      ::google::protobuf::Arena* arena) {
+                return ::new (mem) GetUsersResponse_UsersEntry_DoNotUse(arena);
+              }
+              constexpr auto GetUsersResponse_UsersEntry_DoNotUse::InternalNewImpl_() {
+                return ::google::protobuf::internal::MessageCreator::CopyInit(sizeof(GetUsersResponse_UsersEntry_DoNotUse),
+                                                          alignof(GetUsersResponse_UsersEntry_DoNotUse));
+              }
+              PROTOBUF_CONSTINIT
+              PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+              const ::google::protobuf::internal::ClassDataFull GetUsersResponse_UsersEntry_DoNotUse::_class_data_ = {
+                  ::google::protobuf::internal::ClassData{
+                      &_GetUsersResponse_UsersEntry_DoNotUse_default_instance_._instance,
+                      &_table_.header,
+                      nullptr,  // OnDemandRegisterArenaDtor
+                      nullptr,  // IsInitialized
+                      &GetUsersResponse_UsersEntry_DoNotUse::MergeImpl,
+                      ::google::protobuf::Message::GetNewImpl<GetUsersResponse_UsersEntry_DoNotUse>(),
+              #if defined(PROTOBUF_CUSTOM_VTABLE)
+                      &GetUsersResponse_UsersEntry_DoNotUse::SharedDtor,
+                      static_cast<void (::google::protobuf::MessageLite::*)()>(
+                          &GetUsersResponse_UsersEntry_DoNotUse::ClearImpl),
+                          ::google::protobuf::Message::ByteSizeLongImpl, ::google::protobuf::Message::_InternalSerializeImpl
+                          ,
+              #endif  // PROTOBUF_CUSTOM_VTABLE
+                      PROTOBUF_FIELD_OFFSET(GetUsersResponse_UsersEntry_DoNotUse, _impl_._cached_size_),
+                      false,
+                  },
+                  &GetUsersResponse_UsersEntry_DoNotUse::kDescriptorMethods,
+                  &descriptor_table_chart_5fapi_2eproto,
+                  nullptr,  // tracker
+              };
+              const ::google::protobuf::internal::ClassData* GetUsersResponse_UsersEntry_DoNotUse::GetClassData() const {
+                ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+                ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+                return _class_data_.base();
+              }
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<1, 2, 1, 49, 2> GetUsersResponse_UsersEntry_DoNotUse::_table_ = {
+  {
+    PROTOBUF_FIELD_OFFSET(GetUsersResponse_UsersEntry_DoNotUse, _impl_._has_bits_),
+    0, // no _extensions_
+    2, 8,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967292,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    2,  // num_field_entries
+    1,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::DiscardEverythingFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::GetUsersResponse_UsersEntry_DoNotUse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    // .chart_api.ExchangeData value = 2;
+    {::_pbi::TcParser::FastMtS1,
+     {18, 0, 0, PROTOBUF_FIELD_OFFSET(GetUsersResponse_UsersEntry_DoNotUse, _impl_.value_)}},
+    // string key = 1;
+    {::_pbi::TcParser::FastUS1,
+     {10, 63, 0, PROTOBUF_FIELD_OFFSET(GetUsersResponse_UsersEntry_DoNotUse, _impl_.key_)}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // string key = 1;
+    {PROTOBUF_FIELD_OFFSET(GetUsersResponse_UsersEntry_DoNotUse, _impl_.key_), -1, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
+    // .chart_api.ExchangeData value = 2;
+    {PROTOBUF_FIELD_OFFSET(GetUsersResponse_UsersEntry_DoNotUse, _impl_.value_), _Internal::kHasBitsOffset + 0, 0,
+    (0 | ::_fl::kFcOptional | ::_fl::kMessage | ::_fl::kTvTable)},
+  }}, {{
+    {::_pbi::TcParser::GetTable<::chart_api::ExchangeData>()},
+  }}, {{
+    "\45\3\0\0\0\0\0\0"
+    "chart_api.GetUsersResponse.UsersEntry"
+    "key"
+  }},
+};
+
+// ===================================================================
+
+class GetUsersResponse::_Internal {
+ public:
+};
+
+GetUsersResponse::GetUsersResponse(::google::protobuf::Arena* arena)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  SharedCtor(arena);
+  // @@protoc_insertion_point(arena_constructor:chart_api.GetUsersResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE GetUsersResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
+    const Impl_& from, const ::chart_api::GetUsersResponse& from_msg)
+      : users_{visibility, arena, from.users_},
+        _cached_size_{0} {}
+
+GetUsersResponse::GetUsersResponse(
+    ::google::protobuf::Arena* arena,
+    const GetUsersResponse& from)
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+    : ::google::protobuf::Message(arena, _class_data_.base()) {
+#else   // PROTOBUF_CUSTOM_VTABLE
+    : ::google::protobuf::Message(arena) {
+#endif  // PROTOBUF_CUSTOM_VTABLE
+  GetUsersResponse* const _this = this;
+  (void)_this;
+  _internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(
+      from._internal_metadata_);
+  new (&_impl_) Impl_(internal_visibility(), arena, from._impl_, from);
+
+  // @@protoc_insertion_point(copy_constructor:chart_api.GetUsersResponse)
+}
+inline PROTOBUF_NDEBUG_INLINE GetUsersResponse::Impl_::Impl_(
+    ::google::protobuf::internal::InternalVisibility visibility,
+    ::google::protobuf::Arena* arena)
+      : users_{visibility, arena},
+        _cached_size_{0} {}
+
+inline void GetUsersResponse::SharedCtor(::_pb::Arena* arena) {
+  new (&_impl_) Impl_(internal_visibility(), arena);
+}
+GetUsersResponse::~GetUsersResponse() {
+  // @@protoc_insertion_point(destructor:chart_api.GetUsersResponse)
+  SharedDtor(*this);
+}
+inline void GetUsersResponse::SharedDtor(MessageLite& self) {
+  GetUsersResponse& this_ = static_cast<GetUsersResponse&>(self);
+  this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
+  ABSL_DCHECK(this_.GetArena() == nullptr);
+  this_._impl_.~Impl_();
+}
+
+inline void* GetUsersResponse::PlacementNew_(const void*, void* mem,
+                                        ::google::protobuf::Arena* arena) {
+  return ::new (mem) GetUsersResponse(arena);
+}
+constexpr auto GetUsersResponse::InternalNewImpl_() {
+  constexpr auto arena_bits = ::google::protobuf::internal::EncodePlacementArenaOffsets({
+      PROTOBUF_FIELD_OFFSET(GetUsersResponse, _impl_.users_) +
+          decltype(GetUsersResponse::_impl_.users_)::
+              InternalGetArenaOffset(
+                  ::google::protobuf::Message::internal_visibility()),
+      PROTOBUF_FIELD_OFFSET(GetUsersResponse, _impl_.users_) +
+          decltype(GetUsersResponse::_impl_.users_)::
+              InternalGetArenaOffsetAlt(
+                  ::google::protobuf::Message::internal_visibility()),
+  });
+  if (arena_bits.has_value()) {
+    return ::google::protobuf::internal::MessageCreator::CopyInit(
+        sizeof(GetUsersResponse), alignof(GetUsersResponse), *arena_bits);
+  } else {
+    return ::google::protobuf::internal::MessageCreator(&GetUsersResponse::PlacementNew_,
+                                 sizeof(GetUsersResponse),
+                                 alignof(GetUsersResponse));
+  }
+}
+PROTOBUF_CONSTINIT
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::google::protobuf::internal::ClassDataFull GetUsersResponse::_class_data_ = {
+    ::google::protobuf::internal::ClassData{
+        &_GetUsersResponse_default_instance_._instance,
+        &_table_.header,
+        nullptr,  // OnDemandRegisterArenaDtor
+        nullptr,  // IsInitialized
+        &GetUsersResponse::MergeImpl,
+        ::google::protobuf::Message::GetNewImpl<GetUsersResponse>(),
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        &GetUsersResponse::SharedDtor,
+        ::google::protobuf::Message::GetClearImpl<GetUsersResponse>(), &GetUsersResponse::ByteSizeLong,
+            &GetUsersResponse::_InternalSerialize,
+#endif  // PROTOBUF_CUSTOM_VTABLE
+        PROTOBUF_FIELD_OFFSET(GetUsersResponse, _impl_._cached_size_),
+        false,
+    },
+    &GetUsersResponse::kDescriptorMethods,
+    &descriptor_table_chart_5fapi_2eproto,
+    nullptr,  // tracker
+};
+const ::google::protobuf::internal::ClassData* GetUsersResponse::GetClassData() const {
+  ::google::protobuf::internal::PrefetchToLocalCache(&_class_data_);
+  ::google::protobuf::internal::PrefetchToLocalCache(_class_data_.tc_table);
+  return _class_data_.base();
+}
+PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
+const ::_pbi::TcParseTable<0, 1, 2, 40, 2> GetUsersResponse::_table_ = {
+  {
+    0,  // no _has_bits_
+    0, // no _extensions_
+    1, 0,  // max_field_number, fast_idx_mask
+    offsetof(decltype(_table_), field_lookup_table),
+    4294967294,  // skipmap
+    offsetof(decltype(_table_), field_entries),
+    1,  // num_field_entries
+    2,  // num_aux_entries
+    offsetof(decltype(_table_), aux_entries),
+    _class_data_.base(),
+    nullptr,  // post_loop_handler
+    ::_pbi::TcParser::GenericFallback,  // fallback
+    #ifdef PROTOBUF_PREFETCH_PARSE_TABLE
+    ::_pbi::TcParser::GetTable<::chart_api::GetUsersResponse>(),  // to_prefetch
+    #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
+  }, {{
+    {::_pbi::TcParser::MiniParse, {}},
+  }}, {{
+    65535, 65535
+  }}, {{
+    // map<string, .chart_api.ExchangeData> users = 1;
+    {PROTOBUF_FIELD_OFFSET(GetUsersResponse, _impl_.users_), 0, 0,
+    (0 | ::_fl::kFcRepeated | ::_fl::kMap)},
+  }}, {{
+    {::_pbi::TcParser::GetMapAuxInfo<
+        decltype(GetUsersResponse()._impl_.users_)>(
+        1, 0, 0, 9,
+        11)},
+    {::_pbi::TcParser::GetTable<::chart_api::ExchangeData>()},
+  }}, {{
+    "\32\5\0\0\0\0\0\0"
+    "chart_api.GetUsersResponse"
+    "users"
+  }},
+};
+
+PROTOBUF_NOINLINE void GetUsersResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:chart_api.GetUsersResponse)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.users_.Clear();
+  _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
+}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::uint8_t* GetUsersResponse::_InternalSerialize(
+            const MessageLite& base, ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) {
+          const GetUsersResponse& this_ = static_cast<const GetUsersResponse&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::uint8_t* GetUsersResponse::_InternalSerialize(
+            ::uint8_t* target,
+            ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+          const GetUsersResponse& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(serialize_to_array_start:chart_api.GetUsersResponse)
+          ::uint32_t cached_has_bits = 0;
+          (void)cached_has_bits;
+
+          // map<string, .chart_api.ExchangeData> users = 1;
+          if (!this_._internal_users().empty()) {
+            using MapType = ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>;
+            using WireHelper = _pbi::MapEntryFuncs<std::string, ::chart_api::ExchangeData,
+                                           _pbi::WireFormatLite::TYPE_STRING,
+                                           _pbi::WireFormatLite::TYPE_MESSAGE>;
+            const auto& field = this_._internal_users();
+
+            if (stream->IsSerializationDeterministic() && field.size() > 1) {
+              for (const auto& entry : ::google::protobuf::internal::MapSorterPtr<MapType>(field)) {
+                target = WireHelper::InternalSerialize(
+                    1, entry.first, entry.second, target, stream);
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.GetUsersResponse.users");
+              }
+            } else {
+              for (const auto& entry : field) {
+                target = WireHelper::InternalSerialize(
+                    1, entry.first, entry.second, target, stream);
+                ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+                    entry.first.data(), static_cast<int>(entry.first.length()),
+ ::google::protobuf::internal::WireFormatLite::SERIALIZE, "chart_api.GetUsersResponse.users");
+              }
+            }
+          }
+
+          if (PROTOBUF_PREDICT_FALSE(this_._internal_metadata_.have_unknown_fields())) {
+            target =
+                ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+                    this_._internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance), target, stream);
+          }
+          // @@protoc_insertion_point(serialize_to_array_end:chart_api.GetUsersResponse)
+          return target;
+        }
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+        ::size_t GetUsersResponse::ByteSizeLong(const MessageLite& base) {
+          const GetUsersResponse& this_ = static_cast<const GetUsersResponse&>(base);
+#else   // PROTOBUF_CUSTOM_VTABLE
+        ::size_t GetUsersResponse::ByteSizeLong() const {
+          const GetUsersResponse& this_ = *this;
+#endif  // PROTOBUF_CUSTOM_VTABLE
+          // @@protoc_insertion_point(message_byte_size_start:chart_api.GetUsersResponse)
+          ::size_t total_size = 0;
+
+          ::uint32_t cached_has_bits = 0;
+          // Prevent compiler warnings about cached_has_bits being unused
+          (void)cached_has_bits;
+
+          ::_pbi::Prefetch5LinesFrom7Lines(&this_);
+           {
+            // map<string, .chart_api.ExchangeData> users = 1;
+            {
+              total_size +=
+                  1 * ::google::protobuf::internal::FromIntSize(this_._internal_users_size());
+              for (const auto& entry : this_._internal_users()) {
+                total_size += _pbi::MapEntryFuncs<std::string, ::chart_api::ExchangeData,
+                                               _pbi::WireFormatLite::TYPE_STRING,
+                                               _pbi::WireFormatLite::TYPE_MESSAGE>::ByteSizeLong(entry.first, entry.second);
+              }
+            }
+          }
+          return this_.MaybeComputeUnknownFieldsSize(total_size,
+                                                     &this_._impl_._cached_size_);
+        }
+
+void GetUsersResponse::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::protobuf::MessageLite& from_msg) {
+  auto* const _this = static_cast<GetUsersResponse*>(&to_msg);
+  auto& from = static_cast<const GetUsersResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:chart_api.GetUsersResponse)
+  ABSL_DCHECK_NE(&from, _this);
+  ::uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.users_.MergeFrom(from._impl_.users_);
+  _this->_internal_metadata_.MergeFrom<::google::protobuf::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GetUsersResponse::CopyFrom(const GetUsersResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:chart_api.GetUsersResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+
+void GetUsersResponse::InternalSwap(GetUsersResponse* PROTOBUF_RESTRICT other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.users_.InternalSwap(&other->_impl_.users_);
+}
+
+::google::protobuf::Metadata GetUsersResponse::GetMetadata() const {
   return ::google::protobuf::Message::GetMetadataImpl(GetClassData()->full());
 }
 // @@protoc_insertion_point(namespace_scope)

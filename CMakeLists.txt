@@ -9,14 +9,13 @@ set(API_DIR ${CMAKE_SOURCE_DIR}/api)
 
 add_executable(Chart
         ${IMGUI_DIR}/imgui.cpp
-        ${IMGUI_DIR}/imgui_demo.cpp
         ${IMGUI_DIR}/imgui_draw.cpp
         ${IMGUI_DIR}/imgui_tables.cpp
         ${IMGUI_DIR}/imgui_widgets.cpp
+        ${IMGUI_DIR}/misc/cpp/imgui_stdlib.cpp
         ${IMGUI_DIR}/backends/imgui_impl_dx9.cpp
         ${IMGUI_DIR}/backends/imgui_impl_win32.cpp
         ${IMPLOT_DIR}/implot.cpp
-        ${IMPLOT_DIR}/implot_demo.cpp
         ${IMPLOT_DIR}/implot_items.cpp
         ${API_DIR}/chart_api.grpc.pb.cc
         ${API_DIR}/chart_api.grpc.pb.h
@@ -31,7 +30,8 @@ add_executable(Chart
         main.cpp
         Chart.cpp
         Chart.h
-        Style.cpp)
+        Style.cpp
+        PlotCandles.cpp)
 
 find_package(gRPC CONFIG REQUIRED)
 target_link_libraries(Chart PRIVATE

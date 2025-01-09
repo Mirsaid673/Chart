@@ -59,6 +59,12 @@ namespace chart_api {
 class DataPoint;
 struct DataPointDefaultTypeInternal;
 extern DataPointDefaultTypeInternal _DataPoint_default_instance_;
+class ExchangeData;
+struct ExchangeDataDefaultTypeInternal;
+extern ExchangeDataDefaultTypeInternal _ExchangeData_default_instance_;
+class ExchangeData_ExchangesEntry_DoNotUse;
+struct ExchangeData_ExchangesEntry_DoNotUseDefaultTypeInternal;
+extern ExchangeData_ExchangesEntry_DoNotUseDefaultTypeInternal _ExchangeData_ExchangesEntry_DoNotUse_default_instance_;
 class GetAlgosRequest;
 struct GetAlgosRequestDefaultTypeInternal;
 extern GetAlgosRequestDefaultTypeInternal _GetAlgosRequest_default_instance_;
@@ -83,6 +89,15 @@ extern GetStreamsByAlgoRequestDefaultTypeInternal _GetStreamsByAlgoRequest_defau
 class GetStreamsByAlgoResponse;
 struct GetStreamsByAlgoResponseDefaultTypeInternal;
 extern GetStreamsByAlgoResponseDefaultTypeInternal _GetStreamsByAlgoResponse_default_instance_;
+class GetUsersRequest;
+struct GetUsersRequestDefaultTypeInternal;
+extern GetUsersRequestDefaultTypeInternal _GetUsersRequest_default_instance_;
+class GetUsersResponse;
+struct GetUsersResponseDefaultTypeInternal;
+extern GetUsersResponseDefaultTypeInternal _GetUsersResponse_default_instance_;
+class GetUsersResponse_UsersEntry_DoNotUse;
+struct GetUsersResponse_UsersEntry_DoNotUseDefaultTypeInternal;
+extern GetUsersResponse_UsersEntry_DoNotUseDefaultTypeInternal _GetUsersResponse_UsersEntry_DoNotUse_default_instance_;
 class Indicator;
 struct IndicatorDefaultTypeInternal;
 extern IndicatorDefaultTypeInternal _Indicator_default_instance_;
@@ -98,6 +113,15 @@ extern Indicator_ParamEntry_DoNotUseDefaultTypeInternal _Indicator_ParamEntry_Do
 class LogEntry;
 struct LogEntryDefaultTypeInternal;
 extern LogEntryDefaultTypeInternal _LogEntry_default_instance_;
+class MarketData;
+struct MarketDataDefaultTypeInternal;
+extern MarketDataDefaultTypeInternal _MarketData_default_instance_;
+class MarketData_MarketsEntry_DoNotUse;
+struct MarketData_MarketsEntry_DoNotUseDefaultTypeInternal;
+extern MarketData_MarketsEntry_DoNotUseDefaultTypeInternal _MarketData_MarketsEntry_DoNotUse_default_instance_;
+class ModeData;
+struct ModeDataDefaultTypeInternal;
+extern ModeDataDefaultTypeInternal _ModeData_default_instance_;
 class StreamData;
 struct StreamDataDefaultTypeInternal;
 extern StreamDataDefaultTypeInternal _StreamData_default_instance_;
@@ -122,14 +146,14 @@ namespace chart_api {
 
 class Volume_ParamsEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<
-          std::string, double,
+          std::string, std::string,
           ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE> {
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
  public:
   using SuperType = ::google::protobuf::internal::MapEntry<
-      std::string, double,
+      std::string, std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>;
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
   Volume_ParamsEntry_DoNotUse();
   template <typename = void>
   explicit PROTOBUF_CONSTEXPR Volume_ParamsEntry_DoNotUse(
@@ -148,7 +172,7 @@ class Volume_ParamsEntry_DoNotUse final
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
-      40, 2>
+      45, 2>
       _table_;
 
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -156,6 +180,209 @@ class Volume_ParamsEntry_DoNotUse final
                              ::google::protobuf::Arena* arena);
   static constexpr auto InternalNewImpl_();
   static const ::google::protobuf::internal::ClassDataFull _class_data_;
+};
+// -------------------------------------------------------------------
+
+class ModeData final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:chart_api.ModeData) */ {
+ public:
+  inline ModeData() : ModeData(nullptr) {}
+  ~ModeData() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ModeData* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ModeData));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ModeData(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ModeData(const ModeData& from) : ModeData(nullptr, from) {}
+  inline ModeData(ModeData&& from) noexcept
+      : ModeData(nullptr, std::move(from)) {}
+  inline ModeData& operator=(const ModeData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ModeData& operator=(ModeData&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ModeData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ModeData* internal_default_instance() {
+    return reinterpret_cast<const ModeData*>(
+        &_ModeData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 22;
+  friend void swap(ModeData& a, ModeData& b) { a.Swap(&b); }
+  inline void Swap(ModeData* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ModeData* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ModeData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ModeData>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ModeData& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ModeData& from) { ModeData::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ModeData* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "chart_api.ModeData"; }
+
+ protected:
+  explicit ModeData(::google::protobuf::Arena* arena);
+  ModeData(::google::protobuf::Arena* arena, const ModeData& from);
+  ModeData(::google::protobuf::Arena* arena, ModeData&& from) noexcept
+      : ModeData(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kTimestampsFieldNumber = 1,
+  };
+  // repeated string timestamps = 1;
+  int timestamps_size() const;
+  private:
+  int _internal_timestamps_size() const;
+
+  public:
+  void clear_timestamps() ;
+  const std::string& timestamps(int index) const;
+  std::string* mutable_timestamps(int index);
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_timestamps(int index, Arg_&& value, Args_... args);
+  std::string* add_timestamps();
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void add_timestamps(Arg_&& value, Args_... args);
+  const ::google::protobuf::RepeatedPtrField<std::string>& timestamps() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* mutable_timestamps();
+
+  private:
+  const ::google::protobuf::RepeatedPtrField<std::string>& _internal_timestamps() const;
+  ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_timestamps();
+
+  public:
+  // @@protoc_insertion_point(class_scope:chart_api.ModeData)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      37, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ModeData& from_msg);
+    ::google::protobuf::RepeatedPtrField<std::string> timestamps_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_chart_5fapi_2eproto;
 };
 // -------------------------------------------------------------------
 
@@ -333,10 +560,10 @@ class LogEntry final
     kPositionSizeLongFieldNumber = 25,
     kPositionPriceLongFieldNumber = 26,
     kPositionUsdLongFieldNumber = 27,
-    kPnlLongFieldNumber = 28,
-    kFeeLongFieldNumber = 29,
+    kPnlUsdLongFieldNumber = 28,
+    kFeeUsdLongFieldNumber = 29,
     kFundingLongFieldNumber = 30,
-    kRplLongFieldNumber = 31,
+    kRplUsdLongFieldNumber = 31,
     kOrderLeverageShortFieldNumber = 32,
     kLeverageShortFieldNumber = 33,
     kOrderSizeShortFieldNumber = 34,
@@ -345,10 +572,10 @@ class LogEntry final
     kPositionUsdShortFieldNumber = 38,
     kPositionSizeShortFieldNumber = 39,
     kPositionPriceShortFieldNumber = 40,
-    kPnlShortFieldNumber = 41,
-    kFeeShortFieldNumber = 42,
+    kPnlUsdShortFieldNumber = 41,
+    kFeeUsdShortFieldNumber = 42,
     kFundingShortFieldNumber = 43,
-    kRplShortFieldNumber = 44,
+    kRplUsdShortFieldNumber = 44,
     kBlockIdFieldNumber = 10,
   };
   // string time = 2;
@@ -711,24 +938,24 @@ class LogEntry final
   void _internal_set_position_usd_long(double value);
 
   public:
-  // double pnl_long = 28;
-  void clear_pnl_long() ;
-  double pnl_long() const;
-  void set_pnl_long(double value);
+  // double pnl_usd_long = 28;
+  void clear_pnl_usd_long() ;
+  double pnl_usd_long() const;
+  void set_pnl_usd_long(double value);
 
   private:
-  double _internal_pnl_long() const;
-  void _internal_set_pnl_long(double value);
+  double _internal_pnl_usd_long() const;
+  void _internal_set_pnl_usd_long(double value);
 
   public:
-  // double fee_long = 29;
-  void clear_fee_long() ;
-  double fee_long() const;
-  void set_fee_long(double value);
+  // double fee_usd_long = 29;
+  void clear_fee_usd_long() ;
+  double fee_usd_long() const;
+  void set_fee_usd_long(double value);
 
   private:
-  double _internal_fee_long() const;
-  void _internal_set_fee_long(double value);
+  double _internal_fee_usd_long() const;
+  void _internal_set_fee_usd_long(double value);
 
   public:
   // double funding_long = 30;
@@ -741,14 +968,14 @@ class LogEntry final
   void _internal_set_funding_long(double value);
 
   public:
-  // double rpl_long = 31;
-  void clear_rpl_long() ;
-  double rpl_long() const;
-  void set_rpl_long(double value);
+  // double rpl_usd_long = 31;
+  void clear_rpl_usd_long() ;
+  double rpl_usd_long() const;
+  void set_rpl_usd_long(double value);
 
   private:
-  double _internal_rpl_long() const;
-  void _internal_set_rpl_long(double value);
+  double _internal_rpl_usd_long() const;
+  void _internal_set_rpl_usd_long(double value);
 
   public:
   // double order_leverage_short = 32;
@@ -831,24 +1058,24 @@ class LogEntry final
   void _internal_set_position_price_short(double value);
 
   public:
-  // double pnl_short = 41;
-  void clear_pnl_short() ;
-  double pnl_short() const;
-  void set_pnl_short(double value);
+  // double pnl_usd_short = 41;
+  void clear_pnl_usd_short() ;
+  double pnl_usd_short() const;
+  void set_pnl_usd_short(double value);
 
   private:
-  double _internal_pnl_short() const;
-  void _internal_set_pnl_short(double value);
+  double _internal_pnl_usd_short() const;
+  void _internal_set_pnl_usd_short(double value);
 
   public:
-  // double fee_short = 42;
-  void clear_fee_short() ;
-  double fee_short() const;
-  void set_fee_short(double value);
+  // double fee_usd_short = 42;
+  void clear_fee_usd_short() ;
+  double fee_usd_short() const;
+  void set_fee_usd_short(double value);
 
   private:
-  double _internal_fee_short() const;
-  void _internal_set_fee_short(double value);
+  double _internal_fee_usd_short() const;
+  void _internal_set_fee_usd_short(double value);
 
   public:
   // double funding_short = 43;
@@ -861,14 +1088,14 @@ class LogEntry final
   void _internal_set_funding_short(double value);
 
   public:
-  // double rpl_short = 44;
-  void clear_rpl_short() ;
-  double rpl_short() const;
-  void set_rpl_short(double value);
+  // double rpl_usd_short = 44;
+  void clear_rpl_usd_short() ;
+  double rpl_usd_short() const;
+  void set_rpl_usd_short(double value);
 
   private:
-  double _internal_rpl_short() const;
-  void _internal_set_rpl_short(double value);
+  double _internal_rpl_usd_short() const;
+  void _internal_set_rpl_usd_short(double value);
 
   public:
   // int32 block_id = 10;
@@ -931,10 +1158,10 @@ class LogEntry final
     double position_size_long_;
     double position_price_long_;
     double position_usd_long_;
-    double pnl_long_;
-    double fee_long_;
+    double pnl_usd_long_;
+    double fee_usd_long_;
     double funding_long_;
-    double rpl_long_;
+    double rpl_usd_long_;
     double order_leverage_short_;
     double leverage_short_;
     double order_size_short_;
@@ -943,10 +1170,10 @@ class LogEntry final
     double position_usd_short_;
     double position_size_short_;
     double position_price_short_;
-    double pnl_short_;
-    double fee_short_;
+    double pnl_usd_short_;
+    double fee_usd_short_;
     double funding_short_;
-    double rpl_short_;
+    double rpl_usd_short_;
     ::int32_t block_id_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -958,14 +1185,14 @@ class LogEntry final
 
 class IndicatorParam_ParamEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<
-          std::string, double,
+          std::string, std::string,
           ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE> {
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
  public:
   using SuperType = ::google::protobuf::internal::MapEntry<
-      std::string, double,
+      std::string, std::string,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>;
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
   IndicatorParam_ParamEntry_DoNotUse();
   template <typename = void>
   explicit PROTOBUF_CONSTEXPR IndicatorParam_ParamEntry_DoNotUse(
@@ -974,6 +1201,45 @@ class IndicatorParam_ParamEntry_DoNotUse final
   static const IndicatorParam_ParamEntry_DoNotUse* internal_default_instance() {
     return reinterpret_cast<const IndicatorParam_ParamEntry_DoNotUse*>(
         &_IndicatorParam_ParamEntry_DoNotUse_default_instance_);
+  }
+
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      52, 2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+};
+// -------------------------------------------------------------------
+
+class Indicator_ParamEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          std::string, std::string,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
+ public:
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      std::string, std::string,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
+  Indicator_ParamEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Indicator_ParamEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit Indicator_ParamEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const Indicator_ParamEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const Indicator_ParamEntry_DoNotUse*>(
+        &_Indicator_ParamEntry_DoNotUse_default_instance_);
   }
 
 
@@ -995,42 +1261,149 @@ class IndicatorParam_ParamEntry_DoNotUse final
 };
 // -------------------------------------------------------------------
 
-class Indicator_ParamEntry_DoNotUse final
-    : public ::google::protobuf::internal::MapEntry<
-          std::string, double,
-          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE> {
+class GetUsersRequest final
+    : public ::google::protobuf::internal::ZeroFieldsBase
+/* @@protoc_insertion_point(class_definition:chart_api.GetUsersRequest) */ {
  public:
-  using SuperType = ::google::protobuf::internal::MapEntry<
-      std::string, double,
-      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>;
-  Indicator_ParamEntry_DoNotUse();
+  inline GetUsersRequest() : GetUsersRequest(nullptr) {}
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GetUsersRequest* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GetUsersRequest));
+  }
+#endif
+
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Indicator_ParamEntry_DoNotUse(
+  explicit PROTOBUF_CONSTEXPR GetUsersRequest(
       ::google::protobuf::internal::ConstantInitialized);
-  explicit Indicator_ParamEntry_DoNotUse(::google::protobuf::Arena* arena);
-  static const Indicator_ParamEntry_DoNotUse* internal_default_instance() {
-    return reinterpret_cast<const Indicator_ParamEntry_DoNotUse*>(
-        &_Indicator_ParamEntry_DoNotUse_default_instance_);
+
+  inline GetUsersRequest(const GetUsersRequest& from) : GetUsersRequest(nullptr, from) {}
+  inline GetUsersRequest(GetUsersRequest&& from) noexcept
+      : GetUsersRequest(nullptr, std::move(from)) {}
+  inline GetUsersRequest& operator=(const GetUsersRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetUsersRequest& operator=(GetUsersRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
   }
 
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
 
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetUsersRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetUsersRequest* internal_default_instance() {
+    return reinterpret_cast<const GetUsersRequest*>(
+        &_GetUsersRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 17;
+  friend void swap(GetUsersRequest& a, GetUsersRequest& b) { a.Swap(&b); }
+  inline void Swap(GetUsersRequest* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetUsersRequest* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetUsersRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::internal::ZeroFieldsBase::DefaultConstruct<GetUsersRequest>(arena);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const GetUsersRequest& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  }
+  using ::google::protobuf::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const GetUsersRequest& from) {
+    ::google::protobuf::internal::ZeroFieldsBase::MergeImpl(*this, from);
+  }
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
  private:
-  friend class ::google::protobuf::MessageLite;
-  friend struct ::TableStruct_chart_5fapi_2eproto;
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "chart_api.GetUsersRequest"; }
 
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      42, 2>
-      _table_;
-
+ protected:
+  explicit GetUsersRequest(::google::protobuf::Arena* arena);
+  GetUsersRequest(::google::protobuf::Arena* arena, const GetUsersRequest& from);
+  GetUsersRequest(::google::protobuf::Arena* arena, GetUsersRequest&& from) noexcept
+      : GetUsersRequest(arena) {
+    *this = ::std::move(from);
+  }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
   static void* PlacementNew_(const void*, void* mem,
                              ::google::protobuf::Arena* arena);
   static constexpr auto InternalNewImpl_();
   static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  // @@protoc_insertion_point(class_scope:chart_api.GetUsersRequest)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 0, 0,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const GetUsersRequest& from_msg);
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  friend struct ::TableStruct_chart_5fapi_2eproto;
 };
 // -------------------------------------------------------------------
 
@@ -1378,11 +1751,28 @@ class GetLogsRequest final
 
   // accessors -------------------------------------------------------
   enum : int {
+    kModeTimeFieldNumber = 5,
     kFromTimestampFieldNumber = 2,
     kIdFieldNumber = 1,
     kOrdersOnlyFieldNumber = 3,
     kLimitFieldNumber = 4,
   };
+  // string mode_time = 5;
+  void clear_mode_time() ;
+  const std::string& mode_time() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_mode_time(Arg_&& arg, Args_... args);
+  std::string* mutable_mode_time();
+  PROTOBUF_NODISCARD std::string* release_mode_time();
+  void set_allocated_mode_time(std::string* value);
+
+  private:
+  const std::string& _internal_mode_time() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_mode_time(
+      const std::string& value);
+  std::string* _internal_mutable_mode_time();
+
+  public:
   // int64 from_timestamp = 2;
   void clear_from_timestamp() ;
   ::int64_t from_timestamp() const;
@@ -1428,8 +1818,8 @@ class GetLogsRequest final
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 4, 0,
-      0, 2>
+      3, 5, 0,
+      42, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -1446,6 +1836,7 @@ class GetLogsRequest final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const GetLogsRequest& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr mode_time_;
     ::int64_t from_timestamp_;
     ::int32_t id_;
     bool orders_only_;
@@ -2171,19 +2562,19 @@ class Volume final
   enum : int {
     kParamsFieldNumber = 1,
   };
-  // map<string, double> params = 1;
+  // map<string, string> params = 1;
   int params_size() const;
   private:
   int _internal_params_size() const;
 
   public:
   void clear_params() ;
-  const ::google::protobuf::Map<std::string, double>& params() const;
-  ::google::protobuf::Map<std::string, double>* mutable_params();
+  const ::google::protobuf::Map<std::string, std::string>& params() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_params();
 
   private:
-  const ::google::protobuf::Map<std::string, double>& _internal_params() const;
-  ::google::protobuf::Map<std::string, double>* _internal_mutable_params();
+  const ::google::protobuf::Map<std::string, std::string>& _internal_params() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_params();
 
   public:
   // @@protoc_insertion_point(class_scope:chart_api.Volume)
@@ -2209,15 +2600,54 @@ class Volume final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Volume& from_msg);
-    ::google::protobuf::internal::MapField<Volume_ParamsEntry_DoNotUse, std::string, double,
+    ::google::protobuf::internal::MapField<Volume_ParamsEntry_DoNotUse, std::string, std::string,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
         params_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_chart_5fapi_2eproto;
+};
+// -------------------------------------------------------------------
+
+class MarketData_MarketsEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          std::string, ::google::protobuf::Message,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      std::string, ::google::protobuf::Message,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  MarketData_MarketsEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MarketData_MarketsEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit MarketData_MarketsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const MarketData_MarketsEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const MarketData_MarketsEntry_DoNotUse*>(
+        &_MarketData_MarketsEntry_DoNotUse_default_instance_);
+  }
+
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      45, 2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
 };
 // -------------------------------------------------------------------
 
@@ -2371,19 +2801,19 @@ class IndicatorParam final
     kParamFieldNumber = 2,
     kTypeFieldNumber = 1,
   };
-  // map<string, double> param = 2;
+  // map<string, string> param = 2;
   int param_size() const;
   private:
   int _internal_param_size() const;
 
   public:
   void clear_param() ;
-  const ::google::protobuf::Map<std::string, double>& param() const;
-  ::google::protobuf::Map<std::string, double>* mutable_param();
+  const ::google::protobuf::Map<std::string, std::string>& param() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_param();
 
   private:
-  const ::google::protobuf::Map<std::string, double>& _internal_param() const;
-  ::google::protobuf::Map<std::string, double>* _internal_mutable_param();
+  const ::google::protobuf::Map<std::string, std::string>& _internal_param() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_param();
 
   public:
   // string type = 1;
@@ -2425,9 +2855,9 @@ class IndicatorParam final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const IndicatorParam& from_msg);
-    ::google::protobuf::internal::MapField<IndicatorParam_ParamEntry_DoNotUse, std::string, double,
+    ::google::protobuf::internal::MapField<IndicatorParam_ParamEntry_DoNotUse, std::string, std::string,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
         param_;
     ::google::protobuf::internal::ArenaStringPtr type_;
     ::google::protobuf::internal::CachedSize _cached_size_;
@@ -2960,6 +3390,205 @@ class StreamData final
 };
 // -------------------------------------------------------------------
 
+class MarketData final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:chart_api.MarketData) */ {
+ public:
+  inline MarketData() : MarketData(nullptr) {}
+  ~MarketData() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(MarketData* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(MarketData));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MarketData(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline MarketData(const MarketData& from) : MarketData(nullptr, from) {}
+  inline MarketData(MarketData&& from) noexcept
+      : MarketData(nullptr, std::move(from)) {}
+  inline MarketData& operator=(const MarketData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MarketData& operator=(MarketData&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MarketData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MarketData* internal_default_instance() {
+    return reinterpret_cast<const MarketData*>(
+        &_MarketData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 21;
+  friend void swap(MarketData& a, MarketData& b) { a.Swap(&b); }
+  inline void Swap(MarketData* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MarketData* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MarketData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<MarketData>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const MarketData& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const MarketData& from) { MarketData::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(MarketData* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "chart_api.MarketData"; }
+
+ protected:
+  explicit MarketData(::google::protobuf::Arena* arena);
+  MarketData(::google::protobuf::Arena* arena, const MarketData& from);
+  MarketData(::google::protobuf::Arena* arena, MarketData&& from) noexcept
+      : MarketData(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMarketsFieldNumber = 1,
+  };
+  // map<string, .chart_api.ModeData> markets = 1;
+  int markets_size() const;
+  private:
+  int _internal_markets_size() const;
+
+  public:
+  void clear_markets() ;
+  const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& markets() const;
+  ::google::protobuf::Map<std::string, ::chart_api::ModeData>* mutable_markets();
+
+  private:
+  const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& _internal_markets() const;
+  ::google::protobuf::Map<std::string, ::chart_api::ModeData>* _internal_mutable_markets();
+
+  public:
+  // @@protoc_insertion_point(class_scope:chart_api.MarketData)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 2,
+      36, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const MarketData& from_msg);
+    ::google::protobuf::internal::MapField<MarketData_MarketsEntry_DoNotUse, std::string, ::chart_api::ModeData,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        markets_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Indicator final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:chart_api.Indicator) */ {
@@ -3112,19 +3741,19 @@ class Indicator final
     kTypeFieldNumber = 1,
     kNameFieldNumber = 2,
   };
-  // map<string, double> param = 3;
+  // map<string, string> param = 3;
   int param_size() const;
   private:
   int _internal_param_size() const;
 
   public:
   void clear_param() ;
-  const ::google::protobuf::Map<std::string, double>& param() const;
-  ::google::protobuf::Map<std::string, double>* mutable_param();
+  const ::google::protobuf::Map<std::string, std::string>& param() const;
+  ::google::protobuf::Map<std::string, std::string>* mutable_param();
 
   private:
-  const ::google::protobuf::Map<std::string, double>& _internal_param() const;
-  ::google::protobuf::Map<std::string, double>* _internal_mutable_param();
+  const ::google::protobuf::Map<std::string, std::string>& _internal_param() const;
+  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_param();
 
   public:
   // repeated .chart_api.Volume volume = 4;
@@ -3199,9 +3828,9 @@ class Indicator final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Indicator& from_msg);
-    ::google::protobuf::internal::MapField<Indicator_ParamEntry_DoNotUse, std::string, double,
+    ::google::protobuf::internal::MapField<Indicator_ParamEntry_DoNotUse, std::string, std::string,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
         param_;
     ::google::protobuf::RepeatedPtrField< ::chart_api::Volume > volume_;
     ::google::protobuf::internal::ArenaStringPtr type_;
@@ -3409,6 +4038,45 @@ class GetStreamsByAlgoResponse final
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_chart_5fapi_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ExchangeData_ExchangesEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          std::string, ::google::protobuf::Message,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      std::string, ::google::protobuf::Message,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  ExchangeData_ExchangesEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ExchangeData_ExchangesEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit ExchangeData_ExchangesEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const ExchangeData_ExchangesEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const ExchangeData_ExchangesEntry_DoNotUse*>(
+        &_ExchangeData_ExchangesEntry_DoNotUse_default_instance_);
+  }
+
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      49, 2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
 };
 // -------------------------------------------------------------------
 
@@ -3914,6 +4582,443 @@ class GetDataResponse final
   union { Impl_ _impl_; };
   friend struct ::TableStruct_chart_5fapi_2eproto;
 };
+// -------------------------------------------------------------------
+
+class ExchangeData final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:chart_api.ExchangeData) */ {
+ public:
+  inline ExchangeData() : ExchangeData(nullptr) {}
+  ~ExchangeData() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ExchangeData* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ExchangeData));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ExchangeData(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ExchangeData(const ExchangeData& from) : ExchangeData(nullptr, from) {}
+  inline ExchangeData(ExchangeData&& from) noexcept
+      : ExchangeData(nullptr, std::move(from)) {}
+  inline ExchangeData& operator=(const ExchangeData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ExchangeData& operator=(ExchangeData&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ExchangeData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ExchangeData* internal_default_instance() {
+    return reinterpret_cast<const ExchangeData*>(
+        &_ExchangeData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 19;
+  friend void swap(ExchangeData& a, ExchangeData& b) { a.Swap(&b); }
+  inline void Swap(ExchangeData* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ExchangeData* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ExchangeData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ExchangeData>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ExchangeData& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ExchangeData& from) { ExchangeData::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ExchangeData* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "chart_api.ExchangeData"; }
+
+ protected:
+  explicit ExchangeData(::google::protobuf::Arena* arena);
+  ExchangeData(::google::protobuf::Arena* arena, const ExchangeData& from);
+  ExchangeData(::google::protobuf::Arena* arena, ExchangeData&& from) noexcept
+      : ExchangeData(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kExchangesFieldNumber = 1,
+  };
+  // map<string, .chart_api.MarketData> exchanges = 1;
+  int exchanges_size() const;
+  private:
+  int _internal_exchanges_size() const;
+
+  public:
+  void clear_exchanges() ;
+  const ::google::protobuf::Map<std::string, ::chart_api::MarketData>& exchanges() const;
+  ::google::protobuf::Map<std::string, ::chart_api::MarketData>* mutable_exchanges();
+
+  private:
+  const ::google::protobuf::Map<std::string, ::chart_api::MarketData>& _internal_exchanges() const;
+  ::google::protobuf::Map<std::string, ::chart_api::MarketData>* _internal_mutable_exchanges();
+
+  public:
+  // @@protoc_insertion_point(class_scope:chart_api.ExchangeData)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 2,
+      40, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ExchangeData& from_msg);
+    ::google::protobuf::internal::MapField<ExchangeData_ExchangesEntry_DoNotUse, std::string, ::chart_api::MarketData,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        exchanges_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GetUsersResponse_UsersEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          std::string, ::google::protobuf::Message,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      std::string, ::google::protobuf::Message,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  GetUsersResponse_UsersEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GetUsersResponse_UsersEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit GetUsersResponse_UsersEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const GetUsersResponse_UsersEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const GetUsersResponse_UsersEntry_DoNotUse*>(
+        &_GetUsersResponse_UsersEntry_DoNotUse_default_instance_);
+  }
+
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      49, 2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+};
+// -------------------------------------------------------------------
+
+class GetUsersResponse final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:chart_api.GetUsersResponse) */ {
+ public:
+  inline GetUsersResponse() : GetUsersResponse(nullptr) {}
+  ~GetUsersResponse() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(GetUsersResponse* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GetUsersResponse));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR GetUsersResponse(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline GetUsersResponse(const GetUsersResponse& from) : GetUsersResponse(nullptr, from) {}
+  inline GetUsersResponse(GetUsersResponse&& from) noexcept
+      : GetUsersResponse(nullptr, std::move(from)) {}
+  inline GetUsersResponse& operator=(const GetUsersResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GetUsersResponse& operator=(GetUsersResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GetUsersResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GetUsersResponse* internal_default_instance() {
+    return reinterpret_cast<const GetUsersResponse*>(
+        &_GetUsersResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 24;
+  friend void swap(GetUsersResponse& a, GetUsersResponse& b) { a.Swap(&b); }
+  inline void Swap(GetUsersResponse* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GetUsersResponse* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GetUsersResponse* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GetUsersResponse>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const GetUsersResponse& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const GetUsersResponse& from) { GetUsersResponse::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(GetUsersResponse* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "chart_api.GetUsersResponse"; }
+
+ protected:
+  explicit GetUsersResponse(::google::protobuf::Arena* arena);
+  GetUsersResponse(::google::protobuf::Arena* arena, const GetUsersResponse& from);
+  GetUsersResponse(::google::protobuf::Arena* arena, GetUsersResponse&& from) noexcept
+      : GetUsersResponse(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kUsersFieldNumber = 1,
+  };
+  // map<string, .chart_api.ExchangeData> users = 1;
+  int users_size() const;
+  private:
+  int _internal_users_size() const;
+
+  public:
+  void clear_users() ;
+  const ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>& users() const;
+  ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>* mutable_users();
+
+  private:
+  const ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>& _internal_users() const;
+  ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>* _internal_mutable_users();
+
+  public:
+  // @@protoc_insertion_point(class_scope:chart_api.GetUsersResponse)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 2,
+      40, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const GetUsersResponse& from_msg);
+    ::google::protobuf::internal::MapField<GetUsersResponse_UsersEntry_DoNotUse, std::string, ::chart_api::ExchangeData,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        users_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+};
 
 // ===================================================================
 
@@ -4105,7 +5210,7 @@ inline void IndicatorParam::set_allocated_type(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:chart_api.IndicatorParam.type)
 }
 
-// map<string, double> param = 2;
+// map<string, string> param = 2;
 inline int IndicatorParam::_internal_param_size() const {
   return _internal_param().size();
 }
@@ -4116,19 +5221,19 @@ inline void IndicatorParam::clear_param() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.param_.Clear();
 }
-inline const ::google::protobuf::Map<std::string, double>& IndicatorParam::_internal_param() const {
+inline const ::google::protobuf::Map<std::string, std::string>& IndicatorParam::_internal_param() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.param_.GetMap();
 }
-inline const ::google::protobuf::Map<std::string, double>& IndicatorParam::param() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Map<std::string, std::string>& IndicatorParam::param() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_map:chart_api.IndicatorParam.param)
   return _internal_param();
 }
-inline ::google::protobuf::Map<std::string, double>* IndicatorParam::_internal_mutable_param() {
+inline ::google::protobuf::Map<std::string, std::string>* IndicatorParam::_internal_mutable_param() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _impl_.param_.MutableMap();
 }
-inline ::google::protobuf::Map<std::string, double>* IndicatorParam::mutable_param() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Map<std::string, std::string>* IndicatorParam::mutable_param() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:chart_api.IndicatorParam.param)
   return _internal_mutable_param();
 }
@@ -4998,7 +6103,7 @@ inline void Indicator::set_allocated_name(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:chart_api.Indicator.name)
 }
 
-// map<string, double> param = 3;
+// map<string, string> param = 3;
 inline int Indicator::_internal_param_size() const {
   return _internal_param().size();
 }
@@ -5009,19 +6114,19 @@ inline void Indicator::clear_param() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.param_.Clear();
 }
-inline const ::google::protobuf::Map<std::string, double>& Indicator::_internal_param() const {
+inline const ::google::protobuf::Map<std::string, std::string>& Indicator::_internal_param() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.param_.GetMap();
 }
-inline const ::google::protobuf::Map<std::string, double>& Indicator::param() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Map<std::string, std::string>& Indicator::param() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_map:chart_api.Indicator.param)
   return _internal_param();
 }
-inline ::google::protobuf::Map<std::string, double>* Indicator::_internal_mutable_param() {
+inline ::google::protobuf::Map<std::string, std::string>* Indicator::_internal_mutable_param() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _impl_.param_.MutableMap();
 }
-inline ::google::protobuf::Map<std::string, double>* Indicator::mutable_param() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Map<std::string, std::string>* Indicator::mutable_param() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:chart_api.Indicator.param)
   return _internal_mutable_param();
 }
@@ -5081,7 +6186,7 @@ Indicator::_internal_mutable_volume() {
 
 // Volume
 
-// map<string, double> params = 1;
+// map<string, string> params = 1;
 inline int Volume::_internal_params_size() const {
   return _internal_params().size();
 }
@@ -5092,19 +6197,19 @@ inline void Volume::clear_params() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.params_.Clear();
 }
-inline const ::google::protobuf::Map<std::string, double>& Volume::_internal_params() const {
+inline const ::google::protobuf::Map<std::string, std::string>& Volume::_internal_params() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.params_.GetMap();
 }
-inline const ::google::protobuf::Map<std::string, double>& Volume::params() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Map<std::string, std::string>& Volume::params() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_map:chart_api.Volume.params)
   return _internal_params();
 }
-inline ::google::protobuf::Map<std::string, double>* Volume::_internal_mutable_params() {
+inline ::google::protobuf::Map<std::string, std::string>* Volume::_internal_mutable_params() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _impl_.params_.MutableMap();
 }
-inline ::google::protobuf::Map<std::string, double>* Volume::mutable_params() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Map<std::string, std::string>* Volume::mutable_params() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:chart_api.Volume.params)
   return _internal_mutable_params();
 }
@@ -5252,6 +6357,54 @@ inline ::int32_t GetLogsRequest::_internal_limit() const {
 inline void GetLogsRequest::_internal_set_limit(::int32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.limit_ = value;
+}
+
+// string mode_time = 5;
+inline void GetLogsRequest::clear_mode_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mode_time_.ClearToEmpty();
+}
+inline const std::string& GetLogsRequest::mode_time() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:chart_api.GetLogsRequest.mode_time)
+  return _internal_mode_time();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void GetLogsRequest::set_mode_time(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mode_time_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:chart_api.GetLogsRequest.mode_time)
+}
+inline std::string* GetLogsRequest::mutable_mode_time() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_mode_time();
+  // @@protoc_insertion_point(field_mutable:chart_api.GetLogsRequest.mode_time)
+  return _s;
+}
+inline const std::string& GetLogsRequest::_internal_mode_time() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.mode_time_.Get();
+}
+inline void GetLogsRequest::_internal_set_mode_time(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mode_time_.Set(value, GetArena());
+}
+inline std::string* GetLogsRequest::_internal_mutable_mode_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.mode_time_.Mutable( GetArena());
+}
+inline std::string* GetLogsRequest::release_mode_time() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:chart_api.GetLogsRequest.mode_time)
+  return _impl_.mode_time_.Release();
+}
+inline void GetLogsRequest::set_allocated_mode_time(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.mode_time_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.mode_time_.IsDefault()) {
+    _impl_.mode_time_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:chart_api.GetLogsRequest.mode_time)
 }
 
 // -------------------------------------------------------------------
@@ -5976,48 +7129,48 @@ inline void LogEntry::_internal_set_position_usd_long(double value) {
   _impl_.position_usd_long_ = value;
 }
 
-// double pnl_long = 28;
-inline void LogEntry::clear_pnl_long() {
+// double pnl_usd_long = 28;
+inline void LogEntry::clear_pnl_usd_long() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.pnl_long_ = 0;
+  _impl_.pnl_usd_long_ = 0;
 }
-inline double LogEntry::pnl_long() const {
-  // @@protoc_insertion_point(field_get:chart_api.LogEntry.pnl_long)
-  return _internal_pnl_long();
+inline double LogEntry::pnl_usd_long() const {
+  // @@protoc_insertion_point(field_get:chart_api.LogEntry.pnl_usd_long)
+  return _internal_pnl_usd_long();
 }
-inline void LogEntry::set_pnl_long(double value) {
-  _internal_set_pnl_long(value);
-  // @@protoc_insertion_point(field_set:chart_api.LogEntry.pnl_long)
+inline void LogEntry::set_pnl_usd_long(double value) {
+  _internal_set_pnl_usd_long(value);
+  // @@protoc_insertion_point(field_set:chart_api.LogEntry.pnl_usd_long)
 }
-inline double LogEntry::_internal_pnl_long() const {
+inline double LogEntry::_internal_pnl_usd_long() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.pnl_long_;
+  return _impl_.pnl_usd_long_;
 }
-inline void LogEntry::_internal_set_pnl_long(double value) {
+inline void LogEntry::_internal_set_pnl_usd_long(double value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.pnl_long_ = value;
+  _impl_.pnl_usd_long_ = value;
 }
 
-// double fee_long = 29;
-inline void LogEntry::clear_fee_long() {
+// double fee_usd_long = 29;
+inline void LogEntry::clear_fee_usd_long() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.fee_long_ = 0;
+  _impl_.fee_usd_long_ = 0;
 }
-inline double LogEntry::fee_long() const {
-  // @@protoc_insertion_point(field_get:chart_api.LogEntry.fee_long)
-  return _internal_fee_long();
+inline double LogEntry::fee_usd_long() const {
+  // @@protoc_insertion_point(field_get:chart_api.LogEntry.fee_usd_long)
+  return _internal_fee_usd_long();
 }
-inline void LogEntry::set_fee_long(double value) {
-  _internal_set_fee_long(value);
-  // @@protoc_insertion_point(field_set:chart_api.LogEntry.fee_long)
+inline void LogEntry::set_fee_usd_long(double value) {
+  _internal_set_fee_usd_long(value);
+  // @@protoc_insertion_point(field_set:chart_api.LogEntry.fee_usd_long)
 }
-inline double LogEntry::_internal_fee_long() const {
+inline double LogEntry::_internal_fee_usd_long() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.fee_long_;
+  return _impl_.fee_usd_long_;
 }
-inline void LogEntry::_internal_set_fee_long(double value) {
+inline void LogEntry::_internal_set_fee_usd_long(double value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.fee_long_ = value;
+  _impl_.fee_usd_long_ = value;
 }
 
 // double funding_long = 30;
@@ -6042,26 +7195,26 @@ inline void LogEntry::_internal_set_funding_long(double value) {
   _impl_.funding_long_ = value;
 }
 
-// double rpl_long = 31;
-inline void LogEntry::clear_rpl_long() {
+// double rpl_usd_long = 31;
+inline void LogEntry::clear_rpl_usd_long() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.rpl_long_ = 0;
+  _impl_.rpl_usd_long_ = 0;
 }
-inline double LogEntry::rpl_long() const {
-  // @@protoc_insertion_point(field_get:chart_api.LogEntry.rpl_long)
-  return _internal_rpl_long();
+inline double LogEntry::rpl_usd_long() const {
+  // @@protoc_insertion_point(field_get:chart_api.LogEntry.rpl_usd_long)
+  return _internal_rpl_usd_long();
 }
-inline void LogEntry::set_rpl_long(double value) {
-  _internal_set_rpl_long(value);
-  // @@protoc_insertion_point(field_set:chart_api.LogEntry.rpl_long)
+inline void LogEntry::set_rpl_usd_long(double value) {
+  _internal_set_rpl_usd_long(value);
+  // @@protoc_insertion_point(field_set:chart_api.LogEntry.rpl_usd_long)
 }
-inline double LogEntry::_internal_rpl_long() const {
+inline double LogEntry::_internal_rpl_usd_long() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.rpl_long_;
+  return _impl_.rpl_usd_long_;
 }
-inline void LogEntry::_internal_set_rpl_long(double value) {
+inline void LogEntry::_internal_set_rpl_usd_long(double value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.rpl_long_ = value;
+  _impl_.rpl_usd_long_ = value;
 }
 
 // double order_leverage_short = 32;
@@ -6288,48 +7441,48 @@ inline void LogEntry::_internal_set_position_price_short(double value) {
   _impl_.position_price_short_ = value;
 }
 
-// double pnl_short = 41;
-inline void LogEntry::clear_pnl_short() {
+// double pnl_usd_short = 41;
+inline void LogEntry::clear_pnl_usd_short() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.pnl_short_ = 0;
+  _impl_.pnl_usd_short_ = 0;
 }
-inline double LogEntry::pnl_short() const {
-  // @@protoc_insertion_point(field_get:chart_api.LogEntry.pnl_short)
-  return _internal_pnl_short();
+inline double LogEntry::pnl_usd_short() const {
+  // @@protoc_insertion_point(field_get:chart_api.LogEntry.pnl_usd_short)
+  return _internal_pnl_usd_short();
 }
-inline void LogEntry::set_pnl_short(double value) {
-  _internal_set_pnl_short(value);
-  // @@protoc_insertion_point(field_set:chart_api.LogEntry.pnl_short)
+inline void LogEntry::set_pnl_usd_short(double value) {
+  _internal_set_pnl_usd_short(value);
+  // @@protoc_insertion_point(field_set:chart_api.LogEntry.pnl_usd_short)
 }
-inline double LogEntry::_internal_pnl_short() const {
+inline double LogEntry::_internal_pnl_usd_short() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.pnl_short_;
+  return _impl_.pnl_usd_short_;
 }
-inline void LogEntry::_internal_set_pnl_short(double value) {
+inline void LogEntry::_internal_set_pnl_usd_short(double value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.pnl_short_ = value;
+  _impl_.pnl_usd_short_ = value;
 }
 
-// double fee_short = 42;
-inline void LogEntry::clear_fee_short() {
+// double fee_usd_short = 42;
+inline void LogEntry::clear_fee_usd_short() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.fee_short_ = 0;
+  _impl_.fee_usd_short_ = 0;
 }
-inline double LogEntry::fee_short() const {
-  // @@protoc_insertion_point(field_get:chart_api.LogEntry.fee_short)
-  return _internal_fee_short();
+inline double LogEntry::fee_usd_short() const {
+  // @@protoc_insertion_point(field_get:chart_api.LogEntry.fee_usd_short)
+  return _internal_fee_usd_short();
 }
-inline void LogEntry::set_fee_short(double value) {
-  _internal_set_fee_short(value);
-  // @@protoc_insertion_point(field_set:chart_api.LogEntry.fee_short)
+inline void LogEntry::set_fee_usd_short(double value) {
+  _internal_set_fee_usd_short(value);
+  // @@protoc_insertion_point(field_set:chart_api.LogEntry.fee_usd_short)
 }
-inline double LogEntry::_internal_fee_short() const {
+inline double LogEntry::_internal_fee_usd_short() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.fee_short_;
+  return _impl_.fee_usd_short_;
 }
-inline void LogEntry::_internal_set_fee_short(double value) {
+inline void LogEntry::_internal_set_fee_usd_short(double value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.fee_short_ = value;
+  _impl_.fee_usd_short_ = value;
 }
 
 // double funding_short = 43;
@@ -6354,26 +7507,26 @@ inline void LogEntry::_internal_set_funding_short(double value) {
   _impl_.funding_short_ = value;
 }
 
-// double rpl_short = 44;
-inline void LogEntry::clear_rpl_short() {
+// double rpl_usd_short = 44;
+inline void LogEntry::clear_rpl_usd_short() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.rpl_short_ = 0;
+  _impl_.rpl_usd_short_ = 0;
 }
-inline double LogEntry::rpl_short() const {
-  // @@protoc_insertion_point(field_get:chart_api.LogEntry.rpl_short)
-  return _internal_rpl_short();
+inline double LogEntry::rpl_usd_short() const {
+  // @@protoc_insertion_point(field_get:chart_api.LogEntry.rpl_usd_short)
+  return _internal_rpl_usd_short();
 }
-inline void LogEntry::set_rpl_short(double value) {
-  _internal_set_rpl_short(value);
-  // @@protoc_insertion_point(field_set:chart_api.LogEntry.rpl_short)
+inline void LogEntry::set_rpl_usd_short(double value) {
+  _internal_set_rpl_usd_short(value);
+  // @@protoc_insertion_point(field_set:chart_api.LogEntry.rpl_usd_short)
 }
-inline double LogEntry::_internal_rpl_short() const {
+inline double LogEntry::_internal_rpl_usd_short() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.rpl_short_;
+  return _impl_.rpl_usd_short_;
 }
-inline void LogEntry::_internal_set_rpl_short(double value) {
+inline void LogEntry::_internal_set_rpl_usd_short(double value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.rpl_short_ = value;
+  _impl_.rpl_usd_short_ = value;
 }
 
 // string user = 45;
@@ -6667,6 +7820,180 @@ inline ::google::protobuf::RepeatedPtrField<::chart_api::LogEntry>*
 GetLogsResponse::_internal_mutable_logs() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.logs_;
+}
+
+// -------------------------------------------------------------------
+
+// GetUsersRequest
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// ExchangeData
+
+// map<string, .chart_api.MarketData> exchanges = 1;
+inline int ExchangeData::_internal_exchanges_size() const {
+  return _internal_exchanges().size();
+}
+inline int ExchangeData::exchanges_size() const {
+  return _internal_exchanges_size();
+}
+inline void ExchangeData::clear_exchanges() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.exchanges_.Clear();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::MarketData>& ExchangeData::_internal_exchanges() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.exchanges_.GetMap();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::MarketData>& ExchangeData::exchanges() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:chart_api.ExchangeData.exchanges)
+  return _internal_exchanges();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::MarketData>* ExchangeData::_internal_mutable_exchanges() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.exchanges_.MutableMap();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::MarketData>* ExchangeData::mutable_exchanges() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:chart_api.ExchangeData.exchanges)
+  return _internal_mutable_exchanges();
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// MarketData
+
+// map<string, .chart_api.ModeData> markets = 1;
+inline int MarketData::_internal_markets_size() const {
+  return _internal_markets().size();
+}
+inline int MarketData::markets_size() const {
+  return _internal_markets_size();
+}
+inline void MarketData::clear_markets() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.markets_.Clear();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& MarketData::_internal_markets() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.markets_.GetMap();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& MarketData::markets() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:chart_api.MarketData.markets)
+  return _internal_markets();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::ModeData>* MarketData::_internal_mutable_markets() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.markets_.MutableMap();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::ModeData>* MarketData::mutable_markets() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:chart_api.MarketData.markets)
+  return _internal_mutable_markets();
+}
+
+// -------------------------------------------------------------------
+
+// ModeData
+
+// repeated string timestamps = 1;
+inline int ModeData::_internal_timestamps_size() const {
+  return _internal_timestamps().size();
+}
+inline int ModeData::timestamps_size() const {
+  return _internal_timestamps_size();
+}
+inline void ModeData::clear_timestamps() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.timestamps_.Clear();
+}
+inline std::string* ModeData::add_timestamps() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  std::string* _s = _internal_mutable_timestamps()->Add();
+  // @@protoc_insertion_point(field_add_mutable:chart_api.ModeData.timestamps)
+  return _s;
+}
+inline const std::string& ModeData::timestamps(int index) const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:chart_api.ModeData.timestamps)
+  return _internal_timestamps().Get(index);
+}
+inline std::string* ModeData::mutable_timestamps(int index)
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable:chart_api.ModeData.timestamps)
+  return _internal_mutable_timestamps()->Mutable(index);
+}
+template <typename Arg_, typename... Args_>
+inline void ModeData::set_timestamps(int index, Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::AssignToString(
+      *_internal_mutable_timestamps()->Mutable(index),
+      std::forward<Arg_>(value), args... );
+  // @@protoc_insertion_point(field_set:chart_api.ModeData.timestamps)
+}
+template <typename Arg_, typename... Args_>
+inline void ModeData::add_timestamps(Arg_&& value, Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_timestamps(),
+                               std::forward<Arg_>(value),
+                               args... );
+  // @@protoc_insertion_point(field_add:chart_api.ModeData.timestamps)
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+ModeData::timestamps() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:chart_api.ModeData.timestamps)
+  return _internal_timestamps();
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+ModeData::mutable_timestamps() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:chart_api.ModeData.timestamps)
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _internal_mutable_timestamps();
+}
+inline const ::google::protobuf::RepeatedPtrField<std::string>&
+ModeData::_internal_timestamps() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.timestamps_;
+}
+inline ::google::protobuf::RepeatedPtrField<std::string>*
+ModeData::_internal_mutable_timestamps() {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return &_impl_.timestamps_;
+}
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// GetUsersResponse
+
+// map<string, .chart_api.ExchangeData> users = 1;
+inline int GetUsersResponse::_internal_users_size() const {
+  return _internal_users().size();
+}
+inline int GetUsersResponse::users_size() const {
+  return _internal_users_size();
+}
+inline void GetUsersResponse::clear_users() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.users_.Clear();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>& GetUsersResponse::_internal_users() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.users_.GetMap();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>& GetUsersResponse::users() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:chart_api.GetUsersResponse.users)
+  return _internal_users();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>* GetUsersResponse::_internal_mutable_users() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.users_.MutableMap();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::ExchangeData>* GetUsersResponse::mutable_users() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:chart_api.GetUsersResponse.users)
+  return _internal_mutable_users();
 }
 
 #ifdef __GNUC__
