@@ -37,7 +37,7 @@ private:
     const std::string m_streams_title = "Streams";
     const std::string m_fields_title = "Fields";
 \
-    const Chart m_base_chart = Chart();
+    static const Chart m_base_chart;
 
     std::unique_ptr<chart_api::ChartAPI::Stub> m_stub;
     std::vector<std::string> m_algos;
@@ -60,12 +60,11 @@ private:
     void algosTab();
     void streamsTab();
     void fieldsTab();
-    void drawIndicator();
 
     std::vector<std::vector<Chart>> configureLayout(const chart_api::StreamData& stream);
     static std::string getSymbol(const chart_api::StreamData& stream) {
         return stream.coin() + "/" + stream.coin_second();
     }
     static void setStyle();
-    static void plotCandles(const std::string& label, const std::vector<chart_api::DataPoint>& candles);
+    static void plotChart(const Chart& chart, const std::vector<chart_api::DataPoint>& data);
 };

@@ -117,13 +117,12 @@ void ChartApp::contentWindow() {
             continue;
         ImGui::PushID(&charts);
         ImGui::BeginChild("##chart", {-1, height});
-        if (ImPlot::BeginPlot(symbol.c_str(), {-1,-1}, ImPlotFlags_NoTitle)) {
+        if (ImPlot::BeginPlot(symbol.c_str(), {-1,-1}, ImPlotFlags_NoTitle | ImPlotFlags_NoMouseText)) {
             ImPlot::SetupAxes(nullptr,nullptr,0,ImPlotAxisFlags_AutoFit|ImPlotAxisFlags_RangeFit);
             ImPlot::SetupAxisScale(ImAxis_X1, ImPlotScale_Time);
             ImPlot::SetupAxisFormat(ImAxis_Y1, "$%.2f");
             for (const auto& chart : charts) {
-                if (chart == m_base_chart)
-                    plotCandles(symbol, m_current_stream_data);
+                plotChart(chart, m_current_stream_data);
             }
             ImPlot::EndPlot();
         }
@@ -214,9 +213,6 @@ void ChartApp::fieldsTab() {
         }
         ImGui::EndTabItem();
     }
-}
-
-void ChartApp::drawIndicator() {
 }
 
 std::vector<std::vector<Chart>> ChartApp::configureLayout(const chart_api::StreamData &stream) {
