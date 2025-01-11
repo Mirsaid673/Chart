@@ -7,7 +7,7 @@
 #include <implot_internal.h>
 
 
-const Chart ChartApp::m_base_chart = Chart("candles", "base");
+const Chart ChartApp::m_base_chart = Chart("base_candles", "");
 
 double to_time(const std::string& str) {
     return std::stod(str);
@@ -19,7 +19,7 @@ void plotVols(const std::string &label, const std::vector<chart_api::DataPoint> 
 void ChartApp::plotChart(const Chart &chart, const std::vector<chart_api::DataPoint> &data) {
     const auto& type = chart.type;
 
-    if (chart == m_base_chart)
+    if (chart.type == m_base_chart.type)
         plotCandles(chart.name, data);
     else if(type == "vol")
         plotVols(chart.name, data, chart);
@@ -66,7 +66,7 @@ double roundTime(time_t t, uint32_t timeframe) {
 }
 
 void plotCandles(const std::string &label, const std::vector<chart_api::DataPoint> &candles) {
-    static constexpr float candle_width = 0.25f;
+    static constexpr float candle_width = 0.75f;
     static const ImVec4 bullCol = ImVec4(0.000f, 1.000f, 0.441f, 1.000f);
     static const ImVec4 bearCol = ImVec4(0.853f, 0.050f, 0.310f, 1.000f);
 
@@ -78,12 +78,13 @@ void plotCandles(const std::string &label, const std::vector<chart_api::DataPoin
         return;
     }
 
-    auto time_frame = to_time(candles[1].timestamp()) - to_time(candles[0].timestamp());
+    auto first_candle = to_time(candles.front().timestamp());
+    auto time_frame = to_time(candles[1].timestamp()) - first_candle;
     auto min_z = time_frame * 10;
     auto max_z = time_frame * 1000;
-    const auto half_width = time_frame * candle_width;
-
+    const auto half_width = time_frame * candle_width / 2;
     ImPlot::SetupAxisZoomConstraints(ImAxis_X1, min_z, max_z);
+    //ImPlot::SetupAxisLimits(ImAxis_X1, first_candle, last_candle + time_frame * 10,  ImPlotCond_Always);
     ImDrawList* draw_list = ImPlot::GetPlotDrawList();
     if (ImPlot::BeginItem(label.c_str())) {
         // ImPlot::GetCurrentItem()->Color = IM_COL32(64,64,64,255);
@@ -111,10 +112,10 @@ void plotCandles(const std::string &label, const std::vector<chart_api::DataPoin
     if (ImPlot::IsPlotHovered()) {
         ImGui::SetMouseCursor(ImGuiMouseCursor_None);
         auto color = IM_COL32_WHITE;
+        const auto limits = ImPlot::GetPlotLimits();
         ImPlotPoint plot_mouse = ImPlot::GetPlotMousePos();
         plot_mouse.x = roundTime(plot_mouse.x, time_frame);
         auto mouse = ImPlot::PlotToPixels(plot_mouse);
-        const auto limits = ImPlot::GetPlotLimits();
         auto min = ImPlot::PlotToPixels(limits.X.Min, limits.Y.Min);
         auto max = ImPlot::PlotToPixels(limits.X.Max, limits.Y.Max);
         ImPlot::PushPlotClipRect();

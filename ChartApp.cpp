@@ -122,7 +122,8 @@ void ChartApp::contentWindow() {
             ImPlot::SetupAxisScale(ImAxis_X1, ImPlotScale_Time);
             ImPlot::SetupAxisFormat(ImAxis_Y1, "$%.2f");
             for (const auto& chart : charts) {
-                plotChart(chart, m_current_stream_data);
+                const auto& to_pass = chart.type == m_base_chart.type ? Chart(m_base_chart.type, symbol) : chart;
+                plotChart(to_pass, m_current_stream_data);
             }
             ImPlot::EndPlot();
         }
