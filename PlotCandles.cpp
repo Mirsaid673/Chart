@@ -111,16 +111,30 @@ void plotCandles(const std::string &label, const std::vector<chart_api::DataPoin
     auto cursor = ImGui::GetMouseCursor();
     if (ImPlot::IsPlotHovered()) {
         ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-        auto color = IM_COL32_WHITE;
-        const auto limits = ImPlot::GetPlotLimits();
         ImPlotPoint plot_mouse = ImPlot::GetPlotMousePos();
         plot_mouse.x = roundTime(plot_mouse.x, time_frame);
+        auto color = IM_COL32_WHITE;
+        const auto limits = ImPlot::GetPlotLimits();
         auto mouse = ImPlot::PlotToPixels(plot_mouse);
         auto min = ImPlot::PlotToPixels(limits.X.Min, limits.Y.Min);
         auto max = ImPlot::PlotToPixels(limits.X.Max, limits.Y.Max);
         ImPlot::PushPlotClipRect();
         draw_list->AddLine({mouse.x, min.y}, {mouse.x, max.y}, color);
         draw_list->AddLine({min.x, mouse.y}, {max.x, mouse.y}, color);
+
+        int32_t idx = (plot_mouse.x - first_candle) / time_frame;
+        if (idx >= 0 and idx < candles.size()) {
+            const auto& candle = candles[idx];
+            ImGui::BeginTooltip();
+            char buff[32];
+            ImPlot::FormatDate(ImPlotTime::FromDouble(to_time(candle.timestamp())),buff,32,ImPlotDateFmt_DayMoYr,ImPlot::GetStyle().UseISO8601);
+            ImGui::Text("Day:   %s",  buff);
+            ImGui::Text("Open:  $%.2f", candle.open());
+            ImGui::Text("Close: $%.2f", candle.close());
+            ImGui::Text("Low:   $%.2f", candle.low());
+            ImGui::Text("High:  $%.2f", candle.high());
+            ImGui::EndTooltip();
+        }
 
         // ImGuiTextBuffer& builder = ImPlot::GetCurrentContext()->MousePosStringBuilder;
         // builder.Buf.shrink(0);

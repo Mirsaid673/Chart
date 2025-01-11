@@ -105,7 +105,7 @@ void ChartApp::draw() {
 void ChartApp::contentWindow() {
     ImGui::SetNextWindowClass(&base_window_class);
 
-    ImGui::Begin(m_content_title.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize); // TODO remove flag
+    ImGui::Begin(m_content_title.c_str(), nullptr);
     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, {0, 0});
     const auto& curr_stream = getCurrentStream();
     const auto& symbol = getSymbol(curr_stream);
