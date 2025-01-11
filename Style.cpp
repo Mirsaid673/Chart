@@ -1,8 +1,8 @@
-#include "Chart.h"
+#include "ChartApp.h"
 
 #include <imgui.h>
 
-void Chart::setStyle() {
+void ChartApp::setStyle() {
 	ImGuiIO& io = ImGui::GetIO();
 	io.Fonts->AddFontFromFileTTF(R"(C:\Windows\Fonts\Arial.ttf)", 18);
 

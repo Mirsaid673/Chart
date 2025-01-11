@@ -28,8 +28,8 @@ add_executable(Chart
         AppBase.cpp
         AppBase.h
         main.cpp
-        Chart.cpp
-        Chart.h
+        ChartApp.cpp
+        ChartApp.h
         Style.cpp
         PlotCandles.cpp)
 

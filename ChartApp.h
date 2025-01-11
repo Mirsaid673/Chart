@@ -7,7 +7,23 @@
 
 #include <vector>
 
-class Chart : public AppBase{
+struct Chart {
+    std::string type{};
+    std::string name{};
+
+    Chart() = default;
+    Chart(std::string type, std::string name) : type(std::move(type)), name(std::move(name)) {}
+
+    friend bool operator==(const Chart &lhs, const Chart &rhs) {
+        return lhs.type == rhs.type and lhs.name == rhs.name;
+    }
+
+    friend bool operator!=(const Chart &lhs, const Chart &rhs) {
+        return !(lhs == rhs);
+    }
+};
+
+class ChartApp : public AppBase{
     void start() override;
     void draw() override;
     void onResize(uint32_t new_width, uint32_t new_height) override;
@@ -21,13 +37,13 @@ private:
     const std::string m_streams_title = "Streams";
     const std::string m_fields_title = "Fields";
 \
-    const std::string m_base_chart = "charts";
+    const Chart m_base_chart = Chart();
 
     std::unique_ptr<chart_api::ChartAPI::Stub> m_stub;
     std::vector<std::string> m_algos;
     std::unordered_map<int32_t, chart_api::StreamData> m_streams;
     std::vector<chart_api::DataPoint> m_current_stream_data;
-    std::vector<std::vector<std::string>> m_fields_layout;
+    std::vector<std::vector<Chart>> m_fields_layout;
 
     uint32_t m_current_algo = 0;
     int32_t m_current_stream = 0;
@@ -38,17 +54,18 @@ private:
     std::vector<chart_api::DataPoint> getStreamData(int32_t stream_id);
 
     void onStreamChange(int32_t new_stream_id);
-    void plotCandles(const std::string& label, const std::vector<chart_api::DataPoint>& candles);
 
     void contentWindow();
     void sideBar();
     void algosTab();
     void streamsTab();
     void fieldsTab();
+    void drawIndicator();
 
-    std::vector<std::vector<std::string>> configureLayout(const chart_api::StreamData& stream);
-    std::string getSymbol(const chart_api::StreamData& stream) {
+    std::vector<std::vector<Chart>> configureLayout(const chart_api::StreamData& stream);
+    static std::string getSymbol(const chart_api::StreamData& stream) {
         return stream.coin() + "/" + stream.coin_second();
     }
-    void setStyle();
+    static void setStyle();
+    static void plotCandles(const std::string& label, const std::vector<chart_api::DataPoint>& candles);
 };

@@ -1,4 +1,4 @@
-#include "Chart.h"
+#include "ChartApp.h"
 
 #include <imgui.h>
 #include <imgui_internal.h>
@@ -10,7 +10,7 @@ double to_time(const std::string& str) {
     return std::stod(str);
 }
 
-void Chart::plotCandles(const std::string &label, const std::vector<chart_api::DataPoint> &candles) {
+void ChartApp::plotCandles(const std::string &label, const std::vector<chart_api::DataPoint> &candles) {
     static const float candle_width = 0.25f;
     static const ImVec4 bullCol = ImVec4(0.000f, 1.000f, 0.441f, 1.000f);
     static const ImVec4 bearCol = ImVec4(0.853f, 0.050f, 0.310f, 1.000f);

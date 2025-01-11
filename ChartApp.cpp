@@ -1,4 +1,4 @@
-#include "Chart.h"
+#include "ChartApp.h"
 
 #include <imgui.h>
 #include <imgui_internal.h>
@@ -6,7 +6,7 @@
 #include <implot.h>
 
 static ImGuiWindowClass base_window_class;
-void Chart::start() {
+void ChartApp::start() {
     setStyle();
 
     auto channel = grpc::CreateChannel(m_target, grpc::InsecureChannelCredentials());
@@ -54,7 +54,7 @@ void Chart::start() {
     base_window_class.DockNodeFlagsOverrideSet = ImGuiDockNodeFlags_NoTabBar;
 }
 
-std::vector<chart_api::DataPoint> Chart::getStreamData(int32_t stream_id) {
+std::vector<chart_api::DataPoint> ChartApp::getStreamData(int32_t stream_id) {
     grpc::ClientContext context;
     chart_api::GetDataRequest request;
     request.set_id(stream_id);
@@ -74,12 +74,12 @@ std::vector<chart_api::DataPoint> Chart::getStreamData(int32_t stream_id) {
     return std::move(result);
 }
 
-void Chart::onStreamChange(int32_t new_stream_id) {
+void ChartApp::onStreamChange(int32_t new_stream_id) {
     m_current_stream_data = std::move(getStreamData(new_stream_id));
     m_fields_layout = std::move(configureLayout(getStream(new_stream_id)));
 }
 
-void Chart::draw() {
+void ChartApp::draw() {
     // setup docking
     const auto dockspace_id = ImGui::GetID("MainDockSpace");
     ImGui::DockSpaceOverViewport(dockspace_id, nullptr, ImGuiDockNodeFlags_PassthruCentralNode);
@@ -102,7 +102,7 @@ void Chart::draw() {
     sideBar();
 }
 
-void Chart::contentWindow() {
+void ChartApp::contentWindow() {
     ImGui::SetNextWindowClass(&base_window_class);
 
     ImGui::Begin(m_content_title.c_str(), nullptr, ImGuiWindowFlags_AlwaysAutoResize); // TODO remove flag
@@ -112,17 +112,17 @@ void Chart::contentWindow() {
     const auto region = ImGui::GetContentRegionAvail();
     auto rows = std::ranges::count_if(m_fields_layout, [](const auto& layout) {return not layout.empty();});
     const auto height = region.y / static_cast<float>(rows);
-    for (const auto& indicators : m_fields_layout) {
-        if (indicators.empty())
+    for (const auto& charts : m_fields_layout) {
+        if (charts.empty())
             continue;
-        ImGui::PushID(&indicators);
-        ImGui::BeginChild("##indicator", {-1, height});
+        ImGui::PushID(&charts);
+        ImGui::BeginChild("##chart", {-1, height});
         if (ImPlot::BeginPlot(symbol.c_str(), {-1,-1}, ImPlotFlags_NoTitle)) {
             ImPlot::SetupAxes(nullptr,nullptr,0,ImPlotAxisFlags_AutoFit|ImPlotAxisFlags_RangeFit);
             ImPlot::SetupAxisScale(ImAxis_X1, ImPlotScale_Time);
             ImPlot::SetupAxisFormat(ImAxis_Y1, "$%.2f");
-            for (const auto& indicator : indicators) {
-                if (indicator == m_base_chart)
+            for (const auto& chart : charts) {
+                if (chart == m_base_chart)
                     plotCandles(symbol, m_current_stream_data);
             }
             ImPlot::EndPlot();
@@ -134,7 +134,7 @@ void Chart::contentWindow() {
     ImGui::End();
 }
 
-void Chart::sideBar() {
+void ChartApp::sideBar() {
     ImGui::SetNextWindowClass(&base_window_class);
     ImGui::Begin(m_side_bar_title.c_str(), nullptr, ImGuiWindowFlags_NoFocusOnAppearing);
     ImGui::BeginTabBar(m_side_bar_title.c_str());
@@ -147,7 +147,7 @@ void Chart::sideBar() {
     ImGui::End();
 }
 
-void Chart::algosTab() {
+void ChartApp::algosTab() {
     if (ImGui::BeginTabItem(m_algos_title.c_str())) {
         for (auto i = 0; i < m_algos.size(); i++) {
             auto& algo = m_algos[i];
@@ -159,7 +159,7 @@ void Chart::algosTab() {
     }
 }
 
-void Chart::streamsTab() {
+void ChartApp::streamsTab() {
     if (ImGui::BeginTabItem(m_streams_title.c_str())) {
         for (const auto&[id, stream] : m_streams) {
             if (stream.algo() != m_algos[m_current_algo])
@@ -175,21 +175,19 @@ void Chart::streamsTab() {
     }
 }
 
-void Chart::fieldsTab() {
+void ChartApp::fieldsTab() {
     if (ImGui::BeginTabItem(m_fields_title.c_str())) {
         auto& curr_stream = getCurrentStream();
         for (const auto& indicator : curr_stream.indicator_param()) {
-            ImGui::PushID(&indicator);
-
             auto params = indicator.param();
             const auto& name = params["name"];
             const auto& type = indicator.type();
-            const auto& identifier = type + ":" + name;
+            Chart curr_chart(type, name);
 
             auto found = -1;
             for (auto i = 0; i < m_fields_layout.size(); i++) {
                 const auto& field = m_fields_layout[i];
-                if (auto it = std::ranges::find(field, identifier); it != field.end()) {
+                if (auto it = std::ranges::find(field, curr_chart); it != field.end()) {
                     found = i;
                     break;
                 }
@@ -197,16 +195,18 @@ void Chart::fieldsTab() {
             std::string input;
             if (found != -1)
                 input = std::to_string(found);
+
+            ImGui::PushID(&curr_chart);
             ImGui::SetNextItemWidth(24);
-            if (ImGui::InputText(identifier.c_str(), &input, ImGuiInputTextFlags_CharsDigit | ImGuiInputTextFlags_CharsNoBlank))
+            if (ImGui::InputText(name.c_str(), &input, ImGuiInputTextFlags_CharsDigit | ImGuiInputTextFlags_CharsNoBlank))
             {
                 if (input.empty() and found != -1) {
-                    auto to_erase = std::ranges::find(m_fields_layout[found], identifier);
+                    auto to_erase = std::ranges::find(m_fields_layout[found], curr_chart);
                     m_fields_layout[found].erase(to_erase);
                 }else {
                     auto to_push = std::stoi(input);
                     if (to_push < m_fields_layout.size())
-                        m_fields_layout[to_push].push_back(identifier);
+                        m_fields_layout[to_push].push_back(curr_chart);
                 }
             }
 
@@ -216,8 +216,11 @@ void Chart::fieldsTab() {
     }
 }
 
-std::vector<std::vector<std::string>> Chart::configureLayout(const chart_api::StreamData &stream) {
-    std::vector<std::vector<std::string>> result;
+void ChartApp::drawIndicator() {
+}
+
+std::vector<std::vector<Chart>> ChartApp::configureLayout(const chart_api::StreamData &stream) {
+    std::vector<std::vector<Chart>> result;
     result.resize(stream.indicator_param_size() + 1);
     // for (auto& i : stream.indicator_param()) {
     //         std::cout << i.type() << std::endl << std::endl;
@@ -229,6 +232,6 @@ std::vector<std::vector<std::string>> Chart::configureLayout(const chart_api::St
     return std::move(result);
 }
 
-void Chart::onResize(uint32_t new_width, uint32_t new_height) {
+void ChartApp::onResize(uint32_t new_width, uint32_t new_height) {
     std::cout << new_width << ", " << new_height << std::endl;
 }
