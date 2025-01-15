@@ -42,12 +42,12 @@ class ChartAPI final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetAlgosResponse>> PrepareAsyncGetAlgos(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetAlgosResponse>>(PrepareAsyncGetAlgosRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::chart_api::GetStreamsByAlgoResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsByAlgoResponse>> AsyncGetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsByAlgoResponse>>(AsyncGetStreamsByAlgoRaw(context, request, cq));
+    virtual ::grpc::Status GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::chart_api::GetStreamsResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsResponse>> AsyncGetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsResponse>>(AsyncGetStreamsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsByAlgoResponse>> PrepareAsyncGetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsByAlgoResponse>>(PrepareAsyncGetStreamsByAlgoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsResponse>> PrepareAsyncGetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsResponse>>(PrepareAsyncGetStreamsRaw(context, request, cq));
     }
     virtual ::grpc::Status GetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::chart_api::GetDataResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetDataResponse>> AsyncGetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::grpc::CompletionQueue* cq) {
@@ -75,8 +75,8 @@ class ChartAPI final {
       virtual ~async_interface() {}
       virtual void GetAlgos(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest* request, ::chart_api::GetAlgosResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetAlgos(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest* request, ::chart_api::GetAlgosResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest* request, ::chart_api::GetDataResponse* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest* request, ::chart_api::GetDataResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void GetLogs(::grpc::ClientContext* context, const ::chart_api::GetLogsRequest* request, ::chart_api::GetLogsResponse* response, std::function<void(::grpc::Status)>) = 0;
@@ -90,8 +90,8 @@ class ChartAPI final {
    private:
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetAlgosResponse>* AsyncGetAlgosRaw(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetAlgosResponse>* PrepareAsyncGetAlgosRaw(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsByAlgoResponse>* AsyncGetStreamsByAlgoRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsByAlgoResponse>* PrepareAsyncGetStreamsByAlgoRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsResponse>* AsyncGetStreamsRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetStreamsResponse>* PrepareAsyncGetStreamsRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetDataResponse>* AsyncGetDataRaw(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetDataResponse>* PrepareAsyncGetDataRaw(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::chart_api::GetLogsResponse>* AsyncGetLogsRaw(::grpc::ClientContext* context, const ::chart_api::GetLogsRequest& request, ::grpc::CompletionQueue* cq) = 0;
@@ -109,12 +109,12 @@ class ChartAPI final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetAlgosResponse>> PrepareAsyncGetAlgos(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetAlgosResponse>>(PrepareAsyncGetAlgosRaw(context, request, cq));
     }
-    ::grpc::Status GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::chart_api::GetStreamsByAlgoResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>> AsyncGetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>>(AsyncGetStreamsByAlgoRaw(context, request, cq));
+    ::grpc::Status GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::chart_api::GetStreamsResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>> AsyncGetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>>(AsyncGetStreamsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>> PrepareAsyncGetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>>(PrepareAsyncGetStreamsByAlgoRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>> PrepareAsyncGetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>>(PrepareAsyncGetStreamsRaw(context, request, cq));
     }
     ::grpc::Status GetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::chart_api::GetDataResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::chart_api::GetDataResponse>> AsyncGetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::grpc::CompletionQueue* cq) {
@@ -142,8 +142,8 @@ class ChartAPI final {
      public:
       void GetAlgos(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest* request, ::chart_api::GetAlgosResponse* response, std::function<void(::grpc::Status)>) override;
       void GetAlgos(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest* request, ::chart_api::GetAlgosResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response, std::function<void(::grpc::Status)>) override;
-      void GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest* request, ::chart_api::GetDataResponse* response, std::function<void(::grpc::Status)>) override;
       void GetData(::grpc::ClientContext* context, const ::chart_api::GetDataRequest* request, ::chart_api::GetDataResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetLogs(::grpc::ClientContext* context, const ::chart_api::GetLogsRequest* request, ::chart_api::GetLogsResponse* response, std::function<void(::grpc::Status)>) override;
@@ -163,8 +163,8 @@ class ChartAPI final {
     class async async_stub_{this};
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetAlgosResponse>* AsyncGetAlgosRaw(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetAlgosResponse>* PrepareAsyncGetAlgosRaw(::grpc::ClientContext* context, const ::chart_api::GetAlgosRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>* AsyncGetStreamsByAlgoRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>* PrepareAsyncGetStreamsByAlgoRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>* AsyncGetStreamsRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>* PrepareAsyncGetStreamsRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetDataResponse>* AsyncGetDataRaw(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetDataResponse>* PrepareAsyncGetDataRaw(::grpc::ClientContext* context, const ::chart_api::GetDataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetLogsResponse>* AsyncGetLogsRaw(::grpc::ClientContext* context, const ::chart_api::GetLogsRequest& request, ::grpc::CompletionQueue* cq) override;
@@ -172,7 +172,7 @@ class ChartAPI final {
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetUsersResponse>* AsyncGetUsersRaw(::grpc::ClientContext* context, const ::chart_api::GetUsersRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::chart_api::GetUsersResponse>* PrepareAsyncGetUsersRaw(::grpc::ClientContext* context, const ::chart_api::GetUsersRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetAlgos_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetStreamsByAlgo_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetStreams_;
     const ::grpc::internal::RpcMethod rpcmethod_GetData_;
     const ::grpc::internal::RpcMethod rpcmethod_GetLogs_;
     const ::grpc::internal::RpcMethod rpcmethod_GetUsers_;
@@ -184,7 +184,7 @@ class ChartAPI final {
     Service();
     virtual ~Service();
     virtual ::grpc::Status GetAlgos(::grpc::ServerContext* context, const ::chart_api::GetAlgosRequest* request, ::chart_api::GetAlgosResponse* response);
-    virtual ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response);
+    virtual ::grpc::Status GetStreams(::grpc::ServerContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response);
     virtual ::grpc::Status GetData(::grpc::ServerContext* context, const ::chart_api::GetDataRequest* request, ::chart_api::GetDataResponse* response);
     virtual ::grpc::Status GetLogs(::grpc::ServerContext* context, const ::chart_api::GetLogsRequest* request, ::chart_api::GetLogsResponse* response);
     virtual ::grpc::Status GetUsers(::grpc::ServerContext* context, const ::chart_api::GetUsersRequest* request, ::chart_api::GetUsersResponse* response);
@@ -210,22 +210,22 @@ class ChartAPI final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetStreamsByAlgo : public BaseClass {
+  class WithAsyncMethod_GetStreams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetStreamsByAlgo() {
+    WithAsyncMethod_GetStreams() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_GetStreamsByAlgo() override {
+    ~WithAsyncMethod_GetStreams() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/) override {
+    ::grpc::Status GetStreams(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetStreamsByAlgo(::grpc::ServerContext* context, ::chart_api::GetStreamsByAlgoRequest* request, ::grpc::ServerAsyncResponseWriter< ::chart_api::GetStreamsByAlgoResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetStreams(::grpc::ServerContext* context, ::chart_api::GetStreamsRequest* request, ::grpc::ServerAsyncResponseWriter< ::chart_api::GetStreamsResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -289,7 +289,7 @@ class ChartAPI final {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetAlgos<WithAsyncMethod_GetStreamsByAlgo<WithAsyncMethod_GetData<WithAsyncMethod_GetLogs<WithAsyncMethod_GetUsers<Service > > > > > AsyncService;
+  typedef WithAsyncMethod_GetAlgos<WithAsyncMethod_GetStreams<WithAsyncMethod_GetData<WithAsyncMethod_GetLogs<WithAsyncMethod_GetUsers<Service > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GetAlgos : public BaseClass {
    private:
@@ -318,31 +318,31 @@ class ChartAPI final {
       ::grpc::CallbackServerContext* /*context*/, const ::chart_api::GetAlgosRequest* /*request*/, ::chart_api::GetAlgosResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetStreamsByAlgo : public BaseClass {
+  class WithCallbackMethod_GetStreams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetStreamsByAlgo() {
+    WithCallbackMethod_GetStreams() {
       ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response) { return this->GetStreamsByAlgo(context, request, response); }));}
-    void SetMessageAllocatorFor_GetStreamsByAlgo(
-        ::grpc::MessageAllocator< ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response) { return this->GetStreams(context, request, response); }));}
+    void SetMessageAllocatorFor_GetStreams(
+        ::grpc::MessageAllocator< ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetStreamsByAlgo() override {
+    ~WithCallbackMethod_GetStreams() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/) override {
+    ::grpc::Status GetStreams(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetStreamsByAlgo(
-      ::grpc::CallbackServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* GetStreams(
+      ::grpc::CallbackServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithCallbackMethod_GetData : public BaseClass {
@@ -425,7 +425,7 @@ class ChartAPI final {
     virtual ::grpc::ServerUnaryReactor* GetUsers(
       ::grpc::CallbackServerContext* /*context*/, const ::chart_api::GetUsersRequest* /*request*/, ::chart_api::GetUsersResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GetAlgos<WithCallbackMethod_GetStreamsByAlgo<WithCallbackMethod_GetData<WithCallbackMethod_GetLogs<WithCallbackMethod_GetUsers<Service > > > > > CallbackService;
+  typedef WithCallbackMethod_GetAlgos<WithCallbackMethod_GetStreams<WithCallbackMethod_GetData<WithCallbackMethod_GetLogs<WithCallbackMethod_GetUsers<Service > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetAlgos : public BaseClass {
@@ -445,18 +445,18 @@ class ChartAPI final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetStreamsByAlgo : public BaseClass {
+  class WithGenericMethod_GetStreams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetStreamsByAlgo() {
+    WithGenericMethod_GetStreams() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_GetStreamsByAlgo() override {
+    ~WithGenericMethod_GetStreams() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/) override {
+    ::grpc::Status GetStreams(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -533,22 +533,22 @@ class ChartAPI final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetStreamsByAlgo : public BaseClass {
+  class WithRawMethod_GetStreams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetStreamsByAlgo() {
+    WithRawMethod_GetStreams() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_GetStreamsByAlgo() override {
+    ~WithRawMethod_GetStreams() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/) override {
+    ::grpc::Status GetStreams(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetStreamsByAlgo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetStreams(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -635,25 +635,25 @@ class ChartAPI final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetStreamsByAlgo : public BaseClass {
+  class WithRawCallbackMethod_GetStreams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetStreamsByAlgo() {
+    WithRawCallbackMethod_GetStreams() {
       ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetStreamsByAlgo(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetStreams(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetStreamsByAlgo() override {
+    ~WithRawCallbackMethod_GetStreams() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/) override {
+    ::grpc::Status GetStreams(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetStreamsByAlgo(
+    virtual ::grpc::ServerUnaryReactor* GetStreams(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -750,31 +750,31 @@ class ChartAPI final {
     virtual ::grpc::Status StreamedGetAlgos(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chart_api::GetAlgosRequest,::chart_api::GetAlgosResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetStreamsByAlgo : public BaseClass {
+  class WithStreamedUnaryMethod_GetStreams : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetStreamsByAlgo() {
+    WithStreamedUnaryMethod_GetStreams() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse>(
+          ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse>* streamer) {
-                       return this->StreamedGetStreamsByAlgo(context,
+                     ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse>* streamer) {
+                       return this->StreamedGetStreams(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetStreamsByAlgo() override {
+    ~WithStreamedUnaryMethod_GetStreams() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetStreamsByAlgo(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsByAlgoRequest* /*request*/, ::chart_api::GetStreamsByAlgoResponse* /*response*/) override {
+    ::grpc::Status GetStreams(::grpc::ServerContext* /*context*/, const ::chart_api::GetStreamsRequest* /*request*/, ::chart_api::GetStreamsResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetStreamsByAlgo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chart_api::GetStreamsByAlgoRequest,::chart_api::GetStreamsByAlgoResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetStreams(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chart_api::GetStreamsRequest,::chart_api::GetStreamsResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetData : public BaseClass {
@@ -857,9 +857,9 @@ class ChartAPI final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetUsers(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::chart_api::GetUsersRequest,::chart_api::GetUsersResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetAlgos<WithStreamedUnaryMethod_GetStreamsByAlgo<WithStreamedUnaryMethod_GetData<WithStreamedUnaryMethod_GetLogs<WithStreamedUnaryMethod_GetUsers<Service > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_GetAlgos<WithStreamedUnaryMethod_GetStreams<WithStreamedUnaryMethod_GetData<WithStreamedUnaryMethod_GetLogs<WithStreamedUnaryMethod_GetUsers<Service > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetAlgos<WithStreamedUnaryMethod_GetStreamsByAlgo<WithStreamedUnaryMethod_GetData<WithStreamedUnaryMethod_GetLogs<WithStreamedUnaryMethod_GetUsers<Service > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetAlgos<WithStreamedUnaryMethod_GetStreams<WithStreamedUnaryMethod_GetData<WithStreamedUnaryMethod_GetLogs<WithStreamedUnaryMethod_GetUsers<Service > > > > > StreamedService;
 };
 
 }  // namespace chart_api

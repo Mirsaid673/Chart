@@ -83,12 +83,12 @@ extern GetLogsRequestDefaultTypeInternal _GetLogsRequest_default_instance_;
 class GetLogsResponse;
 struct GetLogsResponseDefaultTypeInternal;
 extern GetLogsResponseDefaultTypeInternal _GetLogsResponse_default_instance_;
-class GetStreamsByAlgoRequest;
-struct GetStreamsByAlgoRequestDefaultTypeInternal;
-extern GetStreamsByAlgoRequestDefaultTypeInternal _GetStreamsByAlgoRequest_default_instance_;
-class GetStreamsByAlgoResponse;
-struct GetStreamsByAlgoResponseDefaultTypeInternal;
-extern GetStreamsByAlgoResponseDefaultTypeInternal _GetStreamsByAlgoResponse_default_instance_;
+class GetStreamsRequest;
+struct GetStreamsRequestDefaultTypeInternal;
+extern GetStreamsRequestDefaultTypeInternal _GetStreamsRequest_default_instance_;
+class GetStreamsResponse;
+struct GetStreamsResponseDefaultTypeInternal;
+extern GetStreamsResponseDefaultTypeInternal _GetStreamsResponse_default_instance_;
 class GetUsersRequest;
 struct GetUsersRequestDefaultTypeInternal;
 extern GetUsersRequestDefaultTypeInternal _GetUsersRequest_default_instance_;
@@ -122,15 +122,21 @@ extern MarketData_MarketsEntry_DoNotUseDefaultTypeInternal _MarketData_MarketsEn
 class ModeData;
 struct ModeDataDefaultTypeInternal;
 extern ModeDataDefaultTypeInternal _ModeData_default_instance_;
+class ModeData_ModesEntry_DoNotUse;
+struct ModeData_ModesEntry_DoNotUseDefaultTypeInternal;
+extern ModeData_ModesEntry_DoNotUseDefaultTypeInternal _ModeData_ModesEntry_DoNotUse_default_instance_;
 class StreamData;
 struct StreamDataDefaultTypeInternal;
 extern StreamDataDefaultTypeInternal _StreamData_default_instance_;
-class Volume;
-struct VolumeDefaultTypeInternal;
-extern VolumeDefaultTypeInternal _Volume_default_instance_;
-class Volume_ParamsEntry_DoNotUse;
-struct Volume_ParamsEntry_DoNotUseDefaultTypeInternal;
-extern Volume_ParamsEntry_DoNotUseDefaultTypeInternal _Volume_ParamsEntry_DoNotUse_default_instance_;
+class TimestampData;
+struct TimestampDataDefaultTypeInternal;
+extern TimestampDataDefaultTypeInternal _TimestampData_default_instance_;
+class Value;
+struct ValueDefaultTypeInternal;
+extern ValueDefaultTypeInternal _Value_default_instance_;
+class Value_ParamsEntry_DoNotUse;
+struct Value_ParamsEntry_DoNotUseDefaultTypeInternal;
+extern Value_ParamsEntry_DoNotUseDefaultTypeInternal _Value_ParamsEntry_DoNotUse_default_instance_;
 }  // namespace chart_api
 namespace google {
 namespace protobuf {
@@ -144,24 +150,24 @@ namespace chart_api {
 
 // -------------------------------------------------------------------
 
-class Volume_ParamsEntry_DoNotUse final
+class Value_ParamsEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<
-          std::string, std::string,
+          std::string, double,
           ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
+          ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE> {
  public:
   using SuperType = ::google::protobuf::internal::MapEntry<
-      std::string, std::string,
+      std::string, double,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
-  Volume_ParamsEntry_DoNotUse();
+      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>;
+  Value_ParamsEntry_DoNotUse();
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Volume_ParamsEntry_DoNotUse(
+  explicit PROTOBUF_CONSTEXPR Value_ParamsEntry_DoNotUse(
       ::google::protobuf::internal::ConstantInitialized);
-  explicit Volume_ParamsEntry_DoNotUse(::google::protobuf::Arena* arena);
-  static const Volume_ParamsEntry_DoNotUse* internal_default_instance() {
-    return reinterpret_cast<const Volume_ParamsEntry_DoNotUse*>(
-        &_Volume_ParamsEntry_DoNotUse_default_instance_);
+  explicit Value_ParamsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const Value_ParamsEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const Value_ParamsEntry_DoNotUse*>(
+        &_Value_ParamsEntry_DoNotUse_default_instance_);
   }
 
 
@@ -172,7 +178,7 @@ class Volume_ParamsEntry_DoNotUse final
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
-      45, 2>
+      39, 2>
       _table_;
 
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -183,32 +189,32 @@ class Volume_ParamsEntry_DoNotUse final
 };
 // -------------------------------------------------------------------
 
-class ModeData final
+class TimestampData final
     : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:chart_api.ModeData) */ {
+/* @@protoc_insertion_point(class_definition:chart_api.TimestampData) */ {
  public:
-  inline ModeData() : ModeData(nullptr) {}
-  ~ModeData() PROTOBUF_FINAL;
+  inline TimestampData() : TimestampData(nullptr) {}
+  ~TimestampData() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(ModeData* msg, std::destroying_delete_t) {
+  void operator delete(TimestampData* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(ModeData));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(TimestampData));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR ModeData(
+  explicit PROTOBUF_CONSTEXPR TimestampData(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline ModeData(const ModeData& from) : ModeData(nullptr, from) {}
-  inline ModeData(ModeData&& from) noexcept
-      : ModeData(nullptr, std::move(from)) {}
-  inline ModeData& operator=(const ModeData& from) {
+  inline TimestampData(const TimestampData& from) : TimestampData(nullptr, from) {}
+  inline TimestampData(TimestampData&& from) noexcept
+      : TimestampData(nullptr, std::move(from)) {}
+  inline TimestampData& operator=(const TimestampData& from) {
     CopyFrom(from);
     return *this;
   }
-  inline ModeData& operator=(ModeData&& from) noexcept {
+  inline TimestampData& operator=(TimestampData&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -236,16 +242,16 @@ class ModeData final
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const ModeData& default_instance() {
+  static const TimestampData& default_instance() {
     return *internal_default_instance();
   }
-  static inline const ModeData* internal_default_instance() {
-    return reinterpret_cast<const ModeData*>(
-        &_ModeData_default_instance_);
+  static inline const TimestampData* internal_default_instance() {
+    return reinterpret_cast<const TimestampData*>(
+        &_TimestampData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 22;
-  friend void swap(ModeData& a, ModeData& b) { a.Swap(&b); }
-  inline void Swap(ModeData* other) {
+  static constexpr int kIndexInFileMessages = 24;
+  friend void swap(TimestampData& a, TimestampData& b) { a.Swap(&b); }
+  inline void Swap(TimestampData* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -253,7 +259,7 @@ class ModeData final
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(ModeData* other) {
+  void UnsafeArenaSwap(TimestampData* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -261,13 +267,13 @@ class ModeData final
 
   // implements Message ----------------------------------------------
 
-  ModeData* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<ModeData>(arena);
+  TimestampData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<TimestampData>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const ModeData& from);
+  void CopyFrom(const TimestampData& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const ModeData& from) { ModeData::MergeImpl(*this, from); }
+  void MergeFrom(const TimestampData& from) { TimestampData::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -304,18 +310,18 @@ class ModeData final
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(ModeData* other);
+  void InternalSwap(TimestampData* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "chart_api.ModeData"; }
+  static ::absl::string_view FullMessageName() { return "chart_api.TimestampData"; }
 
  protected:
-  explicit ModeData(::google::protobuf::Arena* arena);
-  ModeData(::google::protobuf::Arena* arena, const ModeData& from);
-  ModeData(::google::protobuf::Arena* arena, ModeData&& from) noexcept
-      : ModeData(arena) {
+  explicit TimestampData(::google::protobuf::Arena* arena);
+  TimestampData(::google::protobuf::Arena* arena, const TimestampData& from);
+  TimestampData(::google::protobuf::Arena* arena, TimestampData&& from) noexcept
+      : TimestampData(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -354,13 +360,13 @@ class ModeData final
   ::google::protobuf::RepeatedPtrField<std::string>* _internal_mutable_timestamps();
 
   public:
-  // @@protoc_insertion_point(class_scope:chart_api.ModeData)
+  // @@protoc_insertion_point(class_scope:chart_api.TimestampData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
-      37, 2>
+      42, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -376,7 +382,7 @@ class ModeData final
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const ModeData& from_msg);
+                          const TimestampData& from_msg);
     ::google::protobuf::RepeatedPtrField<std::string> timestamps_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -1224,14 +1230,14 @@ class IndicatorParam_ParamEntry_DoNotUse final
 
 class Indicator_ParamEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<
-          std::string, std::string,
+          std::string, double,
           ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf::internal::WireFormatLite::TYPE_STRING> {
+          ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE> {
  public:
   using SuperType = ::google::protobuf::internal::MapEntry<
-      std::string, std::string,
+      std::string, double,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>;
+      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>;
   Indicator_ParamEntry_DoNotUse();
   template <typename = void>
   explicit PROTOBUF_CONSTEXPR Indicator_ParamEntry_DoNotUse(
@@ -1250,7 +1256,7 @@ class Indicator_ParamEntry_DoNotUse final
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       1, 2, 0,
-      47, 2>
+      42, 2>
       _table_;
 
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -1407,32 +1413,32 @@ class GetUsersRequest final
 };
 // -------------------------------------------------------------------
 
-class GetStreamsByAlgoRequest final
+class GetStreamsRequest final
     : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:chart_api.GetStreamsByAlgoRequest) */ {
+/* @@protoc_insertion_point(class_definition:chart_api.GetStreamsRequest) */ {
  public:
-  inline GetStreamsByAlgoRequest() : GetStreamsByAlgoRequest(nullptr) {}
-  ~GetStreamsByAlgoRequest() PROTOBUF_FINAL;
+  inline GetStreamsRequest() : GetStreamsRequest(nullptr) {}
+  ~GetStreamsRequest() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(GetStreamsByAlgoRequest* msg, std::destroying_delete_t) {
+  void operator delete(GetStreamsRequest* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(GetStreamsByAlgoRequest));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GetStreamsRequest));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR GetStreamsByAlgoRequest(
+  explicit PROTOBUF_CONSTEXPR GetStreamsRequest(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline GetStreamsByAlgoRequest(const GetStreamsByAlgoRequest& from) : GetStreamsByAlgoRequest(nullptr, from) {}
-  inline GetStreamsByAlgoRequest(GetStreamsByAlgoRequest&& from) noexcept
-      : GetStreamsByAlgoRequest(nullptr, std::move(from)) {}
-  inline GetStreamsByAlgoRequest& operator=(const GetStreamsByAlgoRequest& from) {
+  inline GetStreamsRequest(const GetStreamsRequest& from) : GetStreamsRequest(nullptr, from) {}
+  inline GetStreamsRequest(GetStreamsRequest&& from) noexcept
+      : GetStreamsRequest(nullptr, std::move(from)) {}
+  inline GetStreamsRequest& operator=(const GetStreamsRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline GetStreamsByAlgoRequest& operator=(GetStreamsByAlgoRequest&& from) noexcept {
+  inline GetStreamsRequest& operator=(GetStreamsRequest&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -1460,16 +1466,16 @@ class GetStreamsByAlgoRequest final
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const GetStreamsByAlgoRequest& default_instance() {
+  static const GetStreamsRequest& default_instance() {
     return *internal_default_instance();
   }
-  static inline const GetStreamsByAlgoRequest* internal_default_instance() {
-    return reinterpret_cast<const GetStreamsByAlgoRequest*>(
-        &_GetStreamsByAlgoRequest_default_instance_);
+  static inline const GetStreamsRequest* internal_default_instance() {
+    return reinterpret_cast<const GetStreamsRequest*>(
+        &_GetStreamsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages = 2;
-  friend void swap(GetStreamsByAlgoRequest& a, GetStreamsByAlgoRequest& b) { a.Swap(&b); }
-  inline void Swap(GetStreamsByAlgoRequest* other) {
+  friend void swap(GetStreamsRequest& a, GetStreamsRequest& b) { a.Swap(&b); }
+  inline void Swap(GetStreamsRequest* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -1477,7 +1483,7 @@ class GetStreamsByAlgoRequest final
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(GetStreamsByAlgoRequest* other) {
+  void UnsafeArenaSwap(GetStreamsRequest* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -1485,13 +1491,13 @@ class GetStreamsByAlgoRequest final
 
   // implements Message ----------------------------------------------
 
-  GetStreamsByAlgoRequest* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<GetStreamsByAlgoRequest>(arena);
+  GetStreamsRequest* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GetStreamsRequest>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const GetStreamsByAlgoRequest& from);
+  void CopyFrom(const GetStreamsRequest& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const GetStreamsByAlgoRequest& from) { GetStreamsByAlgoRequest::MergeImpl(*this, from); }
+  void MergeFrom(const GetStreamsRequest& from) { GetStreamsRequest::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -1528,18 +1534,18 @@ class GetStreamsByAlgoRequest final
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(GetStreamsByAlgoRequest* other);
+  void InternalSwap(GetStreamsRequest* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "chart_api.GetStreamsByAlgoRequest"; }
+  static ::absl::string_view FullMessageName() { return "chart_api.GetStreamsRequest"; }
 
  protected:
-  explicit GetStreamsByAlgoRequest(::google::protobuf::Arena* arena);
-  GetStreamsByAlgoRequest(::google::protobuf::Arena* arena, const GetStreamsByAlgoRequest& from);
-  GetStreamsByAlgoRequest(::google::protobuf::Arena* arena, GetStreamsByAlgoRequest&& from) noexcept
-      : GetStreamsByAlgoRequest(arena) {
+  explicit GetStreamsRequest(::google::protobuf::Arena* arena);
+  GetStreamsRequest(::google::protobuf::Arena* arena, const GetStreamsRequest& from);
+  GetStreamsRequest(::google::protobuf::Arena* arena, GetStreamsRequest&& from) noexcept
+      : GetStreamsRequest(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -1572,13 +1578,13 @@ class GetStreamsByAlgoRequest final
   std::string* _internal_mutable_algo();
 
   public:
-  // @@protoc_insertion_point(class_scope:chart_api.GetStreamsByAlgoRequest)
+  // @@protoc_insertion_point(class_scope:chart_api.GetStreamsRequest)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       0, 1, 0,
-      46, 2>
+      40, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -1594,7 +1600,7 @@ class GetStreamsByAlgoRequest final
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const GetStreamsByAlgoRequest& from_msg);
+                          const GetStreamsRequest& from_msg);
     ::google::protobuf::internal::ArenaStringPtr algo_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -2413,32 +2419,32 @@ class GetAlgosRequest final
 };
 // -------------------------------------------------------------------
 
-class Volume final
+class Value final
     : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:chart_api.Volume) */ {
+/* @@protoc_insertion_point(class_definition:chart_api.Value) */ {
  public:
-  inline Volume() : Volume(nullptr) {}
-  ~Volume() PROTOBUF_FINAL;
+  inline Value() : Value(nullptr) {}
+  ~Value() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(Volume* msg, std::destroying_delete_t) {
+  void operator delete(Value* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(Volume));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(Value));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Volume(
+  explicit PROTOBUF_CONSTEXPR Value(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline Volume(const Volume& from) : Volume(nullptr, from) {}
-  inline Volume(Volume&& from) noexcept
-      : Volume(nullptr, std::move(from)) {}
-  inline Volume& operator=(const Volume& from) {
+  inline Value(const Value& from) : Value(nullptr, from) {}
+  inline Value(Value&& from) noexcept
+      : Value(nullptr, std::move(from)) {}
+  inline Value& operator=(const Value& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Volume& operator=(Volume&& from) noexcept {
+  inline Value& operator=(Value&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -2466,16 +2472,16 @@ class Volume final
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const Volume& default_instance() {
+  static const Value& default_instance() {
     return *internal_default_instance();
   }
-  static inline const Volume* internal_default_instance() {
-    return reinterpret_cast<const Volume*>(
-        &_Volume_default_instance_);
+  static inline const Value* internal_default_instance() {
+    return reinterpret_cast<const Value*>(
+        &_Value_default_instance_);
   }
   static constexpr int kIndexInFileMessages = 12;
-  friend void swap(Volume& a, Volume& b) { a.Swap(&b); }
-  inline void Swap(Volume* other) {
+  friend void swap(Value& a, Value& b) { a.Swap(&b); }
+  inline void Swap(Value* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -2483,7 +2489,7 @@ class Volume final
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(Volume* other) {
+  void UnsafeArenaSwap(Value* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -2491,13 +2497,13 @@ class Volume final
 
   // implements Message ----------------------------------------------
 
-  Volume* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<Volume>(arena);
+  Value* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<Value>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const Volume& from);
+  void CopyFrom(const Value& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const Volume& from) { Volume::MergeImpl(*this, from); }
+  void MergeFrom(const Value& from) { Value::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -2534,18 +2540,18 @@ class Volume final
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(Volume* other);
+  void InternalSwap(Value* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "chart_api.Volume"; }
+  static ::absl::string_view FullMessageName() { return "chart_api.Value"; }
 
  protected:
-  explicit Volume(::google::protobuf::Arena* arena);
-  Volume(::google::protobuf::Arena* arena, const Volume& from);
-  Volume(::google::protobuf::Arena* arena, Volume&& from) noexcept
-      : Volume(arena) {
+  explicit Value(::google::protobuf::Arena* arena);
+  Value(::google::protobuf::Arena* arena, const Value& from);
+  Value(::google::protobuf::Arena* arena, Value&& from) noexcept
+      : Value(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -2562,28 +2568,28 @@ class Volume final
   enum : int {
     kParamsFieldNumber = 1,
   };
-  // map<string, string> params = 1;
+  // map<string, double> params = 1;
   int params_size() const;
   private:
   int _internal_params_size() const;
 
   public:
   void clear_params() ;
-  const ::google::protobuf::Map<std::string, std::string>& params() const;
-  ::google::protobuf::Map<std::string, std::string>* mutable_params();
+  const ::google::protobuf::Map<std::string, double>& params() const;
+  ::google::protobuf::Map<std::string, double>* mutable_params();
 
   private:
-  const ::google::protobuf::Map<std::string, std::string>& _internal_params() const;
-  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_params();
+  const ::google::protobuf::Map<std::string, double>& _internal_params() const;
+  ::google::protobuf::Map<std::string, double>* _internal_mutable_params();
 
   public:
-  // @@protoc_insertion_point(class_scope:chart_api.Volume)
+  // @@protoc_insertion_point(class_scope:chart_api.Value)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       0, 1, 1,
-      31, 2>
+      30, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -2599,10 +2605,10 @@ class Volume final
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Volume& from_msg);
-    ::google::protobuf::internal::MapField<Volume_ParamsEntry_DoNotUse, std::string, std::string,
+                          const Value& from_msg);
+    ::google::protobuf::internal::MapField<Value_ParamsEntry_DoNotUse, std::string, double,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
+                      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>
         params_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -2612,7 +2618,7 @@ class Volume final
 };
 // -------------------------------------------------------------------
 
-class MarketData_MarketsEntry_DoNotUse final
+class ModeData_ModesEntry_DoNotUse final
     : public ::google::protobuf::internal::MapEntry<
           std::string, ::google::protobuf::Message,
           ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
@@ -2622,14 +2628,14 @@ class MarketData_MarketsEntry_DoNotUse final
       std::string, ::google::protobuf::Message,
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
-  MarketData_MarketsEntry_DoNotUse();
+  ModeData_ModesEntry_DoNotUse();
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR MarketData_MarketsEntry_DoNotUse(
+  explicit PROTOBUF_CONSTEXPR ModeData_ModesEntry_DoNotUse(
       ::google::protobuf::internal::ConstantInitialized);
-  explicit MarketData_MarketsEntry_DoNotUse(::google::protobuf::Arena* arena);
-  static const MarketData_MarketsEntry_DoNotUse* internal_default_instance() {
-    return reinterpret_cast<const MarketData_MarketsEntry_DoNotUse*>(
-        &_MarketData_MarketsEntry_DoNotUse_default_instance_);
+  explicit ModeData_ModesEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const ModeData_ModesEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const ModeData_ModesEntry_DoNotUse*>(
+        &_ModeData_ModesEntry_DoNotUse_default_instance_);
   }
 
 
@@ -2640,7 +2646,7 @@ class MarketData_MarketsEntry_DoNotUse final
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       1, 2, 1,
-      45, 2>
+      41, 2>
       _table_;
 
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -3390,32 +3396,32 @@ class StreamData final
 };
 // -------------------------------------------------------------------
 
-class MarketData final
+class ModeData final
     : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:chart_api.MarketData) */ {
+/* @@protoc_insertion_point(class_definition:chart_api.ModeData) */ {
  public:
-  inline MarketData() : MarketData(nullptr) {}
-  ~MarketData() PROTOBUF_FINAL;
+  inline ModeData() : ModeData(nullptr) {}
+  ~ModeData() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(MarketData* msg, std::destroying_delete_t) {
+  void operator delete(ModeData* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(MarketData));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ModeData));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR MarketData(
+  explicit PROTOBUF_CONSTEXPR ModeData(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline MarketData(const MarketData& from) : MarketData(nullptr, from) {}
-  inline MarketData(MarketData&& from) noexcept
-      : MarketData(nullptr, std::move(from)) {}
-  inline MarketData& operator=(const MarketData& from) {
+  inline ModeData(const ModeData& from) : ModeData(nullptr, from) {}
+  inline ModeData(ModeData&& from) noexcept
+      : ModeData(nullptr, std::move(from)) {}
+  inline ModeData& operator=(const ModeData& from) {
     CopyFrom(from);
     return *this;
   }
-  inline MarketData& operator=(MarketData&& from) noexcept {
+  inline ModeData& operator=(ModeData&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -3443,16 +3449,16 @@ class MarketData final
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const MarketData& default_instance() {
+  static const ModeData& default_instance() {
     return *internal_default_instance();
   }
-  static inline const MarketData* internal_default_instance() {
-    return reinterpret_cast<const MarketData*>(
-        &_MarketData_default_instance_);
+  static inline const ModeData* internal_default_instance() {
+    return reinterpret_cast<const ModeData*>(
+        &_ModeData_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 21;
-  friend void swap(MarketData& a, MarketData& b) { a.Swap(&b); }
-  inline void Swap(MarketData* other) {
+  static constexpr int kIndexInFileMessages = 23;
+  friend void swap(ModeData& a, ModeData& b) { a.Swap(&b); }
+  inline void Swap(ModeData* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -3460,7 +3466,7 @@ class MarketData final
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(MarketData* other) {
+  void UnsafeArenaSwap(ModeData* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -3468,13 +3474,13 @@ class MarketData final
 
   // implements Message ----------------------------------------------
 
-  MarketData* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<MarketData>(arena);
+  ModeData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ModeData>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const MarketData& from);
+  void CopyFrom(const ModeData& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const MarketData& from) { MarketData::MergeImpl(*this, from); }
+  void MergeFrom(const ModeData& from) { ModeData::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -3511,18 +3517,18 @@ class MarketData final
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(MarketData* other);
+  void InternalSwap(ModeData* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "chart_api.MarketData"; }
+  static ::absl::string_view FullMessageName() { return "chart_api.ModeData"; }
 
  protected:
-  explicit MarketData(::google::protobuf::Arena* arena);
-  MarketData(::google::protobuf::Arena* arena, const MarketData& from);
-  MarketData(::google::protobuf::Arena* arena, MarketData&& from) noexcept
-      : MarketData(arena) {
+  explicit ModeData(::google::protobuf::Arena* arena);
+  ModeData(::google::protobuf::Arena* arena, const ModeData& from);
+  ModeData(::google::protobuf::Arena* arena, ModeData&& from) noexcept
+      : ModeData(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -3537,30 +3543,30 @@ class MarketData final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kMarketsFieldNumber = 1,
+    kModesFieldNumber = 1,
   };
-  // map<string, .chart_api.ModeData> markets = 1;
-  int markets_size() const;
+  // map<string, .chart_api.TimestampData> modes = 1;
+  int modes_size() const;
   private:
-  int _internal_markets_size() const;
+  int _internal_modes_size() const;
 
   public:
-  void clear_markets() ;
-  const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& markets() const;
-  ::google::protobuf::Map<std::string, ::chart_api::ModeData>* mutable_markets();
+  void clear_modes() ;
+  const ::google::protobuf::Map<std::string, ::chart_api::TimestampData>& modes() const;
+  ::google::protobuf::Map<std::string, ::chart_api::TimestampData>* mutable_modes();
 
   private:
-  const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& _internal_markets() const;
-  ::google::protobuf::Map<std::string, ::chart_api::ModeData>* _internal_mutable_markets();
+  const ::google::protobuf::Map<std::string, ::chart_api::TimestampData>& _internal_modes() const;
+  ::google::protobuf::Map<std::string, ::chart_api::TimestampData>* _internal_mutable_modes();
 
   public:
-  // @@protoc_insertion_point(class_scope:chart_api.MarketData)
+  // @@protoc_insertion_point(class_scope:chart_api.ModeData)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
       0, 1, 2,
-      36, 2>
+      32, 2>
       _table_;
 
   friend class ::google::protobuf::MessageLite;
@@ -3576,11 +3582,11 @@ class MarketData final
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const MarketData& from_msg);
-    ::google::protobuf::internal::MapField<MarketData_MarketsEntry_DoNotUse, std::string, ::chart_api::ModeData,
+                          const ModeData& from_msg);
+    ::google::protobuf::internal::MapField<ModeData_ModesEntry_DoNotUse, std::string, ::chart_api::TimestampData,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
                       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
-        markets_;
+        modes_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -3737,42 +3743,42 @@ class Indicator final
   // accessors -------------------------------------------------------
   enum : int {
     kParamFieldNumber = 3,
-    kVolumeFieldNumber = 4,
+    kValueFieldNumber = 4,
     kTypeFieldNumber = 1,
     kNameFieldNumber = 2,
   };
-  // map<string, string> param = 3;
+  // map<string, double> param = 3;
   int param_size() const;
   private:
   int _internal_param_size() const;
 
   public:
   void clear_param() ;
-  const ::google::protobuf::Map<std::string, std::string>& param() const;
-  ::google::protobuf::Map<std::string, std::string>* mutable_param();
+  const ::google::protobuf::Map<std::string, double>& param() const;
+  ::google::protobuf::Map<std::string, double>* mutable_param();
 
   private:
-  const ::google::protobuf::Map<std::string, std::string>& _internal_param() const;
-  ::google::protobuf::Map<std::string, std::string>* _internal_mutable_param();
+  const ::google::protobuf::Map<std::string, double>& _internal_param() const;
+  ::google::protobuf::Map<std::string, double>* _internal_mutable_param();
 
   public:
-  // repeated .chart_api.Volume volume = 4;
-  int volume_size() const;
+  // repeated .chart_api.Value value = 4;
+  int value_size() const;
   private:
-  int _internal_volume_size() const;
+  int _internal_value_size() const;
 
   public:
-  void clear_volume() ;
-  ::chart_api::Volume* mutable_volume(int index);
-  ::google::protobuf::RepeatedPtrField<::chart_api::Volume>* mutable_volume();
+  void clear_value() ;
+  ::chart_api::Value* mutable_value(int index);
+  ::google::protobuf::RepeatedPtrField<::chart_api::Value>* mutable_value();
 
   private:
-  const ::google::protobuf::RepeatedPtrField<::chart_api::Volume>& _internal_volume() const;
-  ::google::protobuf::RepeatedPtrField<::chart_api::Volume>* _internal_mutable_volume();
+  const ::google::protobuf::RepeatedPtrField<::chart_api::Value>& _internal_value() const;
+  ::google::protobuf::RepeatedPtrField<::chart_api::Value>* _internal_mutable_value();
   public:
-  const ::chart_api::Volume& volume(int index) const;
-  ::chart_api::Volume* add_volume();
-  const ::google::protobuf::RepeatedPtrField<::chart_api::Volume>& volume() const;
+  const ::chart_api::Value& value(int index) const;
+  ::chart_api::Value* add_value();
+  const ::google::protobuf::RepeatedPtrField<::chart_api::Value>& value() const;
   // string type = 1;
   void clear_type() ;
   const std::string& type() const;
@@ -3828,11 +3834,11 @@ class Indicator final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Indicator& from_msg);
-    ::google::protobuf::internal::MapField<Indicator_ParamEntry_DoNotUse, std::string, std::string,
+    ::google::protobuf::internal::MapField<Indicator_ParamEntry_DoNotUse, std::string, double,
                       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING>
+                      ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>
         param_;
-    ::google::protobuf::RepeatedPtrField< ::chart_api::Volume > volume_;
+    ::google::protobuf::RepeatedPtrField< ::chart_api::Value > value_;
     ::google::protobuf::internal::ArenaStringPtr type_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::internal::CachedSize _cached_size_;
@@ -3843,32 +3849,71 @@ class Indicator final
 };
 // -------------------------------------------------------------------
 
-class GetStreamsByAlgoResponse final
-    : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:chart_api.GetStreamsByAlgoResponse) */ {
+class MarketData_MarketsEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          std::string, ::google::protobuf::Message,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
  public:
-  inline GetStreamsByAlgoResponse() : GetStreamsByAlgoResponse(nullptr) {}
-  ~GetStreamsByAlgoResponse() PROTOBUF_FINAL;
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      std::string, ::google::protobuf::Message,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  MarketData_MarketsEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MarketData_MarketsEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit MarketData_MarketsEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const MarketData_MarketsEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const MarketData_MarketsEntry_DoNotUse*>(
+        &_MarketData_MarketsEntry_DoNotUse_default_instance_);
+  }
+
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      45, 2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+};
+// -------------------------------------------------------------------
+
+class GetStreamsResponse final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:chart_api.GetStreamsResponse) */ {
+ public:
+  inline GetStreamsResponse() : GetStreamsResponse(nullptr) {}
+  ~GetStreamsResponse() PROTOBUF_FINAL;
 
 #if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(GetStreamsByAlgoResponse* msg, std::destroying_delete_t) {
+  void operator delete(GetStreamsResponse* msg, std::destroying_delete_t) {
     SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(GetStreamsByAlgoResponse));
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(GetStreamsResponse));
   }
 #endif
 
   template <typename = void>
-  explicit PROTOBUF_CONSTEXPR GetStreamsByAlgoResponse(
+  explicit PROTOBUF_CONSTEXPR GetStreamsResponse(
       ::google::protobuf::internal::ConstantInitialized);
 
-  inline GetStreamsByAlgoResponse(const GetStreamsByAlgoResponse& from) : GetStreamsByAlgoResponse(nullptr, from) {}
-  inline GetStreamsByAlgoResponse(GetStreamsByAlgoResponse&& from) noexcept
-      : GetStreamsByAlgoResponse(nullptr, std::move(from)) {}
-  inline GetStreamsByAlgoResponse& operator=(const GetStreamsByAlgoResponse& from) {
+  inline GetStreamsResponse(const GetStreamsResponse& from) : GetStreamsResponse(nullptr, from) {}
+  inline GetStreamsResponse(GetStreamsResponse&& from) noexcept
+      : GetStreamsResponse(nullptr, std::move(from)) {}
+  inline GetStreamsResponse& operator=(const GetStreamsResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline GetStreamsByAlgoResponse& operator=(GetStreamsByAlgoResponse&& from) noexcept {
+  inline GetStreamsResponse& operator=(GetStreamsResponse&& from) noexcept {
     if (this == &from) return *this;
     if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
       InternalSwap(&from);
@@ -3896,16 +3941,16 @@ class GetStreamsByAlgoResponse final
   static const ::google::protobuf::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const GetStreamsByAlgoResponse& default_instance() {
+  static const GetStreamsResponse& default_instance() {
     return *internal_default_instance();
   }
-  static inline const GetStreamsByAlgoResponse* internal_default_instance() {
-    return reinterpret_cast<const GetStreamsByAlgoResponse*>(
-        &_GetStreamsByAlgoResponse_default_instance_);
+  static inline const GetStreamsResponse* internal_default_instance() {
+    return reinterpret_cast<const GetStreamsResponse*>(
+        &_GetStreamsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages = 6;
-  friend void swap(GetStreamsByAlgoResponse& a, GetStreamsByAlgoResponse& b) { a.Swap(&b); }
-  inline void Swap(GetStreamsByAlgoResponse* other) {
+  friend void swap(GetStreamsResponse& a, GetStreamsResponse& b) { a.Swap(&b); }
+  inline void Swap(GetStreamsResponse* other) {
     if (other == this) return;
     if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
       InternalSwap(other);
@@ -3913,7 +3958,7 @@ class GetStreamsByAlgoResponse final
       ::google::protobuf::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(GetStreamsByAlgoResponse* other) {
+  void UnsafeArenaSwap(GetStreamsResponse* other) {
     if (other == this) return;
     ABSL_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -3921,13 +3966,13 @@ class GetStreamsByAlgoResponse final
 
   // implements Message ----------------------------------------------
 
-  GetStreamsByAlgoResponse* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<GetStreamsByAlgoResponse>(arena);
+  GetStreamsResponse* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<GetStreamsResponse>(arena);
   }
   using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const GetStreamsByAlgoResponse& from);
+  void CopyFrom(const GetStreamsResponse& from);
   using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const GetStreamsByAlgoResponse& from) { GetStreamsByAlgoResponse::MergeImpl(*this, from); }
+  void MergeFrom(const GetStreamsResponse& from) { GetStreamsResponse::MergeImpl(*this, from); }
 
   private:
   static void MergeImpl(
@@ -3964,18 +4009,18 @@ class GetStreamsByAlgoResponse final
   private:
   void SharedCtor(::google::protobuf::Arena* arena);
   static void SharedDtor(MessageLite& self);
-  void InternalSwap(GetStreamsByAlgoResponse* other);
+  void InternalSwap(GetStreamsResponse* other);
  private:
   template <typename T>
   friend ::absl::string_view(
       ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "chart_api.GetStreamsByAlgoResponse"; }
+  static ::absl::string_view FullMessageName() { return "chart_api.GetStreamsResponse"; }
 
  protected:
-  explicit GetStreamsByAlgoResponse(::google::protobuf::Arena* arena);
-  GetStreamsByAlgoResponse(::google::protobuf::Arena* arena, const GetStreamsByAlgoResponse& from);
-  GetStreamsByAlgoResponse(::google::protobuf::Arena* arena, GetStreamsByAlgoResponse&& from) noexcept
-      : GetStreamsByAlgoResponse(arena) {
+  explicit GetStreamsResponse(::google::protobuf::Arena* arena);
+  GetStreamsResponse(::google::protobuf::Arena* arena, const GetStreamsResponse& from);
+  GetStreamsResponse(::google::protobuf::Arena* arena, GetStreamsResponse&& from) noexcept
+      : GetStreamsResponse(arena) {
     *this = ::std::move(from);
   }
   const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
@@ -4009,7 +4054,7 @@ class GetStreamsByAlgoResponse final
   const ::chart_api::StreamData& streams(int index) const;
   ::chart_api::StreamData* add_streams();
   const ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>& streams() const;
-  // @@protoc_insertion_point(class_scope:chart_api.GetStreamsByAlgoResponse)
+  // @@protoc_insertion_point(class_scope:chart_api.GetStreamsResponse)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
@@ -4031,52 +4076,13 @@ class GetStreamsByAlgoResponse final
                           ::google::protobuf::Arena* arena);
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
-                          const GetStreamsByAlgoResponse& from_msg);
+                          const GetStreamsResponse& from_msg);
     ::google::protobuf::RepeatedPtrField< ::chart_api::StreamData > streams_;
     ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_chart_5fapi_2eproto;
-};
-// -------------------------------------------------------------------
-
-class ExchangeData_ExchangesEntry_DoNotUse final
-    : public ::google::protobuf::internal::MapEntry<
-          std::string, ::google::protobuf::Message,
-          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
- public:
-  using SuperType = ::google::protobuf::internal::MapEntry<
-      std::string, ::google::protobuf::Message,
-      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
-      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
-  ExchangeData_ExchangesEntry_DoNotUse();
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR ExchangeData_ExchangesEntry_DoNotUse(
-      ::google::protobuf::internal::ConstantInitialized);
-  explicit ExchangeData_ExchangesEntry_DoNotUse(::google::protobuf::Arena* arena);
-  static const ExchangeData_ExchangesEntry_DoNotUse* internal_default_instance() {
-    return reinterpret_cast<const ExchangeData_ExchangesEntry_DoNotUse*>(
-        &_ExchangeData_ExchangesEntry_DoNotUse_default_instance_);
-  }
-
-
- private:
-  friend class ::google::protobuf::MessageLite;
-  friend struct ::TableStruct_chart_5fapi_2eproto;
-
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 1,
-      49, 2>
-      _table_;
-
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
 };
 // -------------------------------------------------------------------
 
@@ -4386,6 +4392,205 @@ class DataPoint final
 };
 // -------------------------------------------------------------------
 
+class MarketData final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:chart_api.MarketData) */ {
+ public:
+  inline MarketData() : MarketData(nullptr) {}
+  ~MarketData() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(MarketData* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(MarketData));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR MarketData(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline MarketData(const MarketData& from) : MarketData(nullptr, from) {}
+  inline MarketData(MarketData&& from) noexcept
+      : MarketData(nullptr, std::move(from)) {}
+  inline MarketData& operator=(const MarketData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MarketData& operator=(MarketData&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const MarketData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const MarketData* internal_default_instance() {
+    return reinterpret_cast<const MarketData*>(
+        &_MarketData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 21;
+  friend void swap(MarketData& a, MarketData& b) { a.Swap(&b); }
+  inline void Swap(MarketData* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MarketData* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  MarketData* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<MarketData>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const MarketData& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const MarketData& from) { MarketData::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(MarketData* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "chart_api.MarketData"; }
+
+ protected:
+  explicit MarketData(::google::protobuf::Arena* arena);
+  MarketData(::google::protobuf::Arena* arena, const MarketData& from);
+  MarketData(::google::protobuf::Arena* arena, MarketData&& from) noexcept
+      : MarketData(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMarketsFieldNumber = 1,
+  };
+  // map<string, .chart_api.ModeData> markets = 1;
+  int markets_size() const;
+  private:
+  int _internal_markets_size() const;
+
+  public:
+  void clear_markets() ;
+  const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& markets() const;
+  ::google::protobuf::Map<std::string, ::chart_api::ModeData>* mutable_markets();
+
+  private:
+  const ::google::protobuf::Map<std::string, ::chart_api::ModeData>& _internal_markets() const;
+  ::google::protobuf::Map<std::string, ::chart_api::ModeData>* _internal_mutable_markets();
+
+  public:
+  // @@protoc_insertion_point(class_scope:chart_api.MarketData)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 2,
+      36, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const MarketData& from_msg);
+    ::google::protobuf::internal::MapField<MarketData_MarketsEntry_DoNotUse, std::string, ::chart_api::ModeData,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+                      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>
+        markets_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GetDataResponse final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:chart_api.GetDataResponse) */ {
@@ -4581,6 +4786,45 @@ class GetDataResponse final
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_chart_5fapi_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ExchangeData_ExchangesEntry_DoNotUse final
+    : public ::google::protobuf::internal::MapEntry<
+          std::string, ::google::protobuf::Message,
+          ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+          ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE> {
+ public:
+  using SuperType = ::google::protobuf::internal::MapEntry<
+      std::string, ::google::protobuf::Message,
+      ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+      ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE>;
+  ExchangeData_ExchangesEntry_DoNotUse();
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ExchangeData_ExchangesEntry_DoNotUse(
+      ::google::protobuf::internal::ConstantInitialized);
+  explicit ExchangeData_ExchangesEntry_DoNotUse(::google::protobuf::Arena* arena);
+  static const ExchangeData_ExchangesEntry_DoNotUse* internal_default_instance() {
+    return reinterpret_cast<const ExchangeData_ExchangesEntry_DoNotUse*>(
+        &_ExchangeData_ExchangesEntry_DoNotUse_default_instance_);
+  }
+
+
+ private:
+  friend class ::google::protobuf::MessageLite;
+  friend struct ::TableStruct_chart_5fapi_2eproto;
+
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      49, 2>
+      _table_;
+
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
 };
 // -------------------------------------------------------------------
 
@@ -4882,7 +5126,7 @@ class GetUsersResponse final
     return reinterpret_cast<const GetUsersResponse*>(
         &_GetUsersResponse_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 24;
+  static constexpr int kIndexInFileMessages = 26;
   friend void swap(GetUsersResponse& a, GetUsersResponse& b) { a.Swap(&b); }
   inline void Swap(GetUsersResponse* other) {
     if (other == this) return;
@@ -5106,54 +5350,54 @@ GetAlgosResponse::_internal_mutable_algos() {
 
 // -------------------------------------------------------------------
 
-// GetStreamsByAlgoRequest
+// GetStreamsRequest
 
 // string algo = 1;
-inline void GetStreamsByAlgoRequest::clear_algo() {
+inline void GetStreamsRequest::clear_algo() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.algo_.ClearToEmpty();
 }
-inline const std::string& GetStreamsByAlgoRequest::algo() const
+inline const std::string& GetStreamsRequest::algo() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:chart_api.GetStreamsByAlgoRequest.algo)
+  // @@protoc_insertion_point(field_get:chart_api.GetStreamsRequest.algo)
   return _internal_algo();
 }
 template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void GetStreamsByAlgoRequest::set_algo(Arg_&& arg,
+inline PROTOBUF_ALWAYS_INLINE void GetStreamsRequest::set_algo(Arg_&& arg,
                                                      Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.algo_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:chart_api.GetStreamsByAlgoRequest.algo)
+  // @@protoc_insertion_point(field_set:chart_api.GetStreamsRequest.algo)
 }
-inline std::string* GetStreamsByAlgoRequest::mutable_algo() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline std::string* GetStreamsRequest::mutable_algo() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   std::string* _s = _internal_mutable_algo();
-  // @@protoc_insertion_point(field_mutable:chart_api.GetStreamsByAlgoRequest.algo)
+  // @@protoc_insertion_point(field_mutable:chart_api.GetStreamsRequest.algo)
   return _s;
 }
-inline const std::string& GetStreamsByAlgoRequest::_internal_algo() const {
+inline const std::string& GetStreamsRequest::_internal_algo() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.algo_.Get();
 }
-inline void GetStreamsByAlgoRequest::_internal_set_algo(const std::string& value) {
+inline void GetStreamsRequest::_internal_set_algo(const std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.algo_.Set(value, GetArena());
 }
-inline std::string* GetStreamsByAlgoRequest::_internal_mutable_algo() {
+inline std::string* GetStreamsRequest::_internal_mutable_algo() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _impl_.algo_.Mutable( GetArena());
 }
-inline std::string* GetStreamsByAlgoRequest::release_algo() {
+inline std::string* GetStreamsRequest::release_algo() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:chart_api.GetStreamsByAlgoRequest.algo)
+  // @@protoc_insertion_point(field_release:chart_api.GetStreamsRequest.algo)
   return _impl_.algo_.Release();
 }
-inline void GetStreamsByAlgoRequest::set_allocated_algo(std::string* value) {
+inline void GetStreamsRequest::set_allocated_algo(std::string* value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.algo_.SetAllocated(value, GetArena());
   if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.algo_.IsDefault()) {
     _impl_.algo_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:chart_api.GetStreamsByAlgoRequest.algo)
+  // @@protoc_insertion_point(field_set_allocated:chart_api.GetStreamsRequest.algo)
 }
 
 // -------------------------------------------------------------------
@@ -5599,53 +5843,53 @@ StreamData::_internal_mutable_indicator_param() {
 
 // -------------------------------------------------------------------
 
-// GetStreamsByAlgoResponse
+// GetStreamsResponse
 
 // repeated .chart_api.StreamData streams = 1;
-inline int GetStreamsByAlgoResponse::_internal_streams_size() const {
+inline int GetStreamsResponse::_internal_streams_size() const {
   return _internal_streams().size();
 }
-inline int GetStreamsByAlgoResponse::streams_size() const {
+inline int GetStreamsResponse::streams_size() const {
   return _internal_streams_size();
 }
-inline void GetStreamsByAlgoResponse::clear_streams() {
+inline void GetStreamsResponse::clear_streams() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.streams_.Clear();
 }
-inline ::chart_api::StreamData* GetStreamsByAlgoResponse::mutable_streams(int index)
+inline ::chart_api::StreamData* GetStreamsResponse::mutable_streams(int index)
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:chart_api.GetStreamsByAlgoResponse.streams)
+  // @@protoc_insertion_point(field_mutable:chart_api.GetStreamsResponse.streams)
   return _internal_mutable_streams()->Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>* GetStreamsByAlgoResponse::mutable_streams()
+inline ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>* GetStreamsResponse::mutable_streams()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:chart_api.GetStreamsByAlgoResponse.streams)
+  // @@protoc_insertion_point(field_mutable_list:chart_api.GetStreamsResponse.streams)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _internal_mutable_streams();
 }
-inline const ::chart_api::StreamData& GetStreamsByAlgoResponse::streams(int index) const
+inline const ::chart_api::StreamData& GetStreamsResponse::streams(int index) const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:chart_api.GetStreamsByAlgoResponse.streams)
+  // @@protoc_insertion_point(field_get:chart_api.GetStreamsResponse.streams)
   return _internal_streams().Get(index);
 }
-inline ::chart_api::StreamData* GetStreamsByAlgoResponse::add_streams() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::chart_api::StreamData* GetStreamsResponse::add_streams() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::chart_api::StreamData* _add = _internal_mutable_streams()->Add();
-  // @@protoc_insertion_point(field_add:chart_api.GetStreamsByAlgoResponse.streams)
+  // @@protoc_insertion_point(field_add:chart_api.GetStreamsResponse.streams)
   return _add;
 }
-inline const ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>& GetStreamsByAlgoResponse::streams() const
+inline const ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>& GetStreamsResponse::streams() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:chart_api.GetStreamsByAlgoResponse.streams)
+  // @@protoc_insertion_point(field_list:chart_api.GetStreamsResponse.streams)
   return _internal_streams();
 }
 inline const ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>&
-GetStreamsByAlgoResponse::_internal_streams() const {
+GetStreamsResponse::_internal_streams() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.streams_;
 }
 inline ::google::protobuf::RepeatedPtrField<::chart_api::StreamData>*
-GetStreamsByAlgoResponse::_internal_mutable_streams() {
+GetStreamsResponse::_internal_mutable_streams() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.streams_;
 }
@@ -6103,7 +6347,7 @@ inline void Indicator::set_allocated_name(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:chart_api.Indicator.name)
 }
 
-// map<string, string> param = 3;
+// map<string, double> param = 3;
 inline int Indicator::_internal_param_size() const {
   return _internal_param().size();
 }
@@ -6114,103 +6358,103 @@ inline void Indicator::clear_param() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.param_.Clear();
 }
-inline const ::google::protobuf::Map<std::string, std::string>& Indicator::_internal_param() const {
+inline const ::google::protobuf::Map<std::string, double>& Indicator::_internal_param() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.param_.GetMap();
 }
-inline const ::google::protobuf::Map<std::string, std::string>& Indicator::param() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline const ::google::protobuf::Map<std::string, double>& Indicator::param() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_map:chart_api.Indicator.param)
   return _internal_param();
 }
-inline ::google::protobuf::Map<std::string, std::string>* Indicator::_internal_mutable_param() {
+inline ::google::protobuf::Map<std::string, double>* Indicator::_internal_mutable_param() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _impl_.param_.MutableMap();
 }
-inline ::google::protobuf::Map<std::string, std::string>* Indicator::mutable_param() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::google::protobuf::Map<std::string, double>* Indicator::mutable_param() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   // @@protoc_insertion_point(field_mutable_map:chart_api.Indicator.param)
   return _internal_mutable_param();
 }
 
-// repeated .chart_api.Volume volume = 4;
-inline int Indicator::_internal_volume_size() const {
-  return _internal_volume().size();
+// repeated .chart_api.Value value = 4;
+inline int Indicator::_internal_value_size() const {
+  return _internal_value().size();
 }
-inline int Indicator::volume_size() const {
-  return _internal_volume_size();
+inline int Indicator::value_size() const {
+  return _internal_value_size();
 }
-inline void Indicator::clear_volume() {
+inline void Indicator::clear_value() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.volume_.Clear();
+  _impl_.value_.Clear();
 }
-inline ::chart_api::Volume* Indicator::mutable_volume(int index)
+inline ::chart_api::Value* Indicator::mutable_value(int index)
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:chart_api.Indicator.volume)
-  return _internal_mutable_volume()->Mutable(index);
+  // @@protoc_insertion_point(field_mutable:chart_api.Indicator.value)
+  return _internal_mutable_value()->Mutable(index);
 }
-inline ::google::protobuf::RepeatedPtrField<::chart_api::Volume>* Indicator::mutable_volume()
+inline ::google::protobuf::RepeatedPtrField<::chart_api::Value>* Indicator::mutable_value()
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:chart_api.Indicator.volume)
+  // @@protoc_insertion_point(field_mutable_list:chart_api.Indicator.value)
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _internal_mutable_volume();
+  return _internal_mutable_value();
 }
-inline const ::chart_api::Volume& Indicator::volume(int index) const
+inline const ::chart_api::Value& Indicator::value(int index) const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:chart_api.Indicator.volume)
-  return _internal_volume().Get(index);
+  // @@protoc_insertion_point(field_get:chart_api.Indicator.value)
+  return _internal_value().Get(index);
 }
-inline ::chart_api::Volume* Indicator::add_volume() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline ::chart_api::Value* Indicator::add_value() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  ::chart_api::Volume* _add = _internal_mutable_volume()->Add();
-  // @@protoc_insertion_point(field_add:chart_api.Indicator.volume)
+  ::chart_api::Value* _add = _internal_mutable_value()->Add();
+  // @@protoc_insertion_point(field_add:chart_api.Indicator.value)
   return _add;
 }
-inline const ::google::protobuf::RepeatedPtrField<::chart_api::Volume>& Indicator::volume() const
+inline const ::google::protobuf::RepeatedPtrField<::chart_api::Value>& Indicator::value() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:chart_api.Indicator.volume)
-  return _internal_volume();
+  // @@protoc_insertion_point(field_list:chart_api.Indicator.value)
+  return _internal_value();
 }
-inline const ::google::protobuf::RepeatedPtrField<::chart_api::Volume>&
-Indicator::_internal_volume() const {
+inline const ::google::protobuf::RepeatedPtrField<::chart_api::Value>&
+Indicator::_internal_value() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.volume_;
+  return _impl_.value_;
 }
-inline ::google::protobuf::RepeatedPtrField<::chart_api::Volume>*
-Indicator::_internal_mutable_volume() {
+inline ::google::protobuf::RepeatedPtrField<::chart_api::Value>*
+Indicator::_internal_mutable_value() {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return &_impl_.volume_;
+  return &_impl_.value_;
 }
 
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
 
-// Volume
+// Value
 
-// map<string, string> params = 1;
-inline int Volume::_internal_params_size() const {
+// map<string, double> params = 1;
+inline int Value::_internal_params_size() const {
   return _internal_params().size();
 }
-inline int Volume::params_size() const {
+inline int Value::params_size() const {
   return _internal_params_size();
 }
-inline void Volume::clear_params() {
+inline void Value::clear_params() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.params_.Clear();
 }
-inline const ::google::protobuf::Map<std::string, std::string>& Volume::_internal_params() const {
+inline const ::google::protobuf::Map<std::string, double>& Value::_internal_params() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.params_.GetMap();
 }
-inline const ::google::protobuf::Map<std::string, std::string>& Volume::params() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_map:chart_api.Volume.params)
+inline const ::google::protobuf::Map<std::string, double>& Value::params() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:chart_api.Value.params)
   return _internal_params();
 }
-inline ::google::protobuf::Map<std::string, std::string>* Volume::_internal_mutable_params() {
+inline ::google::protobuf::Map<std::string, double>* Value::_internal_mutable_params() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _impl_.params_.MutableMap();
 }
-inline ::google::protobuf::Map<std::string, std::string>* Volume::mutable_params() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_map:chart_api.Volume.params)
+inline ::google::protobuf::Map<std::string, double>* Value::mutable_params() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:chart_api.Value.params)
   return _internal_mutable_params();
 }
 
@@ -7896,68 +8140,102 @@ inline ::google::protobuf::Map<std::string, ::chart_api::ModeData>* MarketData::
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // ModeData
 
+// map<string, .chart_api.TimestampData> modes = 1;
+inline int ModeData::_internal_modes_size() const {
+  return _internal_modes().size();
+}
+inline int ModeData::modes_size() const {
+  return _internal_modes_size();
+}
+inline void ModeData::clear_modes() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.modes_.Clear();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::TimestampData>& ModeData::_internal_modes() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.modes_.GetMap();
+}
+inline const ::google::protobuf::Map<std::string, ::chart_api::TimestampData>& ModeData::modes() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_map:chart_api.ModeData.modes)
+  return _internal_modes();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::TimestampData>* ModeData::_internal_mutable_modes() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.modes_.MutableMap();
+}
+inline ::google::protobuf::Map<std::string, ::chart_api::TimestampData>* ModeData::mutable_modes() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_map:chart_api.ModeData.modes)
+  return _internal_mutable_modes();
+}
+
+// -------------------------------------------------------------------
+
+// TimestampData
+
 // repeated string timestamps = 1;
-inline int ModeData::_internal_timestamps_size() const {
+inline int TimestampData::_internal_timestamps_size() const {
   return _internal_timestamps().size();
 }
-inline int ModeData::timestamps_size() const {
+inline int TimestampData::timestamps_size() const {
   return _internal_timestamps_size();
 }
-inline void ModeData::clear_timestamps() {
+inline void TimestampData::clear_timestamps() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.timestamps_.Clear();
 }
-inline std::string* ModeData::add_timestamps() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+inline std::string* TimestampData::add_timestamps() ABSL_ATTRIBUTE_LIFETIME_BOUND {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   std::string* _s = _internal_mutable_timestamps()->Add();
-  // @@protoc_insertion_point(field_add_mutable:chart_api.ModeData.timestamps)
+  // @@protoc_insertion_point(field_add_mutable:chart_api.TimestampData.timestamps)
   return _s;
 }
-inline const std::string& ModeData::timestamps(int index) const
+inline const std::string& TimestampData::timestamps(int index) const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:chart_api.ModeData.timestamps)
+  // @@protoc_insertion_point(field_get:chart_api.TimestampData.timestamps)
   return _internal_timestamps().Get(index);
 }
-inline std::string* ModeData::mutable_timestamps(int index)
+inline std::string* TimestampData::mutable_timestamps(int index)
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable:chart_api.ModeData.timestamps)
+  // @@protoc_insertion_point(field_mutable:chart_api.TimestampData.timestamps)
   return _internal_mutable_timestamps()->Mutable(index);
 }
 template <typename Arg_, typename... Args_>
-inline void ModeData::set_timestamps(int index, Arg_&& value, Args_... args) {
+inline void TimestampData::set_timestamps(int index, Arg_&& value, Args_... args) {
   ::google::protobuf::internal::AssignToString(
       *_internal_mutable_timestamps()->Mutable(index),
       std::forward<Arg_>(value), args... );
-  // @@protoc_insertion_point(field_set:chart_api.ModeData.timestamps)
+  // @@protoc_insertion_point(field_set:chart_api.TimestampData.timestamps)
 }
 template <typename Arg_, typename... Args_>
-inline void ModeData::add_timestamps(Arg_&& value, Args_... args) {
+inline void TimestampData::add_timestamps(Arg_&& value, Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   ::google::protobuf::internal::AddToRepeatedPtrField(*_internal_mutable_timestamps(),
                                std::forward<Arg_>(value),
                                args... );
-  // @@protoc_insertion_point(field_add:chart_api.ModeData.timestamps)
+  // @@protoc_insertion_point(field_add:chart_api.TimestampData.timestamps)
 }
 inline const ::google::protobuf::RepeatedPtrField<std::string>&
-ModeData::timestamps() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_list:chart_api.ModeData.timestamps)
+TimestampData::timestamps() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_list:chart_api.TimestampData.timestamps)
   return _internal_timestamps();
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
-ModeData::mutable_timestamps() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_mutable_list:chart_api.ModeData.timestamps)
+TimestampData::mutable_timestamps() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_mutable_list:chart_api.TimestampData.timestamps)
   ::google::protobuf::internal::TSanWrite(&_impl_);
   return _internal_mutable_timestamps();
 }
 inline const ::google::protobuf::RepeatedPtrField<std::string>&
-ModeData::_internal_timestamps() const {
+TimestampData::_internal_timestamps() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return _impl_.timestamps_;
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
-ModeData::_internal_mutable_timestamps() {
+TimestampData::_internal_mutable_timestamps() {
   ::google::protobuf::internal::TSanRead(&_impl_);
   return &_impl_.timestamps_;
 }

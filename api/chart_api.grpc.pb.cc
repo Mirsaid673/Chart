@@ -23,7 +23,7 @@ namespace chart_api {
 
 static const char* ChartAPI_method_names[] = {
   "/chart_api.ChartAPI/GetAlgos",
-  "/chart_api.ChartAPI/GetStreamsByAlgo",
+  "/chart_api.ChartAPI/GetStreams",
   "/chart_api.ChartAPI/GetData",
   "/chart_api.ChartAPI/GetLogs",
   "/chart_api.ChartAPI/GetUsers",
@@ -37,7 +37,7 @@ std::unique_ptr< ChartAPI::Stub> ChartAPI::NewStub(const std::shared_ptr< ::grpc
 
 ChartAPI::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_GetAlgos_(ChartAPI_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetStreamsByAlgo_(ChartAPI_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetStreams_(ChartAPI_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetData_(ChartAPI_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetLogs_(ChartAPI_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetUsers_(ChartAPI_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
@@ -66,25 +66,25 @@ void ChartAPI::Stub::async::GetAlgos(::grpc::ClientContext* context, const ::cha
   return result;
 }
 
-::grpc::Status ChartAPI::Stub::GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::chart_api::GetStreamsByAlgoResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetStreamsByAlgo_, context, request, response);
+::grpc::Status ChartAPI::Stub::GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::chart_api::GetStreamsResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetStreams_, context, request, response);
 }
 
-void ChartAPI::Stub::async::GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetStreamsByAlgo_, context, request, response, std::move(f));
+void ChartAPI::Stub::async::GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetStreams_, context, request, response, std::move(f));
 }
 
-void ChartAPI::Stub::async::GetStreamsByAlgo(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetStreamsByAlgo_, context, request, response, reactor);
+void ChartAPI::Stub::async::GetStreams(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetStreams_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>* ChartAPI::Stub::PrepareAsyncGetStreamsByAlgoRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::chart_api::GetStreamsByAlgoResponse, ::chart_api::GetStreamsByAlgoRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetStreamsByAlgo_, context, request);
+::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>* ChartAPI::Stub::PrepareAsyncGetStreamsRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::chart_api::GetStreamsResponse, ::chart_api::GetStreamsRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetStreams_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsByAlgoResponse>* ChartAPI::Stub::AsyncGetStreamsByAlgoRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsByAlgoRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::chart_api::GetStreamsResponse>* ChartAPI::Stub::AsyncGetStreamsRaw(::grpc::ClientContext* context, const ::chart_api::GetStreamsRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetStreamsByAlgoRaw(context, request, cq);
+    this->PrepareAsyncGetStreamsRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -172,12 +172,12 @@ ChartAPI::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ChartAPI_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< ChartAPI::Service, ::chart_api::GetStreamsByAlgoRequest, ::chart_api::GetStreamsByAlgoResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< ChartAPI::Service, ::chart_api::GetStreamsRequest, ::chart_api::GetStreamsResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](ChartAPI::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::chart_api::GetStreamsByAlgoRequest* req,
-             ::chart_api::GetStreamsByAlgoResponse* resp) {
-               return service->GetStreamsByAlgo(ctx, req, resp);
+             const ::chart_api::GetStreamsRequest* req,
+             ::chart_api::GetStreamsResponse* resp) {
+               return service->GetStreams(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       ChartAPI_method_names[2],
@@ -221,7 +221,7 @@ ChartAPI::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status ChartAPI::Service::GetStreamsByAlgo(::grpc::ServerContext* context, const ::chart_api::GetStreamsByAlgoRequest* request, ::chart_api::GetStreamsByAlgoResponse* response) {
+::grpc::Status ChartAPI::Service::GetStreams(::grpc::ServerContext* context, const ::chart_api::GetStreamsRequest* request, ::chart_api::GetStreamsResponse* response) {
   (void) context;
   (void) request;
   (void) response;

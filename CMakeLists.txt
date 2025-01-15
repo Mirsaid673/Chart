@@ -31,7 +31,8 @@ add_executable(Chart
         ChartApp.cpp
         ChartApp.h
         Style.cpp
-        PlotCandles.cpp)
+        PlotCandles.cpp
+        MainMenu.cpp)
 
 find_package(gRPC CONFIG REQUIRED)
 target_link_libraries(Chart PRIVATE

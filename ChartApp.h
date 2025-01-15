@@ -43,10 +43,21 @@ private:
     std::vector<std::string> m_algos;
     std::unordered_map<int32_t, chart_api::StreamData> m_streams;
     std::vector<chart_api::DataPoint> m_current_stream_data;
+    std::vector<chart_api::LogEntry> m_logs;
     std::vector<std::vector<Chart>> m_fields_layout;
 
     uint32_t m_current_algo = 0;
     int32_t m_current_stream = 0;
+
+    std::unordered_map<std::string, chart_api::ExchangeData> m_users;
+
+    std::string m_current_user;
+    std::string m_current_exchange;
+    std::string m_current_market;
+    std::string m_current_mode = "test";
+    std::string m_current_mode_time;
+    void resetMode();
+    void getLogs(int32_t stream_id);
 
     const chart_api::StreamData& getCurrentStream()  {return m_streams[m_current_stream];}
     const chart_api::StreamData& getStream(int32_t id)  {return m_streams[id];}
@@ -60,6 +71,7 @@ private:
     void algosTab();
     void streamsTab();
     void fieldsTab();
+    void mainMenu();
 
     std::vector<std::vector<Chart>> configureLayout(const chart_api::StreamData& stream);
     static std::string getSymbol(const chart_api::StreamData& stream) {

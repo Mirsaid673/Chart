@@ -4,10 +4,12 @@
 #include <imgui_internal.h>
 #include <misc/cpp/imgui_stdlib.h>
 #include <implot.h>
+#include <ranges>
 
 static ImGuiWindowClass base_window_class;
 void ChartApp::start() {
     setStyle();
+    base_window_class.DockNodeFlagsOverrideSet = ImGuiDockNodeFlags_NoTabBar;
 
     auto channel = grpc::CreateChannel(m_target, grpc::InsecureChannelCredentials());
     m_stub = chart_api::ChartAPI::NewStub(channel);
@@ -28,10 +30,10 @@ void ChartApp::start() {
     // get streams
     for (const auto& algo : m_algos) {
         grpc::ClientContext streams_context;
-        chart_api::GetStreamsByAlgoRequest streams_request;
-        chart_api::GetStreamsByAlgoResponse streams_response;
+        chart_api::GetStreamsRequest streams_request;
+        chart_api::GetStreamsResponse streams_response;
         streams_request.set_algo(algo);
-        const auto streams_status = m_stub->GetStreamsByAlgo(&streams_context, streams_request, &streams_response);
+        const auto streams_status = m_stub->GetStreams(&streams_context, streams_request, &streams_response);
         if (not streams_status.ok()) {
             std::cerr << streams_status.error_code() << " " << streams_status.error_message() << std::endl;
             return;
@@ -51,7 +53,41 @@ void ChartApp::start() {
     m_current_stream_data = std::move(getStreamData());
     m_fields_layout = std::move(configureLayout(getCurrentStream()));
 
-    base_window_class.DockNodeFlagsOverrideSet = ImGuiDockNodeFlags_NoTabBar;
+    grpc::ClientContext user_context;
+    chart_api::GetUsersRequest user_request;
+    chart_api::GetUsersResponse user_response;
+    const auto users_status = m_stub->GetUsers(&user_context, user_request, &user_response);
+    if (not users_status.ok()) {
+        std::cerr << users_status.error_code() << " " << users_status.error_message() << std::endl;
+        return;
+    }
+    for (const auto& [key, val] : user_response.users())
+        m_users[key] = val;
+
+    resetMode();
+    getLogs(m_current_stream);
+}
+
+void ChartApp::getLogs(int32_t stream_id) {
+    grpc::ClientContext log_context;
+    chart_api::GetLogsRequest log_request;
+    log_request.set_from_timestamp(1696118400);
+    log_request.set_limit(1);
+    log_request.set_mode_time(m_current_mode_time);
+    log_request.set_id(stream_id);
+    chart_api::GetLogsResponse log_response;
+    const auto logs_status = m_stub->GetLogs(&log_context, log_request, &log_response);
+    if (not logs_status.ok()) {
+        std::cerr << logs_status.error_code() << " " << logs_status.error_message() << std::endl;
+        return;
+    }
+    m_logs.reserve(log_response.logs_size());
+    for (const auto& log : log_response.logs())
+    {
+        std::cout << log.algo() << std::endl << log.balance() << std::endl << log.coin() << std::endl << log.time() << std::endl << log.fee_usd_long() << std::endl << log.fee_usd_short() << std::endl << std::endl;
+        m_logs.emplace_back(log);
+
+    }
 }
 
 std::vector<chart_api::DataPoint> ChartApp::getStreamData(int32_t stream_id) {
@@ -77,6 +113,7 @@ std::vector<chart_api::DataPoint> ChartApp::getStreamData(int32_t stream_id) {
 void ChartApp::onStreamChange(int32_t new_stream_id) {
     m_current_stream_data = std::move(getStreamData(new_stream_id));
     m_fields_layout = std::move(configureLayout(getStream(new_stream_id)));
+    getLogs(new_stream_id);
 }
 
 void ChartApp::draw() {
@@ -98,6 +135,7 @@ void ChartApp::draw() {
         ImGui::DockBuilderFinish(dockspace_id);
     }
 
+    mainMenu();
     contentWindow();
     sideBar();
 }
@@ -165,11 +203,13 @@ void ChartApp::streamsTab() {
             if (stream.algo() != m_algos[m_current_algo])
                 continue;
             bool selected = id == m_current_stream;
+            ImGui::PushID(&stream);
             if (ImGui::Selectable(getSymbol(stream).c_str(), &selected)) {
                 if (m_current_stream != id)
                     onStreamChange(id);
                 m_current_stream = id;
             }
+            ImGui::PopID();
         }
         ImGui::EndTabItem();
     }
